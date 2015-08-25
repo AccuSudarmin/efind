@@ -25,5 +25,9 @@
             </ul>
          </nav>
       </header>
+      <section class="body-wrapper">
+      <div class='slider'>
+      </div>      
+      </section>
    </body>
 </html>
