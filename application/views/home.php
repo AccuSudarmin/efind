@@ -14,7 +14,7 @@
             <ul class='left-ul'>
                <li>Home</li>
                <li>Sub Menu 12 </li>
-               <li>Sub Menu 2 </li>
+               <li>Sub Menu 23 </li>
                <li>Sub Menu 3 </li>
             </ul>
 
