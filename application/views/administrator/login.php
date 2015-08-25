@@ -3,7 +3,9 @@
 <html>
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Login to Admin Eventfinder</title>
 </head>
 
@@ -15,18 +17,32 @@
 				<li>Return to websiter</li>
 			</ul>
 		</nav>
+		<div>
+			LOGIN TO ADMIN <br>
+			Enter you credentials below
+		</div>
 	</header>
 
 	<section>
 
-		<article>
-			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-		</article>
+		<div>
+			<p>
+				USERNAME <br>
+				<input type="text" name="username">
+			</p>
+			<p>
+				PASSWORD <br>
+				<input type="password" name="password">
+			</p>
+		</div>
 
+		<div>
+			Just click on the "LOGIN" button to continue, no login information required.
+		</div>
 	</section>
 
 	<footer>
-		<p>Copyright 2009 Your name</p>
+		<p>Copyright 2015 Eventfinder All rights reserved</p>
 	</footer>
 
 </body>

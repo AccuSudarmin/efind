@@ -1,5 +1,8 @@
 RewriteEngine on
+<<<<<<< HEAD
 RewriteBase /eventfinder
+=======
+>>>>>>> 363ec2c9236a453423514a33c45c196ee8a73159
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php/$1 [L]
+RewriteRule .* index.php/$0 [PT,L]
