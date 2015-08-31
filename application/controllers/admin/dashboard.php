@@ -9,10 +9,10 @@ class Dashboard extends CI_Controller {
 		$this->load->library('session');
 		$this->load->helper('url');
 
-		if (!$this->session->has_userdata('admin_ulp')) {
+		if (!$this->session->has_userdata('admin_eventfinder')) {
          header("LOCATION: " . site_url('admin/login'));
       } else {
-         $userdata = $this->session->userdata('admin_ulp');
+         $userdata = $this->session->userdata('admin_eventfinder');
       }
 	}
 

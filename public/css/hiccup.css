@@ -1,0 +1,74 @@
+.hiccup-modal-box {
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  display: table;
+  text-align: center;
+  width: 100%;
+  top: 10%;
+}
+
+.hiccup-modal-box-inside {
+   margin-right: auto;
+   margin-left: auto;
+   text-align: left;
+   overflow: hidden;
+   vertical-align: top;
+   display: inline-block;
+   padding: 10px;
+   border-radius: 3px;
+   background: #D6D8D6;
+   border: 2px solid #D0CFCF;
+   font-size: 0.75em;
+   color: white;
+   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.45);
+}
+
+.suggest-content:hover {
+   cursor: pointer;
+   color: #bbb;
+}
+
+#suggest-box {
+   background: white;
+   list-style: none;
+   padding: 5px;
+   box-sizing: border-box;
+   border: 1px solid #bebebe;
+   z-index: 999;
+}
+
+#memberList td {
+   position: relative;
+}
+
+.margin10px{
+   margin:10px;
+}
+
+.process-loading {
+   background: url('http://localhost/skst_new/public/images/loading.gif') no-repeat right top;
+   background-size: 35px 35px;
+}
+
+.suggest-content {
+   border-bottom: 1px solid #bebebe;
+}
+
+/*drag n drop style */
+/* Prevent the text contents of draggable elements from being selectable. */
+[draggable] {
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   user-select: none;
+   /* Required to make elements draggable in old WebKit */
+   -khtml-user-drag: element;
+   -webkit-user-drag: element;
+   cursor: move;
+}
+
+.over {
+   border: 2px dashed #000;
+}
