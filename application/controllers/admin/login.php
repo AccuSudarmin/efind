@@ -39,15 +39,17 @@ class Login extends CI_Controller {
 
 			} else {
 				$result = array (
-	            "message" => "Gagal Login" ,
-	            "type" => "modal-box" ,
+	            "message" => "Wrong username or password" ,
+	            "type" => "own-div" ,
+					"targetDiv" => "box-message" ,
 	            "success" => false
 	         );
 			}
 		} else {
 			$result = array (
-				"message" => "Gagal Login" ,
-				"type" => "modal-box" ,
+				"message" => "Wrong username or password" ,
+				"type" => "own-div" ,
+				"targetDiv" => "box-message" ,
 				"success" => false
 			);
 		}

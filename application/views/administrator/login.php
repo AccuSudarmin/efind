@@ -53,7 +53,7 @@
 				</form>
 			</div>
 
-			<div class="box-message">
+			<div class="box-message" id="box-message">
 				Just click on the "LOGIN" button to continue, no login information required.
 			</div>
 
@@ -64,5 +64,5 @@
 		</footer>
 
 	</body>
-	
+
 </html>
