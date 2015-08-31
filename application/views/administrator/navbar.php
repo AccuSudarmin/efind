@@ -1,7 +1,9 @@
-<header>
-   <nav>
+<header class="page-header">
+   <nav class="navbar">
       <ul>
-         <li>Your menu</li>
+         <li>
+            <a href="#" class="button left-arrow-icon image-left">Return to website</a>
+         </li>
       </ul>
    </nav>
 </header>

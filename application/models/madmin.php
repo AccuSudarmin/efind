@@ -3,7 +3,7 @@
 
    class Madmin extends CI_Model {
 
-      public function getByName($data) {
+      public function getByName($name) {
          $result = $this->db->get_where('admin' , array('amName' => $name))->row();
 
          return $result;

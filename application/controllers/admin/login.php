@@ -8,7 +8,7 @@ class Login extends CI_Controller {
 
 		$this->load->model('madmin');
 
-		if ($this->session->has_userdata('admin_eventfinder')) header("LOCATION: " . base_url('index.php/admin'));
+		if ($this->session->has_userdata('admin_eventfinder')) header("LOCATION: " . base_url('/admin'));
 	}
 
 	public function index() {
@@ -22,11 +22,13 @@ class Login extends CI_Controller {
 		$data = $this->madmin->getByName($name);
 
 		if ($data) {
-			if ($data[0]['amPassword'] === $pass) {
+			$encrypted_pass = base64_encode(sha1($pass . $data->amSalt, true) . $data->amSalt);
+
+			if ($encrypted_pass === $data->amPassword) {
 				$this->session->set_userdata('admin_eventfinder' , array(
-					'id' => $data[0]['amId'] ,
-					'name' => $data[0]['amName'],
-					'password' => $data[0]['amPassword']
+					'id' => $data->amId ,
+					'name' => $data->amName,
+					'password' => $data->amPassword
 				));
 
 				$result = array (
