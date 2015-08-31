@@ -7,9 +7,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="<?php echo base_url('public/css/admin-style.css'); ?>">
 		<title>Login to Admin Eventfinder</title>
-		<link rel="stylesheet" href="<?php echo base_url('public/css/hiccup.css'); ?>">
 		<script src="http://localhost/webcomponent/lib/azcomponent/webcomponentsjs/webcomponents.js"></script>
       <link rel="import" href="http://localhost/webcomponent/lib/azcomponent/az-ui.html">
+		<link rel="import" href="http://localhost/webcomponent/lib/azcomponent/az-ajax.html">
 	</head>
 
 	<body>
@@ -64,5 +64,5 @@
 		</footer>
 
 	</body>
-	<script src="<?php echo base_url('public/js/hiccup.js'); ?>" charset="utf-8"></script>
+	
 </html>
