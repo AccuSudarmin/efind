@@ -9,28 +9,32 @@ html, body {
 
 /*header section*/
 
-nav.navbar {
+header.page-header {
    width: 100%;
    padding: 10px 30px;
    background: #2a2e36;
    box-sizing: border-box;
 }
 
-.navbar > ul {
-   list-style: none;
-   padding: 0;
-   margin: 0;
-}
-
-.navbar > ul > li > .button {
+header .button {
+   /*display: inline-block;
    color: white;
-   background-color: #3f4551;
+   background-color: #3f4551;*/
    font-size: 0.75em;
-   padding-left: 35px;
+   padding-left: 10px;
 }
 
-.navbar > ul > li > .button:hover {
-   background-color: #5d6677;
+header .button:hover {
+   /*background-color: #5d6677 !important;*/
+}
+
+header .bracket {
+   display: inline-block;
+   height: 38px;
+   width: 1px;
+   border-right: 1px solid #3f4551;
+   margin-right: 0.625em;
+   margin-left: 0.625em;
 }
 
  /*-- end header section */
@@ -132,14 +136,6 @@ footer {
    height: 40px;
    display: inline-block;
    float: left;
-}
-
-.button {
-   border-radius: 2px;
-   text-decoration: none;
-   padding: 12px 10px;
-   display: inline-block;
-   font-weight: bold;
 }
 
 .left-arrow-icon {
