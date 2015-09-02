@@ -19,40 +19,42 @@
 			</a>
 		</header>
 
-		<section class="page-title">
-			<div class="login-icon image-left title">
-				<div class="middle">
-					<h3> LOGIN TO ADMIN </h3>
-					<h6> Enter you credentials below </h6>
+		<section class="main">
+			<div class="page-title">
+				<div class="login-icon image-left title">
+					<div class="middle">
+						<h3> LOGIN TO ADMIN </h3>
+						<h6> Enter you credentials below </h6>
+					</div>
 				</div>
 			</div>
-		</section>
 
-		<section class="content">
+			<div class="main content">
 
-			<div class="box-form center fit-content">
-				<form
-					method="post"
-					fm-controller="login"
-					fm-target="<?php echo site_url('/admin/login/doLogin'); ?>"
-					fm-success="<?php echo site_url('/admin'); ?>"
-					>
-					<p>
-						<az-input type="text" placeholder="Username" name="name" width= "250px" color="#2069b4"></az-input>
-					</p>
-					<p>
-						<az-input type="password" placeholder="Password" name="pass" width= "250px" color="#2069b4"></az-input>
-					</p>
-					<p>
-						<az-button name="login" width="250px" color="#2069b4"> LOGIN </az-button>
-					</p>
-				</form>
+				<div class="box-form center fit-content">
+					<form
+						method="post"
+						fm-controller="login"
+						fm-target="<?php echo site_url('/admin/login/doLogin'); ?>"
+						fm-success="<?php echo site_url('/admin'); ?>"
+						>
+						<p>
+							<az-input type="text" placeholder="Username" name="name" width= "250px" color="#2069b4"></az-input>
+						</p>
+						<p>
+							<az-input type="password" placeholder="Password" name="pass" width= "250px" color="#2069b4"></az-input>
+						</p>
+						<p>
+							<az-button name="login" width="250px" color="#2069b4"> LOGIN </az-button>
+						</p>
+					</form>
+				</div>
+
+				<div class="box-message" id="box-message">
+					Just click on the "LOGIN" button to continue, no login information required.
+				</div>
+
 			</div>
-
-			<div class="box-message" id="box-message">
-				Just click on the "LOGIN" button to continue, no login information required.
-			</div>
-
 		</section>
 
 		<footer>

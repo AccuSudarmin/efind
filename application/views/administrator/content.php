@@ -1,4 +1,14 @@
-<section>
+<section class="main has-sidebar">
+<div class="page-title">
+   <div class="login-icon image-left title">
+      <div class="middle">
+         <h3> Dashboard </h3>
+         <h6> Welcome admin </h6>
+      </div>
+   </div>
+</div>
+
+<div class="content">
 
    <article>
       <header>
@@ -16,4 +26,5 @@
       <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
    </article>
 
-</section>
+</div>
+</main>

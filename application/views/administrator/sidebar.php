@@ -1,4 +1,19 @@
-<aside>
-   <h2>About section</h2>
-   <p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-</aside>
+<section class="sidebar">
+   <ul>
+      <li class="active">
+         <a href="#">Dashboard</a>
+      </li>
+      <li>
+         <a href="#">Pages</a>
+      </li>
+      <li>
+         <a href="#">Post</a>
+      </li>
+      <li>
+         <a href="#">Media</a>
+      </li>
+      <li>
+         <a href="#">Setting</a>
+      </li>
+   </ul>
+</section>

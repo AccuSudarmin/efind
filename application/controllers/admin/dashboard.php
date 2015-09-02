@@ -18,11 +18,10 @@ class Dashboard extends CI_Controller {
 
 	public function index() {
 
+		$this->load->view('administrator/head');
 		$this->load->view('administrator/header');
-		$this->load->view('administrator/navbar');
 		$this->load->view('administrator/sidebar');
 		$this->load->view('administrator/statistic');
-		$this->load->view('administrator/footer');
 
 	}
 }
