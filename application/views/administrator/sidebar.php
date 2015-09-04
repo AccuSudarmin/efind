@@ -1,3 +1,9 @@
+<input type="checkbox" name="name" class="display-none" id="sidebarCheck">
+<label for="sidebarCheck" class="container-button">
+   <div class="sidebar-button">
+   </div>
+</label>
+
 <section class="sidebar">
    <ul>
       <li class="active">

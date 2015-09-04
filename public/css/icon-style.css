@@ -1,0 +1,42 @@
+
+.left-arrow-icon {
+   background-image: url('../img/icons/ic_left.png');
+   background-repeat: no-repeat;
+}
+
+.right-arrow-icon {
+   background-image: url('../img/icons/ic_right.png');
+   background-repeat: no-repeat;
+}
+
+.lock-icon {
+   background-image: url('../img/icons/ic_lock.png');
+   background-repeat: no-repeat;
+}
+
+.login-icon {
+   background-image: url('../img/icons/login-icon.png');
+   background-repeat: no-repeat;
+}
+
+.power-icon {
+   background-image: url('../img/icons/ic_power.png');
+   background-repeat: no-repeat;
+}
+
+.dashboard-icon {
+   background-image: url('../img/icons/tab-dashboard.png');
+   background-repeat: no-repeat;
+}
+
+.image-left {
+   background-position: 0.833em center;
+}
+
+.image-center {
+   background-position: center;
+}
+
+.image-right {
+   background-position: right;
+}

@@ -1,0 +1,58 @@
+
+/*component */
+.round {
+   background: #FFB400;
+   border-radius: 20px;
+   width: 40px;
+   height: 40px;
+   display: inline-block;
+   float: left;
+}
+
+.middle {
+   display: table-cell;
+   vertical-align: middle;
+}
+
+.center {
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.float-right {
+   float: right;
+}
+
+.fit-content {
+   width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+   width: -moz-max-content;    /* Firefox/Gecko */
+   width: -webkit-max-content; /* Chrome */
+}
+
+.box-form {
+   padding: 0 15px;
+   background-color: white;
+   border: 1px solid #EFEFEF;
+   text-align: left;
+}
+
+.button-blue {
+   border: 0;
+   padding: 10px;
+   box-sizing: border-box;
+   width: 100%;
+   background-color: #8185C7;
+   color: white;
+}
+
+.table {
+   display: table;
+}
+
+.table-cell {
+   display: table-cell;
+}
+
+.display-none {
+   display: none;
+}

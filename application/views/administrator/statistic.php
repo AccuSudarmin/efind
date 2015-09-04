@@ -30,11 +30,6 @@
             <bar value="100">Sat</bar>
             <bar value="20">Sun</bar>
             <bar value="40">Mon</bar>
-            <bar value="20">Tue</bar>
-            <bar value="80">Wed</bar>
-            <bar value="70">Thu</bar>
-            <bar value="20">Fri</bar>
-            <bar value="100">Sat</bar>
          </az-chart>
       </div>
 
