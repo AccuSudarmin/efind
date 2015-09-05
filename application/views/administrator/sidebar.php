@@ -8,10 +8,10 @@
 <section class="sidebar">
    <ul>
       <li class="active">
-         <a href="#">Dashboard</a>
+         <a href="<?php echo site_url('/admin') ?>">Dashboard</a>
       </li>
       <li>
-         <a href="#">Pages</a>
+         <a href="<?php echo site_url('/admin/event') ?>">Event</a>
       </li>
       <li>
          <a href="#">Post</a>
