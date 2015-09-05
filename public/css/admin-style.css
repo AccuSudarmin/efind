@@ -204,8 +204,8 @@ header .bracket {
 /*content section*/
 
 section.main {
-   top: 62px;
-   /*position: absolute;*/
+   /*top: 62px;*/
+   position: relative;
    overflow: hidden;
    display: block;
    width: 100%;
@@ -258,6 +258,33 @@ section.main {
 .recent-activity li {
    margin-left: 25px;
 }
+
+table.table-content {
+   width: 100%;
+   border-collapse: collapse;
+   border: 1px solid #bbb;
+   text-align: center;
+   /*color: #767676;*/
+}
+
+table.table-content th {
+   background-color: #2A2E36;
+   color: white;
+}
+
+table.table-content th , table.table-content td {
+   padding: 10px;
+}
+
+table.table-content td {
+   font-size: 11pt;
+   color: #504F4F;
+   border: 1px solid #bbb;
+}
+
+table.table-content tr:nth-child(2n+1) {
+   background-color: #fff;
+}
 /*-- end content section */
 
 /*form and input style*/
@@ -309,10 +336,11 @@ footer {
    color: #bebebe;
    text-align: center;
    font-size: 0.75em;
-   margin: 20px auto;
-   /*position: absolute;*/
+   margin-top: 20px;
+   position: relative;
+   overflow: hidden;
    /*bottom: 0px;*/
-   width: 100%;
+   /*width: 100%;*/
 }
 /*end of footer*/
 

@@ -2,29 +2,33 @@
 <div class="page-title">
    <div class="login-icon image-left title">
       <div class="middle">
-         <h3> Dashboard </h3>
-         <h6> Welcome admin </h6>
+         <h3> Event </h3>
+         <h6> content manager </h6>
       </div>
    </div>
 </div>
 
 <div class="content">
-
-   <article>
-      <header>
-         <h2>Article title</h2>
-         <p>Posted on <time datetime="2009-09-04T16:31:24+02:00">September 4th 2009</time> by <a href="#">Writer</a> - <a href="#comments">6 comments</a></p>
-      </header>
-      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-   </article>
-
-   <article>
-      <header>
-         <h2>Article title</h2>
-         <p>Posted on <time datetime="2009-09-04T16:31:24+02:00">September 4th 2009</time> by <a href="#">Writer</a> - <a href="#comments">6 comments</a></p>
-      </header>
-      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-   </article>
-
-</div>
-</main>
+      <div class="container">
+         <table class="table-content">
+            <tr>
+               <th> No </th>
+               <th> Title </th>
+               <th> Category </th>
+               <th> Date </th>
+               <th> Posted By </th>
+               <th> Action </th>
+            </tr>
+            <?php for ($i=1; $i <= 10; $i++): ?>
+               <tr>
+                  <td> <?php echo $i; ?> </td>
+                  <td> Lorem ipsum dolor sit amet </td>
+                  <td> Lorem ipsum dolor sit amet </td>
+                  <td> 12 January 2015 </td>
+                  <td> Lorem Ipsum </td>
+                  <td> <span class="edit-icon image-center button-default"></span> <span class="delete-icon image-center button-danger"> </td>
+               </tr>
+            <?php endfor; ?>
+         </table>
+   </div>
+</section>

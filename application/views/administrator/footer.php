@@ -1,5 +1,5 @@
-<footer>
-   <p>Copyright 2009 Your name</p>
+<footer class="has-sidebar">
+   <p>© 2015 Eventfinder Design By Langgo Farid </p>
 </footer>
 
 </body>

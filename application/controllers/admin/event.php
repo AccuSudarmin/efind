@@ -17,7 +17,9 @@ class Event extends CI_Controller {
 
 		$this->load->view('administrator/head');
 		$this->load->view('administrator/header');
-		$this->load->view('administrator/sidebar');
+		$this->load->view('administrator/sidebar' , array(
+			'activate' => "event"
+		));
 		$this->load->view('administrator/content');
 
 	}
