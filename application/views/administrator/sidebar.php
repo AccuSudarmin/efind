@@ -24,7 +24,3 @@
       </li>
    </ul>
 </section>
-
-<script>
-   
-</script>
