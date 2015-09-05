@@ -45,6 +45,14 @@
    color: white;
 }
 
+.relative {
+   position: relative;
+}
+
+.block {
+   display: block;
+}
+
 .table {
    display: table;
 }

@@ -1,6 +1,7 @@
 <input type="checkbox" name="name" class="display-none" id="sidebarCheck">
-<label for="sidebarCheck" class="container-button">
-   <div class="sidebar-button">
+<label for="sidebarCheck" class="sidebar-button">
+   <div class="inside-sidebar-button relative block">
+      <span class="line-button"></span>
    </div>
 </label>
 

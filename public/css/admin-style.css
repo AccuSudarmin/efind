@@ -77,54 +77,75 @@ header .bracket {
 /*sidebar section*/
 
 #sidebarCheck:checked + label {
-   background-color: #bbb;
    left: 200px;
+   background: #FB7D7D;
 }
 
 #sidebarCheck:checked ~ .sidebar {
    left: 0px;
 }
 
-.container-button {
-   display: none;
-width: 23px;
-height: 23px;
-position: absolute;
-background-color: #F8F9FA;
-top: 62px;
-left: 0px;
-transition: 1s;
--moz-transition: 1s;
--o-transition: 1s;
--webkit-transition: 1s;
-padding: 5px;
+#sidebarCheck:checked + label .inside-sidebar-button:after {
+   -ms-transform: rotate(45deg); /* IE 9 */
+   -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+   transform: rotate(45deg);
+   bottom: 10px;
+   border-color: white;
+}
+
+#sidebarCheck:checked + label .inside-sidebar-button:before {
+   -ms-transform: rotate(-45deg); /* IE 9 */
+   -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+   transform: rotate(-45deg);
+   top: 10px;
+   border-color: white;
+}
+
+#sidebarCheck:checked + label .inside-sidebar-button .line-button {
+   left: 23px;
+   border-color: white;
 }
 
 .sidebar-button {
+   display: none;
    width: 23px;
-height: 2px;
-border-top: 2px solid #bebebe;
-margin: 5px 0px;
+   height: 23px;
+   position: absolute;
+   background-color: #F8F9FA;
+   top: 62px;
+   left: 0px;
+   transition: 1s;
+   padding: 5px;
+   cursor: pointer;
 }
 
-.container-button:after {
+.line-button , .inside-sidebar-button:after , .inside-sidebar-button:before {
    width: 23px;
-       height: 1px;
-       border-top: 2px solid #bebebe;
-       content: '';
-       display: block;
-
-       -ms-transform: rotate(90deg); /* IE 9 */
-    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
-    transform: rotate(90deg);
-}
-
-.container-button:before {
-   width: 23px;
-   height: 1px;
-   border-top: 2px solid #bebebe;
-   content: '';
+   height: 2px;
    display: block;
+   border-top: 2px solid #bebebe;
+   position: absolute;
+}
+
+.line-button {
+   top:10px;
+   left: 0px;
+}
+
+.inside-sidebar-button:after {
+   content: '';
+   bottom: 0px;
+}
+
+.inside-sidebar-button:before {
+   content: '';
+   top: 0px;
+}
+
+.inside-sidebar-button {
+   width: inherit;
+   height: inherit;
+   overflow: hidden;
 }
 
 .sidebar {
@@ -294,9 +315,14 @@ footer {
 }
 /*end of footer*/
 
-section.sidebar , section.main {
-   transition: 1s;
-   -webkit-transition: 1s;
-   -moz-transition: 1s;
-   -o-transition: 1s;
+section.sidebar ,
+section.main ,
+.sidebar-button ,
+.line-button ,
+.inside-sidebar-button:after ,
+.inside-sidebar-button:before  {
+   transition: 1s ease-in-out;
+   -webkit-transition: 1s ease-in-out;
+   -moz-transition: 1s ease-in-out;
+   -o-transition: 1s ease-in-out;
 }
