@@ -8,6 +8,7 @@ html, body {
    padding: 0px;
    margin: 0px;
    font-family: Helvetica, Arial, sans-serif;
+   position: relative;
 }
 
 /*header section*/
@@ -149,7 +150,6 @@ header .bracket {
 }
 
 .sidebar {
-   height: 100%;
    width: 200px;
    background-color: #FFFFFF;
    position: absolute;
@@ -159,6 +159,7 @@ header .bracket {
    padding-top: 62px;
    border-right: 2px solid #eeefef;
    top: 0px;
+   min-height: 100%; /*make height based from web height */
    left: 0px;
 }
 
