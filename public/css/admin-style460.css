@@ -1,0 +1,15 @@
+.sidebar {
+   left: -200px;
+}
+
+.main {
+   padding-left: 0px;
+}
+
+.container {
+   width: 90%;
+}
+
+.sidebar-button {
+   display: inline-block;
+}

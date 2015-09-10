@@ -1,0 +1,8 @@
+.graph-head {
+	margin-bottom: 10px;
+}
+
+.graph-head > .week-graph {
+	color: #bebebe;
+   font-size: 0.8em;
+}

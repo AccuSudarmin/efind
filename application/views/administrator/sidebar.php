@@ -1,4 +1,43 @@
-<aside>
-   <h2>About section</h2>
-   <p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-</aside>
+<?php
+   $dashboard = "";
+   $event = "";
+
+   switch ($activate) {
+      case 'dashboard':
+         $dashboard = "active";
+         break;
+         case 'event':
+            $event = "active";
+            break;
+
+      default:
+         $dashboard = "active";
+         break;
+   }
+?>
+<input type="checkbox" name="name" class="display-none" id="sidebarCheck">
+<label for="sidebarCheck" class="sidebar-button">
+   <div class="inside-sidebar-button relative block">
+      <span class="line-button"></span>
+   </div>
+</label>
+
+<section class="sidebar">
+   <ul>
+      <li class="<?php echo $dashboard;?>">
+         <a href="<?php echo site_url('/admin') ?>">Dashboard</a>
+      </li>
+      <li class="<?php echo $event;?>">
+         <a href="<?php echo site_url('/admin/event') ?>">Event</a>
+      </li>
+      <li>
+         <a href="#">Post</a>
+      </li>
+      <li>
+         <a href="#">Media</a>
+      </li>
+      <li>
+         <a href="#">Setting</a>
+      </li>
+   </ul>
+</section>
