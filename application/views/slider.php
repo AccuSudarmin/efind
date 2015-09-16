@@ -15,7 +15,7 @@
            </div>
          </div>
 
-         <div class="slide active-slide" style="background: url('<?php echo base_url('public/img/slider/3.jpg');?>') no-repeat; background-position: center;     ">
+         <div class="slide active-slide" style="background: url('<?php echo base_url('public/img/slider/2.jpg');?>') no-repeat; background-position: 50% 50%;     ">
            <div class="container">
              <section class="row main-width">
                <section class="slide-copy">

@@ -13,6 +13,23 @@
 
    </head>
    <body>
+
+      <nav id="mobile-menu" class="floatok">
+         <div class="icon-close"> <i class="fa fa-times"> </i></div>
+          <ul>
+            <li><a href="http://eventfinder.co.id"><img src="<?php echo base_url('public/img/long-logo.png');?>"></a></li>
+            <li><a href="#"><i class="fa fa-home"> Home </i> </a> </li>
+            <li><a href="#"><i class="fa fa-music"> Music Events </i> </a> </li>
+            <li><a href="#"><i class="fa fa-paint-brush"> Exhibition Events </i> </a> </li>
+            <li><a href="#"><i class="fa fa-futbol-o"> Sport Events</i></a> </li>
+            <li class="mobile-sc"> <i class="fa fa-search rights mobile-search"> </i><div class='searchbar rights mobile-search'><input type="text"> </div>
+            </li>
+            <li class="social-icon"> <a href="#"><i class="fa fa-youtube"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-facebook"></i></a></li>
+         </ul>
+      </nav>
+
+
+      <div class="floatok body-wrapper">
       <header class="navigation main-width">
          <div class="logo rights"> <img src="<?php echo base_url('public/img/long-logo.png');?>"> </div>
          <nav class="rights">
@@ -36,6 +53,10 @@
             </div>
          </nav>
       </header>
+
+   <button class="menu-toggle">
+      <i class="fa fa-bars"></i>
+   </button>
 
       <section class="slide-wrapper">
          <?php $this->load->view('slider');?>
@@ -83,52 +104,7 @@
         </nav>
       </section>
       <footer>
-        <div class="footer-container main-width">
-          <div class="footer-list rights">
-            <h3> Judul </h3>
-            <ul>
-              <li> <a href="#"> Home </a> </li>
-              <li> Profil</li>
-              <li><a href="#">Penjaminan Mutu</a></li>
-              <li><a href="#"> Layanan </a></li>
-              <li><a href="#"> Fasilitas </a></li>
-              <li><a href="#"> Regulasi </a></li>
-              <li><a href="#"> Download </a></li>
-              <li><a href="#"> Forum </a></li>
-              <li><a href="#"> Kontak Kami </a></li>
-            </ul>
-          </div>
-
-          <div class="footer-list rights">
-            <h3> Judul </h3>
-            <ul>
-              <li> <a href="#"> Home </a> </li>
-              <li> Profil</li>
-              <li><a href="#">Penjaminan Mutu</a></li>
-              <li><a href="#"> Layanan </a></li>
-              <li><a href="#"> Fasilitas </a></li>
-              <li><a href="#"> Regulasi </a></li>
-              <li><a href="#"> Download </a></li>
-              <li><a href="#"> Forum </a></li>
-              <li><a href="#"> Kontak Kami </a></li>
-            </ul>
-          </div>
-
-          <div class="footer-list rights">
-            <h3> Judul </h3>
-            <ul>
-              <li> <a href="#"> Home </a> </li>
-              <li> Profil</li>
-              <li><a href="#">Penjaminan Mutu</a></li>
-              <li><a href="#"> Layanan </a></li>
-              <li><a href="#"> Fasilitas </a></li>
-              <li><a href="#"> Regulasi </a></li>
-              <li><a href="#"> Download </a></li>
-              <li><a href="#"> Forum </a></li>
-              <li><a href="#"> Kontak Kami </a></li>
-            </ul>
-          </div>
-
+        <!-- <div class="footer-container main-width">
           <div class="footer-list rights">
             <h3> Judul </h3>
             <ul>
@@ -160,11 +136,11 @@
              </ul>
           </div>
 
-        </div>
+        </div> -->
 
         <center>Copyright (c) 2015 Copyright Holder All Rights Reserved.</center>
       </footer>
-
+   </div>
 
       <script src="<?php echo base_url('public/js/home.js');?>"></script>
 

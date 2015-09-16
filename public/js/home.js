@@ -1,13 +1,26 @@
 var navbar= function(){
-   var searchicon = $('.fa-search');
-   var searchbar= $('.searchbar');
 
-   searchicon.click(function(){
-      searchbar.innerHTML = "<style> width:"
-      $('.fa-twitter').hidden();
-      $('.fa-facebook').hidden();
-      $('.fa-youtube').hidden();
-   });
+
+   $('.menu-toggle').click(function() {
+    $('#mobile-menu').animate({
+      left: "0px"
+    }, 200);
+
+    $('body').animate({
+      left: "50%"
+    }, 200);
+  });
+
+  $('.icon-close').click(function() {
+    $('#mobile-menu').animate({
+      left: "-50%"
+    }, 200);
+
+    $('body').animate({
+      left: "0px"
+    }, 200);
+  });
+
 };
 
 $(document).ready(navbar);
