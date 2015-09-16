@@ -13,3 +13,7 @@
 .sidebar-button {
    display: inline-block;
 }
+
+header .button {
+   width: 21px !important;
+}
