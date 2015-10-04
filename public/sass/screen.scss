@@ -27,7 +27,6 @@ body{
   // overflow: hidden;
   margin: 0;
       color: #565a5c;
-    background-color: $warna2;
     font-family: $body;
     font-size: 14px;
     line-height: 1.43;
@@ -38,6 +37,14 @@ body{
 
 }
 
+body#home{
+   background-color: $warna2;
+}
+
+body#calendar{
+   background-color: #fff;
+}
+
 .icon-close{
    i{
     position: absolute;
@@ -46,6 +53,20 @@ body{
     font-size: 150%;
    }
 }
+
+.straight-menu{
+   background: #fff;
+   width:100%;
+   position: relative;
+
+   header.navigation{
+      position: relative;
+      margin-left:auto;
+      margin-right: auto;
+      display: block;
+   }
+}
+
 
 #mobile-menu{
    width: 50%;
@@ -121,6 +142,10 @@ h1, h2, h3{
 
 .rights{
   float: left;
+}
+
+.left{
+   float:right;
 }
 
 header{
@@ -531,6 +556,301 @@ footer{
       }
     }
   }
+}
+
+.calendar-container{
+   width:100%;
+   position: relative;
+   margin-bottom: 10px;
+   margin-top: 10px;
+
+   h2{
+      font-size: 15px;
+      color: $mainred;
+      padding-left: 10px;
+      padding-right: 10px;
+   }
+
+   i.fa-search{
+      font-size: 15px;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+   }
+
+   button.left{
+      padding:10px;
+   }
+
+   button{
+      border-radius: 20px;
+
+      background-color: $mainred;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border:none;
+      padding:0;
+
+      i{
+         color: #fff;
+         padding:5px;
+         text-align: center;
+         vertical-align: middle;
+         display: inline-block;
+
+      }
+   }
+
+   h2,i{
+      float:left;
+   }
+
+
+
+   .calendar-ul{
+      width:100%;
+      vertical-align: middle;
+      position: relative;
+      padding-top:20px;
+      padding-bottom:20px;
+
+      li{
+         float: left;
+         height:200px;
+      }
+
+      li.thearrow{
+         position: absolute;
+         z-index: 200;
+         height: 200px;
+         bottom: 0;
+         margin-bottom: -50px;
+
+         .arrow-prev, .arrow-next{
+            font-size: 40px;
+            color:#fff;
+            width:100%;
+
+            i{
+               display: inline-block;
+               vertical-align: middle;
+               text-align: center;
+            }
+
+            &:hover{
+               color: $mainred;
+            }
+         }
+
+
+      }
+
+      .activated{
+         height:100% !important;
+      }
+
+      .main-calendar{
+         width: 100%;
+         // display: none;
+         transition: all 2s;
+        -o-transition: all 2s;
+        -moz-transition: all 2s;
+        -webkit-transition: all 2s;
+
+
+         li{
+            width: 25%;
+            height: 200px;
+            position:relative;
+
+            &:hover {
+               .isi-calender{
+                  background: rgba(0,0,0,0.5);
+
+                  article{
+                     display: block;
+                  }
+
+                  .calender-date{
+                     background-color: $mainred;
+                  }
+               }
+            }
+
+               .isi-calender{
+                  position:absolute;
+                  width:100%;
+                  height:100%;
+                  z-index: 200;
+                  //
+                  // div{
+                  //    float: left;
+                  // }
+
+
+
+                  .calender-date{
+                     margin: 5px;
+                     padding: 5px;
+                     background-color: #000;
+                     color: #fff;
+                     font-weight: 700;
+                     display: inline-block;
+                  }
+
+                  article{
+                     display: none;
+                     width:100%;
+
+                     ul{
+                        margin: 5px;
+
+                        ol{
+                           float:none;
+                           width: inherit;
+                           margin-bottom: 5px;
+                           color: #fff;
+                           list-style-type: circle;
+                           font-weight: 700;
+                        }
+                     }
+
+                     a{
+                        text-decoration: none;
+                        color: #fff;
+
+
+                        &:hover{
+                           color: $mainred;
+                        }
+                     }
+                  }
+               }
+
+               img{
+                  width:100%;
+                  height:auto;
+                  transition: all 2s;
+                 -o-transition: all 2s;
+                 -moz-transition: all 2s;
+                 -webkit-transition: all 2s;
+                 position: absolute;
+               }
+
+               &.selected img{
+                  -webkit-filter:grayscale(100%);
+
+               }
+
+               &:hover{
+                  img{
+                     width:120%;
+                  }
+               }
+         }
+      }
+   }
+}
+
+.article-container{
+
+   .flex-img{
+      background-color: rgba(0, 0, 0, 1);
+      width: 100%;
+      height: 500px;
+      position: absolute;
+
+      img{
+         opacity: 0.5;
+         -webkit-filter:grayscale(100%);
+      }
+   }
+
+   .fill-article{
+      background: #fff;
+      position:relative;
+      margin-top: 100px;
+      box-sizing: border-box;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+
+      img, iframe{
+         width:100%;
+         height: auto;
+         text-align: center;
+      }
+
+      img{
+         padding-bottom:10px;
+      }
+
+      article, aside{
+         float: left;
+      }
+
+      a{
+         text-decoration: none;
+         color: $mainred;
+         cursor: pointer;
+      }
+
+      article{
+         width: 60%;
+         padding: 20px 20px 40px 20px;
+
+
+         h1{
+            font-size: 200%;
+             font-weight: 700;
+             line-height: 1;
+             text-transform: uppercase;
+             margin-bottom: 15px;
+         }
+
+         p{
+            text-align: justify;
+            margin-bottom: 5px;
+         }
+
+
+
+      }
+
+      strong, .tanggal{
+         font-weight: 700;
+         color: #fff;
+         font-size: 110%;
+      }
+
+      aside{
+         width: 40%;
+         padding: 10px;
+         background: #2F3541;
+         color: #bebebe;
+         top: 0;
+         bottom: 0;
+         position: absolute;
+         right: 0;
+
+         li{
+            text-align: justify;
+            margin-top: 10px;
+            border-bottom: 1px solid #454D5D;
+            padding-bottom: 5px;
+            width: 100%;
+
+            &.barcode{
+               text-align: center;
+               display: inline-block;
+               vertical-align: middle;
+
+               img{
+                  width: 100px;
+               }
+            }
+         }
+      }
+   }
 }
 
 
