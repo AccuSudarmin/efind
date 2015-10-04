@@ -1,13 +1,23 @@
 <section class="main has-sidebar">
 <div class="page-title">
-   <div class="login-icon image-left title">
-      <div class="middle">
-         <h3> Event </h3>
-         <h6> content manager </h6>
+   <div class="">
+      <div class="login-icon image-left title">
+         <div class="middle">
+            <h3> Event </h3>
+            <h6> content manager </h6>
+         </div>
+      </div>
+   </div>
+   <div class="">
+      <div>
+         <input type="text" name="name" value="">
+         <button>Cari</button>
+      </div>
+      <div class="float-right">
+         <a href='#'>+ Tambahkan </a>
       </div>
    </div>
 </div>
-
 <div class="content">
       <div class="container">
          <table class="table-content">

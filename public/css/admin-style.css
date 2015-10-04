@@ -57,7 +57,7 @@ header .bracket {
    box-sizing: border-box;
 }
 
-.page-title > .title {
+.page-title .title {
    padding-left: 60px;
    min-height: 45px;
    display: table;
@@ -67,11 +67,11 @@ header .bracket {
    text-transform: uppercase;
 }
 
-.page-title > .title h3 , .page-title > .title h6 {
+.page-title .title h3 , .page-title .title h6 {
    margin: 0;
    font-weight: normal;
 }
-.page-title > .title h6 {
+.page-title .title h6 {
    color: #bebebe;
 }
 

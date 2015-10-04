@@ -7,6 +7,7 @@
 	<script src="http://localhost/webcomponent/lib/azcomponent/webcomponentsjs/webcomponents.js"></script>
 	<link rel="import" href="http://localhost/webcomponent/lib/azcomponent/az-ui.html">
 	<link rel="import" href="http://localhost/webcomponent/lib/azcomponent/az-chart.html">
+	<script type="text/javascript" src="<?php echo base_url('public/js/ckeditor/ckeditor.js'); ?>"></script>
 	<title>Eventfinder Administrator</title>
 </head>
 
