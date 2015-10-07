@@ -232,6 +232,17 @@ section.main {
    margin: 10px;
 }
 
+.header-content-manager {
+   width: 90% !important;
+   /*display: block;*/
+   padding: 5px;
+   border-bottom: 1px solid #bbb;
+}
+
+.button-manager {
+   display: inline-block;
+}
+
 .title-container {
    font-weight: bold;
    /*color: #7DAFFB;*/

@@ -20,7 +20,7 @@ class Gallery extends CI_Controller {
 		$this->load->view('administrator/sidebar', array(
 			'activate' => "gallery"
 		));
-		$this->load->view('administrator/statistic');
+		$this->load->view('administrator/gallery/body');
 		$this->load->view('administrator/footer');
 
 	}
