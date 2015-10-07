@@ -1,14 +1,18 @@
 <?php
    $dashboard = "";
    $event = "";
+   $gallery = "";
 
    switch ($activate) {
       case 'dashboard':
          $dashboard = "active";
          break;
-         case 'event':
-            $event = "active";
-            break;
+      case 'event':
+         $event = "active";
+         break;
+      case 'gallery':
+         $gallery = "active";
+         break;
 
       default:
          $dashboard = "active";
@@ -30,11 +34,8 @@
       <li class="<?php echo $event;?>">
          <a href="<?php echo site_url('/admin/event') ?>">Event</a>
       </li>
-      <li>
-         <a href="#">Post</a>
-      </li>
-      <li>
-         <a href="#">Media</a>
+      <li class="<?php echo $gallery;?>">
+         <a href="<?php echo site_url('/admin/gallery') ?>">Gallery</a>
       </li>
       <li>
          <a href="#">Setting</a>
