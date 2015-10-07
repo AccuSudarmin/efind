@@ -1,23 +1,28 @@
 <section class="main has-sidebar">
-<div class="page-title">
-   <div class="">
-      <div class="login-icon image-left title">
+   <div class="page-title">
+      <div class="title">
          <div class="middle">
-            <h3> Event </h3>
-            <h6> content manager </h6>
+            <h2> Event </h2>
          </div>
       </div>
    </div>
-   <div class="">
-      <div>
-         <input type="text" name="name" value="">
-         <button>Cari</button>
+
+   <div class="header-content-manager">
+      <div class="button-manager">
+         <span class="button-manager-ic">
+            <i class="fa fa-plus"></i>
+         </span>
+         <span class="button-manager-ic">
+            <i class="fa fa-trash-o"></i>
+         </span>
+         <span id="totalSelected" class="select-description">
+         </span>
       </div>
-      <div class="float-right">
-         <a href='#'>+ Tambahkan </a>
+      <div class="float-right sorting-manager">
+         <span class="active"> Name </span>
+         <span> Date </span>
       </div>
    </div>
-</div>
 <div class="content">
       <div class="container">
          <table class="table-content">
