@@ -2,6 +2,7 @@
    $dashboard = "";
    $event = "";
    $gallery = "";
+   $slider = "";
 
    switch ($activate) {
       case 'dashboard':
@@ -13,7 +14,9 @@
       case 'gallery':
          $gallery = "active";
          break;
-
+      case 'slider':
+         $slider = "active";
+         break;
       default:
          $dashboard = "active";
          break;
@@ -36,6 +39,9 @@
       </li>
       <li class="<?php echo $gallery;?>">
          <a href="<?php echo site_url('/admin/gallery') ?>"> <i class="fa fa-picture-o"></i>&nbsp;&nbsp; Gallery</a>
+      </li>
+      <li class="<?php echo $slider;?>">
+         <a href="<?php echo site_url('/admin/slider') ?>"> <i class="fa fa-object-ungroup"></i>&nbsp;&nbsp; Slider</a>
       </li>
       <li>
          <a href="#"> <i class="fa fa-cog"></i>&nbsp;&nbsp; Setting</a>

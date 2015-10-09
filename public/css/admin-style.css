@@ -298,14 +298,17 @@ section.main {
 }
 
 .gallery-pict-crop {
-   margin-bottom: 10px;
-   padding-left: 10px;
+   width: 90%;
+   text-align: center;
    overflow: hidden;
-   width: 200px;
+   display: inline-block;
 }
 
 .gallery-pict-crop img {
    height: 200px;
+   position: relative;
+   left: 100%;
+   margin-left: -200%;
 }
 
 .gallery-description {
@@ -313,6 +316,80 @@ section.main {
    text-align: left;
    word-wrap: break-word;
    font-size: 13px;
+}
+
+.form {
+   background: white;
+   position: relative;
+   padding: 10px;
+   width: 90%;
+}
+
+.table-form {
+   width: 100%;
+}
+
+.table-form tr > td {
+   padding: 15px 5px 15px 5px;
+   vertical-align: middle;
+}
+
+.label-form {
+   font-size: 13px;
+   color: #7B7A7A;
+   text-transform: uppercase;
+}
+
+.form-option-icon {
+   display: inline-block;
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+   text-align: center;
+   margin-right: 10px;
+   cursor: pointer;
+   position: relative;
+}
+
+.back-effect {
+   position: absolute;
+   width: 0;
+   height: 0;
+   top: 50%;
+   left: 50%;
+   display: block;
+   border-radius: 50%;
+
+   transition: all 0.3s ease-in;
+   -moz-transition: all 0.3s ease-in;
+   -ms-transition: all 0.3s ease-in;
+   -o-transition: all 0.3s ease-in;
+   -webkit-transition: all 0.3s ease-in;
+   background-color: #FB7D7D;
+}
+
+.input-category:checked + label {
+   color: white;
+}
+
+.input-category:checked + label > .back-effect{
+   background-size: 100% 100%;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+}
+
+.form-option-icon > i {
+   position: relative;
+   top: 50%;
+   -webkit-transform: translateY(-50%);
+   -ms-transform: translateY(-50%);
+   transform: translateY(-50%);
+}
+
+.input-data {
+   padding: 5px;
 }
 
 .content > article {

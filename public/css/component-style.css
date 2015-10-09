@@ -95,3 +95,11 @@
 .float-right {
    float: right;
 }
+
+.vertical-align-bottom {
+   vertical-align: bottom !important;
+}
+
+.vertical-align-top {
+   vertical-align: top !important;
+}

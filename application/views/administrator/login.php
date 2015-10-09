@@ -20,7 +20,7 @@
 		</header>
 
 		<section class="main">
-			<div class="page-title-login">
+			<div class="page-title">
 				<div class="login-icon image-left title">
 					<div class="middle">
 						<h3> LOGIN TO ADMIN </h3>
