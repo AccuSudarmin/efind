@@ -194,6 +194,7 @@ function azuploader (setting) {
 
    f.close = function(){
       f.backOverlay.parentNode.removeChild(f.backOverlay);
+      f.backOverlay = null;
    }
 
    f.request = function() {

@@ -10,7 +10,7 @@
    <div class="header-content-manager">
       <div class="button-manager">
          <span class="button-manager-ic" style="padding-left: 6px;">
-            <i class="fa fa-plus" id="browsepicture"></i>
+            <a href="<?php echo $urladd; ?>"><i class="fa fa-plus"></i></a>
          </span>
          <span class="button-manager-ic" style="padding-left: 6px;">
             <i class="fa fa-trash-o"></i>
@@ -100,14 +100,4 @@
          elm.innerHTML = "";
       }
    }
-</script>
-
-<script src="<?php echo base_url('public/js/azuploader/azuploader.js') ?>" charset="utf-8"></script>
-<script type="text/javascript">
-   var az = new azuploader({
-      button: 'browsepicture' ,
-      URLtarget: 'http://localhost/eventfinder/public/js/azuploader/config/upload.php'
-   });
-
-   az.on();
 </script>

@@ -23,9 +23,26 @@ class Slider extends CI_Controller {
 
 		$this->load->view('administrator/slider/body' , array (
          'pagetitle' => "Slider" ,
-         'urlsorting' => site_url('admin/slider/sorting')
+         'urlsorting' => site_url('admin/slider/sorting') ,
+			'urladd' => site_url('admin/slider/add')
       ));
 
+		$this->load->view('administrator/footer');
+	}
+
+	public function add() {
+		$this->load->view('administrator/head');
+		$this->load->view('administrator/header');
+		$this->load->view('administrator/sidebar' , array(
+			'activate' => "slider"
+		));
+		$this->load->view('administrator/slider/form', array(
+			'title' => 'Input Data Slider' ,
+			'subtitle' => 'Content Management' ,
+			'urltarget' => site_url('admin/slider/save') ,
+			'urlsuccess' => site_url('admin/slider') ,
+			'urlback' => site_url('admin/slider')
+		));
 		$this->load->view('administrator/footer');
 	}
 
