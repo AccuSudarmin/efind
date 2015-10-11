@@ -242,18 +242,20 @@ section.main {
    width: 27px;
    height: 27px;
    display: inline-block;
-   padding-left: 6px;
    padding-top: 4px;
    overflow: hidden;
    margin-right: 5px;
    box-sizing: border-box;
    color: #333333;
    cursor: pointer;
+   vertical-align: top;
+   background-color: white;
 }
 
 .button-manager-ic:hover {
    border: 2px #FB7D7D solid;
    color: #FB7D7D;
+   opacity: 0.8;
 }
 
 .button-manager > .select-description {
@@ -292,7 +294,7 @@ section.main {
    color: #605F5F;
 }
 
-.gallery-col:hover , .checkbox-gallery:checked + label {
+.gallery-col:hover , .slider-col:hover , .checkbox-gallery:checked + label {
    background: #9E9E9E;
    color: white;
 }
@@ -316,6 +318,29 @@ section.main {
    text-align: left;
    word-wrap: break-word;
    font-size: 13px;
+}
+
+.slider-col {
+   width: 370px;
+   background: white;
+   text-align: center;
+   padding-top: 10px;
+   cursor: pointer;
+   color: #605F5F;
+}
+
+.slider-pict-crop {
+   width: 95%;
+   text-align: center;
+   overflow: hidden;
+   display: inline-block;
+}
+
+.slider-pict-crop img {
+   height: 220px;
+   position: relative;
+   left: 100%;
+   margin-left: -200%;
 }
 
 .form {
@@ -360,11 +385,11 @@ section.main {
    display: block;
    border-radius: 50%;
 
-   transition: all 0.3s ease-in;
-   -moz-transition: all 0.3s ease-in;
-   -ms-transition: all 0.3s ease-in;
-   -o-transition: all 0.3s ease-in;
-   -webkit-transition: all 0.3s ease-in;
+   transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -ms-transition: all 0.3s;
+   -o-transition: all 0.3s;
+   -webkit-transition: all 0.3s;
    background-color: #FB7D7D;
 }
 
@@ -390,6 +415,18 @@ section.main {
 
 .input-data {
    padding: 5px;
+}
+
+.input-data[type="text"]:read-only {
+   background-color: #F0F0F0;
+   border: solid 1px #bbb;
+}
+
+.button-choose-picture {
+   background: #FB7D7D;
+   border: none;
+   color: white;
+   padding: 6px;
 }
 
 .content > article {

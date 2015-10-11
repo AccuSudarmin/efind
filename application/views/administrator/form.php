@@ -80,7 +80,8 @@
                   Picture
                </td>
                <td>
-                  <input type="file" id="picture" class="display-none" name="picture"> <label for="picture">Select Picture</label>
+                  <input type="text" class="input-data" name="picture" id="picture" readonly="true">
+                  <az-button name="choosepicture" id="browsepicture" class="overflow-visible" width="150px" color="#FB7D7D"> Choose Picture </az-button>
                </td>
             </tr>
 
@@ -135,7 +136,17 @@
    </div>
 </section>
 
-<script>
+<script src="<?php echo base_url('public/js/azuploader/azuploader.js') ?>" charset="utf-8"></script>
+<script type="text/javascript">
+   var az = new azuploader({
+      button: 'browsepicture' ,
+      baseURL: 'http://localhost/eventfinder/public/js/azuploader' ,
+      modul: [
+         {method:'getName', target: 'picture'}
+      ]
+   });
+
+   az.on();
 
    var map;
    var marker = null;

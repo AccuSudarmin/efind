@@ -9,18 +9,20 @@
 
    <div class="header-content-manager">
       <div class="button-manager">
-         <span class="button-manager-ic">
+         <span class="button-manager-ic" style="padding-left: 6px;">
             <a href="<?php echo $urladd; ?>"> <i class="fa fa-plus"></i> </a>
          </span>
-         <span class="button-manager-ic">
+         <span class="button-manager-ic" style="padding-left: 6px;">
             <i class="fa fa-trash-o"></i>
          </span>
          <span id="totalSelected" class="select-description">
          </span>
       </div>
       <div class="float-right sorting-manager">
-         <span class="active"> Name </span>
-         <span> Date </span>
+         <span> All </span>
+         <span class="active"> Exhibition </span>
+         <span> Sport </span>
+         <span> Music </span>
       </div>
    </div>
 <div class="content">
@@ -37,8 +39,8 @@
             <?php for ($i=1; $i <= 10; $i++): ?>
                <tr>
                   <td> <?php echo $i; ?> </td>
-                  <td> Lorem ipsum dolor sit amet </td>
-                  <td> Lorem ipsum dolor sit amet </td>
+                  <td> Lorem ipsum dolor sit amet sit amet sit amet sit amet </td>
+                  <td> Exhibition </td>
                   <td> 12 January 2015 </td>
                   <td> Lorem Ipsum </td>
                   <td> <span class="edit-icon image-center button-default"></span> <span class="delete-icon image-center button-danger"> </td>

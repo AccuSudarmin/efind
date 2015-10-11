@@ -103,3 +103,17 @@
 .vertical-align-top {
    vertical-align: top !important;
 }
+
+.overflow-visible {
+   overflow: visible !important;
+}
+
+.danger-back-color {
+   background-color: #E84C3D !important;
+   border-color: #E84C3D !important;
+}
+
+.success-back-color {
+   background-color: #53AA50 !important;
+   border-color: #53AA50 !important;
+}

@@ -9,10 +9,10 @@
 
    <div class="header-content-manager">
       <div class="button-manager">
-         <span class="button-manager-ic">
-            <i class="fa fa-plus"></i>
+         <span class="button-manager-ic" style="padding-left: 6px;">
+            <i class="fa fa-plus" id="browsepicture"></i>
          </span>
-         <span class="button-manager-ic">
+         <span class="button-manager-ic" style="padding-left: 6px;">
             <i class="fa fa-trash-o"></i>
          </span>
          <span id="totalSelected" class="select-description">
