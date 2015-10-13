@@ -13,125 +13,145 @@
    </div>
    <div class="content">
       <div class="container form">
-         <table class="table-form">
-            <tr>
-               <td class="label-form vertical-align-bottom">
-                  Title
-               </td>
-               <td>
-                  <az-input type="text" placeholder="Title Event here..." name="name" width= "100%" color="#2069b4"></az-input>
-               </td>
-            </tr>
+         <form is='az-form'
+            action = "<?php echo $urlaction; ?>"
+            success = "http://localhost/eventfinder/admin/event"
+            method = "post"
+            >
+            <table class="table-form">
+               <tr>
+                  <td class="label-form vertical-align-bottom">
+                     Title
+                  </td>
+                  <td>
+                     <az-input type="text" placeholder="Title Event here..." name="title" width= "100%" color="#2069b4"></az-input>
+                  </td>
+               </tr>
 
-            <tr>
-               <td class="label-form vertical-align-top">
-                  Description
-               </td>
-               <td>
-                  <textarea is='az-texteditor' name="content" rows="8" cols="40"></textarea>
-               </td>
-            </tr>
+               <tr>
+                  <td class="label-form vertical-align-top">
+                     Description
+                  </td>
+                  <td>
+                     <textarea is='az-texteditor' name="content" rows="8" cols="40"></textarea>
+                  </td>
+               </tr>
 
-            <tr>
-               <td class="label-form">
-                  Category
-               </td>
-               <td>
-                  <input type="radio" class="display-none input-category" name="category" id="exhibition" value="0" checked="true">
-                  <label for="exhibition" class="form-option-icon">
-                     <span class="back-effect"></span>
-                     <i class="fa fa-camera-retro fa-lg"></i>
-                  </label>
+               <tr>
+                  <td class="label-form">
+                     Category
+                  </td>
+                  <td>
+                     <input type="radio" class="display-none input-category" name="category" id="exhibition" value="0" checked="true">
+                     <label for="exhibition" class="form-option-icon">
+                        <span class="back-effect"></span>
+                        <i class="fa fa-camera-retro fa-lg"></i>
+                     </label>
 
-                  <input type="radio" class="display-none input-category" name="category" id="music" value="1">
-                  <label for="music" class="form-option-icon">
-                     <span class="back-effect"></span>
-                     <i class="fa fa-music fa-lg"></i>
-                  </label>
+                     <input type="radio" class="display-none input-category" name="category" id="music" value="1">
+                     <label for="music" class="form-option-icon">
+                        <span class="back-effect"></span>
+                        <i class="fa fa-music fa-lg"></i>
+                     </label>
 
-                  <input type="radio" class="display-none input-category" name="category" id="sport" value="2">
-                  <label for="sport" class="form-option-icon">
-                     <span class="back-effect"></span>
-                     <i class="fa fa-futbol-o fa-lg"></i>
-                  </label>
-               </td>
-            </tr>
+                     <input type="radio" class="display-none input-category" name="category" id="sport" value="2">
+                     <label for="sport" class="form-option-icon">
+                        <span class="back-effect"></span>
+                        <i class="fa fa-futbol-o fa-lg"></i>
+                     </label>
+                  </td>
+               </tr>
 
-            <tr>
-               <td class="label-form">
-                  Date
-               </td>
-               <td>
-                  <input class="input-data" type="date" name="datestart"> s.d <input class="input-data" type="date" name="dateend">
-               </td>
-            </tr>
+               <tr>
+                  <td class="label-form">
+                     Date
+                  </td>
+                  <td>
+                     <input class="input-data" type="date" name="datestart"> s.d <input class="input-data" type="date" name="dateend">
+                  </td>
+               </tr>
 
-            <tr>
-               <td class="label-form vertical-align-top">
-                  Contact
-               </td>
-               <td class="vertical-align-top">
-                  <textarea name="name" rows="8" cols="40"></textarea>
-               </td>
-            </tr>
+               <tr>
+                  <td class="label-form vertical-align-top">
+                     Contact
+                  </td>
+                  <td>
+                     <textarea name="contact" rows="8" cols="40"></textarea>
+                  </td>
+               </tr>
 
-            <tr>
-               <td class="label-form">
-                  Picture
-               </td>
-               <td>
-                  <input type="text" class="input-data" name="picture" id="picture" readonly="true">
-                  <az-button name="choosepicture" id="browsepicture" class="overflow-visible" width="150px" color="#FB7D7D"> Choose Picture </az-button>
-               </td>
-            </tr>
+               <tr>
+                  <td class="label-form">
+                     Picture
+                  </td>
+                  <td>
+                     <input type="text" class="input-data" name="picture" id="picture" readonly="true">
+                     <az-button name="choosepicture" type='button' id="browsepicture" class="overflow-visible" width="150px" color="#FB7D7D"> Choose Picture </az-button>
+                  </td>
+               </tr>
 
-            <tr>
-               <td class="label-form">
-                  Ticket Price
-               </td>
-               <td>
-                  <input class="input-data" type="text" name="price">
-               </td>
-            </tr>
+               <tr>
+                  <td class="label-form vertical-align-top">
+                     Ticket Price
+                  </td>
+                  <td>
+                     <textarea name="ticket" rows="8" cols="40"></textarea>
+                  </td>
+               </tr>
 
-            <tr>
-               <td class="label-form">
-                  Url for barcode
-               </td>
-               <td>
-                  <input class="input-data" type="text" name="barcode">
-               </td>
-            </tr>
+               <tr>
+                  <td class="label-form">
+                     Url for barcode
+                  </td>
+                  <td>
+                     <input class="input-data" type="text" name="barcode">
+                  </td>
+               </tr>
 
-            <tr>
-               <td class="label-form">
-                  Social Media
-               </td>
-               <td>
-                  <input placeholder="Twitter" class="input-data" type="text" name="twitter">
-                  <input placeholder="Facebook" class="input-data" type="text" name="facebook">
-                  <input placeholder="Line" class="input-data" type="text" name="line">
-               </td>
-            </tr>
+               <tr>
+                  <td class="label-form">
+                     Social Media
+                  </td>
+                  <td>
+                     <input placeholder="Twitter" class="input-data" type="text" name="twitter">
+                     <input placeholder="Facebook" class="input-data" type="text" name="facebook">
+                     <input placeholder="Line" class="input-data" type="text" name="line">
+                     <input placeholder="Path" class="input-data" type="text" name="path">
+                     <input placeholder="Instagram" class="input-data" type="text" name="instagram">
+                  </td>
+               </tr>
 
-            <tr>
-               <td class="label-form vertical-align-top">
-                  Map
-               </td>
-               <td>
-                  <div id="map"></div> <br>
-                  <input type="text" class="input-data" name="lat" id="lat" readonly="true">
-                  <input type="text" class="input-data" name="lng" id="lng" readonly="true">
-                  <input type="text" class="input-data" name="mapzoom" id="mapzoom" readonly="true">
-               </td>
-            </tr>
+               <tr>
+                  <td class="label-form vertical-align-top">
+                     Map
+                  </td>
+                  <td>
+                     <div id="map"></div> <br>
+                     <input type="text" class="input-data" name="lng" id="lng" readonly="true">
+                     <input type="text" class="input-data" name="lat" id="lat" readonly="true">
+                     <input type="text" class="input-data" name="mapzoom" id="mapzoom" readonly="true">
+                  </td>
+               </tr>
 
-            <tr>
-               <td colspan="2">
-                  <div class="float-right"> <az-button name="save" width="250px" color="#2069b4"> Save </az-button> </div>
-               </td>
-            </tr>
-         </table>
+               <tr>
+                  <td class="label-form">
+                     Status
+                  </td>
+                  <td>
+                     <input type="radio" id="publish" name="status" value="1" checked>
+                     <label for="publish">Publish</label>
+                     <input type="radio" id="draft" name="status" value="0">
+                     <label for="draft">Draft</label>
+                  </td>
+               </tr>
+
+               <tr>
+                  <td colspan="2">
+                     <div class="float-right"> <az-button name="save" type='submit' width="250px" color="#2069b4"> Save </az-button> </div>
+                  </td>
+               </tr>
+            </table>
+         </form>
       </div>
    </div>
 </section>

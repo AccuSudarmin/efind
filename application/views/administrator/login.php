@@ -32,11 +32,10 @@
 			<div class="main content">
 
 				<div class="box-form center fit-content">
-					<form
+					<form is='az-form'
 						method="post"
-						fm-controller="login"
-						fm-target="<?php echo site_url('/admin/login/doLogin'); ?>"
-						fm-success="<?php echo site_url('/admin'); ?>"
+						action="<?php echo site_url('/admin/login/doLogin'); ?>"
+						success="<?php echo site_url('/admin'); ?>"
 						>
 						<p>
 							<az-input type="text" placeholder="Username" name="name" width= "250px" color="#2069b4"></az-input>
