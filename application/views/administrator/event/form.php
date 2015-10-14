@@ -42,19 +42,20 @@
                      Category
                   </td>
                   <td>
-                     <input type="radio" class="display-none input-category" name="category" id="exhibition" value="0" checked="true">
-                     <label for="exhibition" class="form-option-icon">
-                        <span class="back-effect"></span>
-                        <i class="fa fa-camera-retro fa-lg"></i>
-                     </label>
 
-                     <input type="radio" class="display-none input-category" name="category" id="music" value="1">
+                     <input type="radio" class="display-none input-category" name="category" id="music" value="1" checked>
                      <label for="music" class="form-option-icon">
                         <span class="back-effect"></span>
                         <i class="fa fa-music fa-lg"></i>
                      </label>
 
-                     <input type="radio" class="display-none input-category" name="category" id="sport" value="2">
+                     <input type="radio" class="display-none input-category" name="category" id="exhibition" value="2">
+                     <label for="exhibition" class="form-option-icon">
+                        <span class="back-effect"></span>
+                        <i class="fa fa-camera-retro fa-lg"></i>
+                     </label>
+
+                     <input type="radio" class="display-none input-category" name="category" id="sport" value="3">
                      <label for="sport" class="form-option-icon">
                         <span class="back-effect"></span>
                         <i class="fa fa-futbol-o fa-lg"></i>
@@ -202,8 +203,9 @@
          map: map
       });
 
-      elmLat.value = (location.J) ? location.J : location.lat;
-      elmLng.value = (location.M) ? location.M : location.lng;
+      elmLat.value = (typeof(location.lat) == 'function') ? location.lat() : location.lat;
+      elmLng.value = (typeof(location.lng) == 'function') ? location.lng() : location.lng;
+
       elmZoom.value = map.getZoom();
    }
 

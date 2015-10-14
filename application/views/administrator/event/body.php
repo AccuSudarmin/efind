@@ -32,20 +32,36 @@
                <th> No </th>
                <th> Title </th>
                <th> Category </th>
-               <th> Date </th>
+               <th> Posted at </th>
                <th> Posted By </th>
+               <th> Status </th>
                <th> Action </th>
             </tr>
-            <?php for ($i=1; $i <= 10; $i++): ?>
+            <?php  $i = 1; foreach ($event as $data): ?>
                <tr>
                   <td> <?php echo $i; ?> </td>
-                  <td> Lorem ipsum dolor sit amet sit amet sit amet sit amet </td>
-                  <td> Exhibition </td>
-                  <td> 12 January 2015 </td>
-                  <td> Lorem Ipsum </td>
-                  <td> <span class="edit-icon image-center button-default"></span> <span class="delete-icon image-center button-danger"> </td>
+                  <td> <?php echo $data->arTitle; ?> </td>
+                  <td> <?php echo $data->catName; ?> </td>
+                  <td> <?php echo $data->arDatePost; ?> </td>
+                  <td> <?php echo $data->amName; ?> </td>
+                  <td>
+                     <?php
+                        if ($data->arStatus == 1) $status = 'Published';
+                        else $status = "Draft";
+                        echo $status;
+                     ?>
+                  </td>
+                  <td>
+                     <span class="edit-icon image-center button-default"></span>
+                     <button
+                        is = "az-ajax"
+                        
+                        class="edit-icon image-center button-default">
+                     </button>
+                     <span class="delete-icon image-center button-danger"></span>
+                  </td>
                </tr>
-            <?php endfor; ?>
+            <?php $i++; endforeach; ?>
          </table>
    </div>
 </section>

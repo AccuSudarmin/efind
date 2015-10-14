@@ -90,10 +90,11 @@
 }
 
 .azuploader-manager > .button {
-   background-color: #478294;
+   float: right;
+   background-color: #4E4E4E;
+   padding: 5px 10px;
    color: white;
-   padding: 10px;
-   border: 1px solid #478294;
+   border: 0;
 }
 
 .azuploader-span-method {

@@ -3,6 +3,21 @@
 
    class Marticle extends CI_Model {
 
+      public function add($data) {
+         $this->db->insert('article', $data);
+
+         return ($this->db->affected_rows() != 1) ? false : true;
+      }
+
+      public function getAll(){
+         $this->db->select('*');
+         $this->db->from('article');
+         $this->db->join('ref_category', 'article.arCategory = ref_category.catId');
+         $this->db->join('admin', 'article.arAuthor = admin.amId');
+
+         return $this->db->get()->result();;
+      }
+
       public function getAvailableUrl($url) {
          $i = 1;
          $newUrl = $url;
@@ -13,12 +28,6 @@
          }
 
          return $newUrl;
-      }
-
-      public function add($data) {
-         $this->db->insert('article', $data);
-
-         return ($this->db->affected_rows() != 1) ? false : true;
       }
 
       public function getId($url) {

@@ -91,7 +91,7 @@ function azuploader (setting) {
 
       modalBox.appendChild(f.divContent);
 
-      manager.innerHTML = "<input type='file'> <button type='button'>Upload</button>";
+      manager.innerHTML = "<input type='file'> <button type='button' class='button'>Upload</button>";
       modalBox.appendChild(manager);
 
       f.backOverlay.appendChild(modalBox);
@@ -134,7 +134,7 @@ function azuploader (setting) {
                            spanMethod.appendChild(aName);
                            (function (i, m) {
                               aName.onclick = function () {
-                                 document.getElementById(setting.modul[m].target).value = e[i].name;
+                                 document.getElementById(setting.modul[m].target).value = e[i].loc;
                                  f.close();
                               }
                            }(i, m));

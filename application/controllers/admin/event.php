@@ -13,13 +13,15 @@ class Event extends MY_Controller {
 
 	public function index() {
 
+		$event = $this->marticle->getAll();
 		$this->load->view('administrator/head');
 		$this->load->view('administrator/header');
 		$this->load->view('administrator/sidebar' , array(
 			'activate' => "event"
 		));
-		$this->load->view('administrator/content' , array(
-			'urladd' => site_url('admin/event/add')
+		$this->load->view('administrator/event/body' , array(
+			'urladd' => site_url('admin/event/add') ,
+			'event' => $event
 		));
 
 	}
@@ -31,7 +33,7 @@ class Event extends MY_Controller {
 		$this->load->view('administrator/sidebar' , array(
 			'activate' => "event"
 		));
-		$this->load->view('administrator/form', array(
+		$this->load->view('administrator/event/form', array(
 			'title' => 'Input Data Event' ,
 			'urlaction' => site_url('/admin/event/save') ,
 			'urlsuccess' => site_url('/admin/event') ,
@@ -116,7 +118,7 @@ class Event extends MY_Controller {
       } else {
          $this->db->trans_commit();
          $callback['message'] = "Data berhasil disimpan";
-         $callback['delayURL'] = 1000;
+         $callback['success'] = false;
       }
 
 		echo json_encode($callback);
