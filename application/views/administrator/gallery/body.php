@@ -12,18 +12,9 @@
          <span class="button-manager-ic" style="padding-left: 6px;">
             <a href="<?php echo $urladd; ?>"> <i class="fa fa-plus"></i> </a>
          </span>
-         <form
-            is="az-form"
-            action = "<?php echo $urltarget; ?>"
-            success = "<?php echo $urlsuccess; ?>"
-            method = "post"
-            id='formdelete'
-            style="display: inline-block; overflow: hidden;"
-            >
-            <button class="button-manager-ic" style="padding-left: 6px;">
-               <i class="fa fa-trash-o"></i>
-            </button>
-         </form>
+         <button class="button-manager-ic" style="padding-left: 6px;" form='formdelete'>
+            <i class="fa fa-trash-o"></i>
+         </button>
          <span id="totalSelected" class="select-description">
          </span>
       </div>
@@ -34,8 +25,15 @@
    </div>
 
    <div class="content">
+      <form
+         is="az-form"
+         action = "<?php echo $urltarget; ?>"
+         success = "<?php echo $urlsuccess; ?>"
+         method = "post"
+         id='formdelete'
+         >
          <?php foreach ($gallery as $data): ?>
-            <input type="checkbox" onchange="resetValue(this);" class="display-none checkbox-gallery" name='<?php echo $data->name; ?>' id="pict<?php echo $data->name; ?>" form='formdelete'>
+            <input type="checkbox" onchange="resetValue(this);" class="display-none checkbox-gallery" name='<?php echo $data->name; ?>' id="pict<?php echo $data->name; ?>">
             <label for="pict<?php echo $data->name; ?>" class="container gallery-col">
                <div class="gallery-pict-crop">
                   <img src="<?php echo base_url('./public/userfiles/image/' . $data->name) ?>"/>
@@ -45,6 +43,7 @@
                </div>
             </label>
          <?php endforeach; ?>
+      </form>
    </div>
 </section>
 
