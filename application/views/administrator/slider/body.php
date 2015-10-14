@@ -12,9 +12,9 @@
          <span class="button-manager-ic" style="padding-left: 6px;">
             <a href="<?php echo $urladd; ?>"><i class="fa fa-plus"></i></a>
          </span>
-         <span class="button-manager-ic" style="padding-left: 6px;">
+         <button type="submit" class="button-manager-ic" style="padding-left: 6px;" form='formdelete'>
             <i class="fa fa-trash-o"></i>
-         </span>
+         </button>
          <span class="button-manager-ic" style="padding-left: 7.5px;">
             <a href="<?php echo $urlsorting; ?>"> <i class="fa fa-sort"></i> </a>
          </span>
@@ -29,56 +29,31 @@
    </div>
 
    <div class="content">
-      <form>
-         <input type="checkbox" onchange="resetValue(this);" class="display-none checkbox-gallery" id="gal1">
-         <label for="gal1" class="container slider-col">
-            <div class="slider-pict-crop">
-               <img src="<?php echo base_url('./public/userfiles/image/2.jpg') ?>" alt="Picture 2" />
-            </div>
-            <div class="gallery-description">
-               file1.png
-            </div>
-         </label>
-
-         <input type="checkbox" onchange="resetValue(this);" class="display-none checkbox-gallery" id="gal2">
-         <label for="gal2" class="container slider-col">
-            <div class="slider-pict-crop">
-               <img src="<?php echo base_url('./public/userfiles/image/3.jpg') ?>" alt="Picture 2" />
-            </div>
-            <div class="gallery-description">
-               file1lroemsodfslkdfjsldfsldfjksdk_sdfsd.png
-            </div>
-         </label>
-
-         <input type="checkbox" onchange="resetValue(this);" class="display-none checkbox-gallery" id="gal3">
-         <label for="gal3" class="container slider-col">
-            <div class="slider-pict-crop">
-               <img src="<?php echo base_url('./public/userfiles/image/2.jpg') ?>" alt="Picture 2" />
-            </div>
-            <div class="gallery-description">
-               Lorem ipsum dolor sit amet, consectetur adipisicing elit
-            </div>
-         </label>
-
-         <input type="checkbox" onchange="resetValue(this);" class="display-none checkbox-gallery" id="gal4">
-         <label for="gal4" class="container slider-col">
-            <div class="slider-pict-crop">
-               <img src="<?php echo base_url('./public/userfiles/image/3.jpg') ?>" alt="Picture 2" />
-            </div>
-            <div class="gallery-description">
-               Lorem ipsum dolor sit amet, consectetur adipisicing elit
-            </div>
-         </label>
-
-         <input type="checkbox" onchange="resetValue(this);" class="display-none checkbox-gallery" id="gal5">
-         <label for="gal5" class="container slider-col">
-            <div class="slider-pict-crop">
-               <img src="<?php echo base_url('./public/userfiles/image/2.jpg') ?>" alt="Picture 2" />
-            </div>
-            <div class="gallery-description">
-               Lorem ipsum dolor sit amet, consectetur adipisicing elit
-            </div>
-         </label>
+      <form
+         is = "az-form"
+         action = "<?php echo $urlaction; ?>"
+         success = "<?php echo $urlsuccess; ?>"
+         method = "post"
+         id = "formdelete"
+         >
+         <?php foreach($slider as $data): ?>
+            <input
+               type="checkbox"
+               onchange="resetValue(this);"
+               class="display-none checkbox-gallery"
+               id="<?php echo $data->slId; ?>"
+               name="<?php echo $data->slId; ?>"
+               value="<?php echo $data->slId; ?>"
+            >
+            <label for="<?php echo $data->slId; ?>" class="container slider-col">
+               <div class="slider-pict-crop">
+                  <img src="<?php echo $data->slPict; ?>" alt="Picture 2" />
+               </div>
+               <div class="gallery-description">
+                  <?php echo $data->slTitle; ?>
+               </div>
+            </label>
+         <?php endforeach; ?>
       </form>
    </div>
 </section>

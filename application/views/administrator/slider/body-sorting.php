@@ -9,9 +9,9 @@
 
    <div class="header-content-manager">
       <div class="button-manager">
-         <span class="button-manager-ic danger-back-color" style="padding-left: 6px;">
+         <button class="button-manager-ic danger-back-color" onclick="location.href='<?php echo $urlback;  ?>';" style="padding-left: 6px;">
             <i class="fa fa-times" style="color: #fff;"></i>
-         </span>
+         </button>
          <button type="submit" class="button-manager-ic success-back-color" form="order">
             <i class="fa fa-check" style="color: #fff"></i>
          </button>
@@ -26,56 +26,23 @@
 
    <div class="content">
       <form
-         od-controller="menu"
+         is="az-formorder"
          id="order"
          method="post"
-         od-target="<?php echo $urltarget; ?>"
-         od-success="<?php echo $urlsuccess; ?>">
+         action="<?php echo $urltarget; ?>"
+         success="<?php echo $urlsuccess; ?>">
 
-         <div od-iddata="1" for="gal1" class="container slider-col">
-            <div class="slider-pict-crop">
-               <img src="<?php echo base_url('./public/userfiles/image/2.jpg') ?>" alt="Picture 2" />
+         <?php foreach($slider as $data): ?>
+            <div od-iddata="<?php echo $data->slId; ?>" class="container slider-col">
+               <div class="slider-pict-crop">
+                  <img src="<?php echo $data->slPict; ?>"/>
+               </div>
+               <div class="gallery-description">
+                  <?php echo $data->slTitle; ?>
+               </div>
             </div>
-            <div class="gallery-description">
-               file1.png
-            </div>
-         </div>
+         <?php endforeach; ?>
 
-         <div od-iddata="2" for="gal2" class="container slider-col">
-            <div class="slider-pict-crop">
-               <img src="<?php echo base_url('./public/userfiles/image/3.jpg') ?>" alt="Picture 2" />
-            </div>
-            <div class="gallery-description">
-               file1lroemsodfslkdfjsldfsldfjksdk_sdfsd.png
-            </div>
-         </div>
-
-         <div od-iddata="3" for="gal3" class="container slider-col">
-            <div class="slider-pict-crop">
-               <img src="<?php echo base_url('./public/userfiles/image/2.jpg') ?>" alt="Picture 2" />
-            </div>
-            <div class="gallery-description">
-               Lorem ipsum dolor sit amet, consectetur adipisicing elit
-            </div>
-         </div>
-
-         <div od-iddata="4" for="gal4" class="container slider-col">
-            <div class="slider-pict-crop">
-               <img src="<?php echo base_url('./public/userfiles/image/3.jpg') ?>" alt="Picture 2" />
-            </div>
-            <div class="gallery-description">
-               Lorem ipsum dolor sit amet, consectetur adipisicing elit
-            </div>
-         </div>
-
-         <div od-iddata="5" for="gal5" class="container slider-col">
-            <div class="slider-pict-crop">
-               <img src="<?php echo base_url('./public/userfiles/image/2.jpg') ?>" alt="Picture 2" />
-            </div>
-            <div class="gallery-description">
-               Lorem ipsum dolor sit amet, consectetur adipisicing elit
-            </div>
-         </div>
       </form>
    </div>
 </section>

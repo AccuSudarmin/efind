@@ -13,32 +13,38 @@
    </div>
    <div class="content">
       <div class="container form">
-         <table class="table-form">
-            <tr>
-               <td class="label-form vertical-align-bottom">
-                  Title
-               </td>
-               <td>
-                  <az-input type="text" placeholder="Title Slider" name="name" width= "100%" color="#2069b4"></az-input>
-               </td>
-            </tr>
+         <form is='az-form'
+            action = "<?php echo $urlaction; ?>"
+            success = "<?php echo $urlsuccess; ?>"
+            method = "post"
+            >
+            <table class="table-form">
+               <tr>
+                  <td class="label-form vertical-align-bottom">
+                     Title
+                  </td>
+                  <td>
+                     <az-input type="text" placeholder="Title Slider" name="title" width= "100%" color="#2069b4"></az-input>
+                  </td>
+               </tr>
 
-            <tr>
-               <td class="label-form">
-                  Picture
-               </td>
-               <td>
-                  <input type="text" class="input-data" name="picture" id="picture" readonly="true">
-                  <az-button name="choosepicture" id="browsepicture" class="overflow-visible" width="150px" color="#FB7D7D"> Choose Picture </az-button>
-               </td>
-            </tr>
+               <tr>
+                  <td class="label-form">
+                     Picture
+                  </td>
+                  <td>
+                     <input type="text" class="input-data" name="picture" id="picture" readonly="true">
+                     <az-button name="choosepicture" type='button' id="browsepicture" class="overflow-visible" width="150px" color="#FB7D7D"> Choose Picture </az-button>
+                  </td>
+               </tr>
 
-            <tr>
-               <td colspan="2">
-                  <div class="float-right"> <az-button name="save" width="250px" color="#2069b4"> Save </az-button> </div>
-               </td>
-            </tr>
-         </table>
+               <tr>
+                  <td colspan="2">
+                     <div class="float-right"> <az-button name="save" width="250px" color="#2069b4"> Save </az-button> </div>
+                  </td>
+               </tr>
+            </table>
+         </form>
       </div>
    </div>
 </section>
