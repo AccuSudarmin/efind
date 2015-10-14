@@ -9,5 +9,23 @@
          return ($this->db->affected_rows() != 1) ? false : true;
       }
 
+      public function deleteByIdArticle($idarticle) {
+         $this->db->delete('ref_map', array('mapArticleId' => $idarticle));
+
+         return ($this->db->affected_rows() != 1) ? false : true;
+      }
+
+      public function updateByIdArticle($idarticle, $data) {
+         $this->db->update('ref_map', $data, "mapArticleId = " . $idarticle);
+
+         return ($this->db->affected_rows() != 1) ? false : true;
+      }
+
+      public function getByIdArticle($idarticle) {
+         $data = $this->db->get_where('ref_map' , array('mapArticleId' => $idarticle))->row();
+
+         return $data;
+      }
+
    }
 ?>

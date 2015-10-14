@@ -12,11 +12,6 @@
          <span class="button-manager-ic" style="padding-left: 6px;">
             <a href="<?php echo $urladd; ?>"> <i class="fa fa-plus"></i> </a>
          </span>
-         <span class="button-manager-ic" style="padding-left: 6px;">
-            <i class="fa fa-trash-o"></i>
-         </span>
-         <span id="totalSelected" class="select-description">
-         </span>
       </div>
       <div class="float-right sorting-manager">
          <span> All </span>
@@ -52,13 +47,12 @@
                      ?>
                   </td>
                   <td>
-                     <span class="edit-icon image-center button-default"></span>
-                     <button
-                        is = "az-ajax"
-                        
-                        class="edit-icon image-center button-default">
+                     <button type="button" onclick="location.href='<?php echo site_url('admin/event/edit/' . $data->arId)  ?>';" class='button-default'/>
+                        <i class="fa fa-pencil"></i>
                      </button>
-                     <span class="delete-icon image-center button-danger"></span>
+                     <button type="button" onclick="location.href='<?php echo site_url('admin/event/delete/' . $data->arId)  ?>';" class='button-danger'/>
+                        <i class="fa fa-trash-o"></i>
+                     </button>
                   </td>
                </tr>
             <?php $i++; endforeach; ?>

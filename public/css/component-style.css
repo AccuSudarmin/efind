@@ -17,6 +17,10 @@
    background-size: 14px;
    vertical-align: middle;
    cursor: pointer;
+   text-align: center;
+   border: none;
+   padding: 0px;
+   color: white;
 }
 
 .button-default:hover , .button-danger:hover {

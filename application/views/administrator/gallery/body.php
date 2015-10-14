@@ -10,7 +10,7 @@
    <div class="header-content-manager">
       <div class="button-manager">
          <span class="button-manager-ic" style="padding-left: 6px;">
-            <i class="fa fa-plus" id="browsepicture"></i>
+            <a href="<?php echo $urladd; ?>"> <i class="fa fa-plus"></i> </a>
          </span>
          <span class="button-manager-ic" style="padding-left: 6px;">
             <i class="fa fa-trash-o"></i>

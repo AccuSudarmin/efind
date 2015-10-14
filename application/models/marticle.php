@@ -9,6 +9,18 @@
          return ($this->db->affected_rows() != 1) ? false : true;
       }
 
+      public function update($id, $data) {
+         $this->db->update('article', $data, "arId = " . $id);
+
+         return ($this->db->affected_rows() != 1) ? false : true;
+      }
+
+      public function delete($id) {
+         $this->db->delete('article', array('arId' => $id));
+
+         return ($this->db->affected_rows() != 1) ? false : true;
+      }
+
       public function getAll(){
          $this->db->select('*');
          $this->db->from('article');
@@ -34,6 +46,12 @@
          $data = $this->db->get_where('article' , array('arURL' => $url))->row();
 
          return $data->arId;
+      }
+
+      public function getById($id) {
+         $data = $this->db->get_where('article' , array('arId' => $id))->row();
+
+         return $data;
       }
 
    }

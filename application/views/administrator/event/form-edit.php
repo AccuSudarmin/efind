@@ -14,7 +14,7 @@
    <div class="content">
       <div class="container form">
          <form is='az-form'
-            action = "<?php echo $urlaction; ?>"
+            action = "<?php echo $urlaction . "/" . $event->arId; ?>"
             success = "<?php echo $urlsuccess; ?>"
             method = "post"
             >
@@ -24,7 +24,7 @@
                      Title
                   </td>
                   <td>
-                     <az-input type="text" placeholder="Title Event here..." name="title" width= "100%" color="#2069b4"></az-input>
+                     <az-input type="text" placeholder="Title" name="title" width= "100%" color="#2069b4"><?php echo $event->arTitle; ?></az-input>
                   </td>
                </tr>
 
@@ -33,7 +33,9 @@
                      Description
                   </td>
                   <td>
-                     <textarea is='az-texteditor' name="content" rows="8" cols="40"></textarea>
+                     <textarea is='az-texteditor' name="content">
+                        <?php echo $event->arContent; ?>
+                     </textarea>
                   </td>
                </tr>
 
@@ -42,20 +44,24 @@
                      Category
                   </td>
                   <td>
-
-                     <input type="radio" class="display-none input-category" name="category" id="music" value="1" checked>
+                     <?php
+                        $music = ($event->arCategory == '1') ? 'checked' : '';
+                        $exhibition = ($event->arCategory == '2') ? 'checked' : '';
+                        $sport = ($event->arCategory == '3') ? 'checked' : '';
+                     ?>
+                     <input type="radio" class="display-none input-category" name="category" id="music" value="1" <?php echo $music; ?>>
                      <label for="music" class="form-option-icon">
                         <span class="back-effect"></span>
                         <i class="fa fa-music fa-lg"></i>
                      </label>
 
-                     <input type="radio" class="display-none input-category" name="category" id="exhibition" value="2">
+                     <input type="radio" class="display-none input-category" name="category" id="exhibition" value="2" <?php echo $exhibition; ?>>
                      <label for="exhibition" class="form-option-icon">
                         <span class="back-effect"></span>
                         <i class="fa fa-camera-retro fa-lg"></i>
                      </label>
 
-                     <input type="radio" class="display-none input-category" name="category" id="sport" value="3">
+                     <input type="radio" class="display-none input-category" name="category" id="sport" value="3" <?php echo $sport; ?>>
                      <label for="sport" class="form-option-icon">
                         <span class="back-effect"></span>
                         <i class="fa fa-futbol-o fa-lg"></i>
@@ -68,7 +74,7 @@
                      Date
                   </td>
                   <td>
-                     <input class="input-data" type="date" name="datestart"> s.d <input class="input-data" type="date" name="dateend">
+                     <input class="input-data" type="date" name="datestart" value="<?php echo $event->arDateStart; ?>"> s.d <input class="input-data" type="date" name="dateend" value="<?php echo $event->arDateEnd; ?>">
                   </td>
                </tr>
 
@@ -77,7 +83,7 @@
                      Contact
                   </td>
                   <td>
-                     <textarea name="contact" rows="8" cols="40"></textarea>
+                     <textarea name="contact" rows="8" cols="40"><?php echo $event->arContact; ?></textarea>
                   </td>
                </tr>
 
@@ -86,7 +92,7 @@
                      Picture
                   </td>
                   <td>
-                     <input type="text" class="input-data" name="picture" id="picture" readonly="true">
+                     <input type="text" class="input-data" name="picture" id="picture" readonly="true" value="<?php echo $event->arPict; ?>">
                      <az-button name="choosepicture" type='button' id="browsepicture" class="overflow-visible" width="150px" color="#FB7D7D"> Choose Picture </az-button>
                   </td>
                </tr>
@@ -96,7 +102,7 @@
                      Ticket Price
                   </td>
                   <td>
-                     <textarea name="ticket" rows="8" cols="40"></textarea>
+                     <textarea name="ticket" rows="8" cols="40"><?php echo $event->arTicketPrice; ?></textarea>
                   </td>
                </tr>
 
@@ -105,7 +111,7 @@
                      Url for barcode
                   </td>
                   <td>
-                     <input class="input-data" type="text" name="barcode">
+                     <input class="input-data" type="text" name="barcode" value='<?php echo $event->arBarcode; ?>'>
                   </td>
                </tr>
 
@@ -114,11 +120,11 @@
                      Social Media
                   </td>
                   <td>
-                     <input placeholder="Twitter" class="input-data" type="text" name="twitter">
-                     <input placeholder="Facebook" class="input-data" type="text" name="facebook">
-                     <input placeholder="Line" class="input-data" type="text" name="line">
-                     <input placeholder="Path" class="input-data" type="text" name="path">
-                     <input placeholder="Instagram" class="input-data" type="text" name="instagram">
+                     <input placeholder="Twitter" class="input-data" type="text" name="twitter" value="<?php echo $sosmed->smTwitter; ?>">
+                     <input placeholder="Facebook" class="input-data" type="text" name="facebook" value="<?php echo $sosmed->smFacebook; ?>">
+                     <input placeholder="Line" class="input-data" type="text" name="line" value="<?php echo $sosmed->smLine; ?>">
+                     <input placeholder="Path" class="input-data" type="text" name="path" value="<?php echo $sosmed->smPath; ?>">
+                     <input placeholder="Instagram" class="input-data" type="text" name="instagram" value="<?php echo $sosmed->smInstagram; ?>">
                   </td>
                </tr>
 
@@ -128,9 +134,9 @@
                   </td>
                   <td>
                      <div id="map"></div> <br>
-                     <input type="text" class="input-data" name="lng" id="lng" readonly="true">
-                     <input type="text" class="input-data" name="lat" id="lat" readonly="true">
-                     <input type="text" class="input-data" name="mapzoom" id="mapzoom" readonly="true">
+                     <input type="text" class="input-data" name="lng" id="lng" readonly="true" value="<?php echo $map->mapLongitude; ?>">
+                     <input type="text" class="input-data" name="lat" id="lat" readonly="true" value="<?php echo $map->mapLatitude; ?>">
+                     <input type="text" class="input-data" name="mapzoom" id="mapzoom" readonly="true" value="<?php echo $map->mapZoom; ?>">
                   </td>
                </tr>
 
@@ -139,7 +145,8 @@
                      Publish
                   </td>
                   <td>
-                     <input type="checkbox" id="publish" name="status" value="1" checked>
+                     <?php $publish = ($event->arStatus == '1') ? 'checked' : ''; ?>
+                     <input type="checkbox" id="publish" name="status" value="1" <?php echo $publish; ?>>
                   </td>
                </tr>
 
@@ -173,10 +180,14 @@
       , elmZoom = document.getElementById("mapzoom");
 
    function initMap() {
-      var haightAshbury = {lat: -5.135069401600222, lng: 119.41178306937218};
+      var haightAshbury = {lat: 0, lng: 0};
+      haightAshbury.lat = parseFloat(document.getElementById('lat').value);
+      haightAshbury.lng = parseFloat(document.getElementById('lng').value);
+
+      var mapZoom = parseFloat(document.getElementById('mapzoom').value);
 
       map = new google.maps.Map(document.getElementById('map'), {
-         zoom: 4,
+         zoom: mapZoom,
          center: haightAshbury,
          mapTypeId: google.maps.MapTypeId.TERRAIN
       });
