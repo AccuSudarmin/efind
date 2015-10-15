@@ -34,7 +34,7 @@ class Login extends CI_Controller {
 				$result = array (
 	            "message" => "Berhasil Login" ,
 	            "type" => "modal-box" ,
-	            "delayURL" => 3000 ,
+	            "delayURL" => 500 ,
 	         );
 
 			} else {
