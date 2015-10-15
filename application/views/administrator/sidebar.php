@@ -1,15 +1,22 @@
 <?php
    $dashboard = "";
    $event = "";
+   $gallery = "";
+   $slider = "";
 
    switch ($activate) {
       case 'dashboard':
          $dashboard = "active";
          break;
-         case 'event':
-            $event = "active";
-            break;
-
+      case 'event':
+         $event = "active";
+         break;
+      case 'gallery':
+         $gallery = "active";
+         break;
+      case 'slider':
+         $slider = "active";
+         break;
       default:
          $dashboard = "active";
          break;
@@ -25,19 +32,19 @@
 <section class="sidebar">
    <ul>
       <li class="<?php echo $dashboard;?>">
-         <a href="<?php echo site_url('/admin') ?>">Dashboard</a>
+         <a href="<?php echo site_url('/admin') ?>"> <i class="fa fa-home"></i>&nbsp;&nbsp; Dashboard</a>
       </li>
       <li class="<?php echo $event;?>">
-         <a href="<?php echo site_url('/admin/event') ?>">Event</a>
+         <a href="<?php echo site_url('/admin/event') ?>"> <i class="fa fa-sticky-note"></i>&nbsp;&nbsp; Event</a>
+      </li>
+      <li class="<?php echo $gallery;?>">
+         <a href="<?php echo site_url('/admin/gallery') ?>"> <i class="fa fa-picture-o"></i>&nbsp;&nbsp; Gallery</a>
+      </li>
+      <li class="<?php echo $slider;?>">
+         <a href="<?php echo site_url('/admin/slider') ?>"> <i class="fa fa-object-ungroup"></i>&nbsp;&nbsp; Slider</a>
       </li>
       <li>
-         <a href="#">Post</a>
-      </li>
-      <li>
-         <a href="#">Media</a>
-      </li>
-      <li>
-         <a href="#">Setting</a>
+         <a href="#"> <i class="fa fa-cog"></i>&nbsp;&nbsp; Setting</a>
       </li>
    </ul>
 </section>

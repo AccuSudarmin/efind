@@ -1,9 +1,8 @@
 <section class="main has-sidebar">
 <div class="page-title">
-   <div class="login-icon image-left title">
+   <div class="title">
       <div class="middle">
-         <h3> Dashboard </h3>
-         <h6> Welcome admin </h6>
+         <h2> Dashboard </h2>
       </div>
    </div>
 </div>

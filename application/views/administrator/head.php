@@ -4,10 +4,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?php echo base_url('public/css/admin-style.css'); ?>" />
 	<link rel="stylesheet"  media="(max-width: 460px)" href="<?php echo base_url('public/css/admin-style460.css'); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url('public/css/font-awesome.css'); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url('public/js/azuploader/css/azuploader.css'); ?>" />
 	<script src="http://localhost/webcomponent/lib/azcomponent/webcomponentsjs/webcomponents.js"></script>
 	<link rel="import" href="http://localhost/webcomponent/lib/azcomponent/az-ui.html">
+	<link rel="import" href="http://localhost/webcomponent/lib/azcomponent/az-ajax.html">
 	<link rel="import" href="http://localhost/webcomponent/lib/azcomponent/az-chart.html">
 	<title>Eventfinder Administrator</title>
+	<style media="screen">
+		#map {
+			 height: 300px;
+			 width: 80%;
+		}
+	</style>
 </head>
 
 <body>
