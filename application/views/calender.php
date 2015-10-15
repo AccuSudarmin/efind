@@ -30,6 +30,22 @@
 
    </head>
    <body id="calendar">
+
+      <nav id="mobile-menu" class="floatok">
+         <div class="icon-close"> <i class="fa fa-times"> </i></div>
+          <ul>
+            <li><a href="http://eventfinder.co.id"><img src="<?php echo base_url('public/img/long-logo.png');?>"></a></li>
+            <li><a href="#"><i class="fa fa-home"> </i> Home  </a> </li>
+            <li><a href="#"><i class="fa fa-music"> </i> Music Events  </a> </li>
+            <li><a href="#"><i class="fa fa-paint-brush"> </i> Exhibition Events  </a> </li>
+            <li><a href="#"><i class="fa fa-futbol-o"> </i> Sport Events</a> </li>
+            <li class="mobile-sc"> <i class="fa fa-search rights mobile-search"> </i><div class='searchbar rights mobile-search'><input type="text"> </div>
+            </li>
+            <li class="social-icon"> <a href="#"><i class="fa fa-youtube"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-facebook"></i></a></li>
+         </ul>
+      </nav>
+
+
       <div class="straight-menu">
          <header class="navigation main-width">
             <div class="logo rights"> <img src="<?php echo base_url('public/img/long-logo.png');?>"> </div>
@@ -55,6 +71,11 @@
             </nav>
          </header>
       </div>
+
+      <button class="menu-mobile menu-toggle">
+
+         <i class="fa fa-bars"></i>
+      </button>
 
       <div class="calendar-container">
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -152,5 +173,7 @@
          </div>
       </div>
 
+      <script src="<?php echo base_url('public/js/home.js');?>"></script>
+      
    </body>
 </html>

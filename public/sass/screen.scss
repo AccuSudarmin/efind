@@ -10,7 +10,8 @@ $body: 'Open Sans', sans-serif;
 $heading: 'Montserrat', sans-serif;
 $warna1: #fff;
 // $mainred: #b80000;
-$mainred: #E02828;
+// $mainred: #E02828;
+$mainred:#F44336;
 $warna2: #f5f5f5;
 
 *{
@@ -165,6 +166,21 @@ header.navigation{
   background-color: $warna1;
 }
 
+
+#calendar .menu-toggle{
+      color: $mainred;
+      float: right;
+      right: 0;
+      left: auto;
+      z-index: 200;
+      height: 40px;
+
+
+      i{
+        color: $mainred;
+      }
+}
+
 .menu-toggle{
    border: 1px solid #fff;
    display: none;
@@ -183,6 +199,13 @@ header.navigation{
       color: #fff;
       text-decoration: none;
    }
+}
+
+.menu-mobile{
+   position: fixed;
+   border: 1px solid $mainred;
+   color: $mainred;
+   height:50px;
 }
 
 
@@ -857,8 +880,13 @@ footer{
 
 @media only screen and (min-width:0px) and (max-width:786px){
 
+   .calendar-container .calendar-ul .main-calendar li{
+         width: 100%;
+         float:none;
+      }
+
       .menu-toggle{
-         display: block;
+        display: block;
       }
 
       body{
@@ -866,9 +894,40 @@ footer{
          height:100%;
       }
 
+      .article-container .fill-article{
+
+         article,aside{
+            float: none;
+         }
+
+         article{
+            width:100%;
+         }
+
+         aside{
+            position:relative;
+            width:100%;
+         }
+      }
+
       .main-width{
          max-width: 100%;
          width:100%;
+      }
+
+      .straight-menu{
+         display: none;
+      }
+
+      .calendar-container .calendar-ul .main-calendar {
+        height: 100%;
+
+
+        li {
+        width: 100%;
+        height: 344px;
+        float:none;
+        }
       }
 
       section.slide-wrapper {

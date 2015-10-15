@@ -36,10 +36,10 @@
          <div class="icon-close"> <i class="fa fa-times"> </i></div>
           <ul>
             <li><a href="http://eventfinder.co.id"><img src="<?php echo base_url('public/img/long-logo.png');?>"></a></li>
-            <li><a href="#"><i class="fa fa-home"> Home </i> </a> </li>
-            <li><a href="#"><i class="fa fa-music"> Music Events </i> </a> </li>
-            <li><a href="#"><i class="fa fa-paint-brush"> Exhibition Events </i> </a> </li>
-            <li><a href="#"><i class="fa fa-futbol-o"> Sport Events</i></a> </li>
+            <li><a href="#"><i class="fa fa-home"> </i> Home  </a> </li>
+            <li><a href="#"><i class="fa fa-music"> </i> Music Events  </a> </li>
+            <li><a href="#"><i class="fa fa-paint-brush"> </i> Exhibition Events  </a> </li>
+            <li><a href="#"><i class="fa fa-futbol-o"> </i> Sport Events</a> </li>
             <li class="mobile-sc"> <i class="fa fa-search rights mobile-search"> </i><div class='searchbar rights mobile-search'><input type="text"> </div>
             </li>
             <li class="social-icon"> <a href="#"><i class="fa fa-youtube"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -72,9 +72,9 @@
          </nav>
       </header>
 
-   <button class="menu-toggle">
-      <i class="fa fa-bars"></i>
-   </button>
+      <button class="menu-toggle">
+         <i class="fa fa-bars"></i>
+      </button>
 
       <section class="slide-wrapper">
          <?php $this->load->view('slider');?>
@@ -161,9 +161,9 @@
    </div>
 
       <script src="<?php echo base_url('public/js/home.js');?>"></script>
-
+<!-- 
       </script>
 
-      </script>
+      </script> -->
    </body>
 </html>
