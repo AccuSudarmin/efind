@@ -14,10 +14,16 @@
          </span>
       </div>
       <div class="float-right sorting-manager">
-         <span> All </span>
-         <span class="active"> Exhibition </span>
-         <span> Sport </span>
-         <span> Music </span>
+         <?php
+            $all = ($activate == '0') ? 'active' : '';
+            $music = ($activate == '1') ? 'active' : '';
+            $exhibition = ($activate == '2') ? 'active' : '';
+            $sport = ($activate == '3') ? 'active' : '';
+         ?>
+         <span class="<?php echo $all; ?>"> <a href='?'> All </a> </span>
+         <span class="<?php echo $music; ?>"> <a href='?category=1'> Music </a> </span>
+         <span class="<?php echo $exhibition; ?>"> <a href='?category=2'> Exhibition </a></span>
+         <span class="<?php echo $sport; ?>"> <a href='?category=3'> Sport </a> </span>
       </div>
    </div>
 <div class="content">
