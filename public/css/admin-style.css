@@ -274,8 +274,16 @@ section.main {
    cursor: pointer;
 }
 
+.sorting-manager > span > a {
+   color: black;
+   text-decoration: none;
+}
+
 .sorting-manager > span.active , .sorting-manager > span:hover {
    background-color: #FB7D7D;
+}
+
+.sorting-manager > span.active > a , .sorting-manager > span:hover > a {
    color: white;
 }
 
