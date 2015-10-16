@@ -12,14 +12,24 @@ class Event extends MY_Controller {
 	}
 
 	public function index() {
+		$category = $this->input->get('category');
 
-		$event = $this->marticle->getAll();
+		if ($category) {
+			$event = $this->marticle->getByCategory($category);
+			$activate = $category;
+		} else {
+			$event = $this->marticle->getAll();
+			$activate = '0';
+		}
+
 		$this->load->view('administrator/head');
 		$this->load->view('administrator/header');
 		$this->load->view('administrator/sidebar' , array(
-			'activate' => "event"
+			'activate' => 'event'
 		));
+
 		$this->load->view('administrator/event/body' , array(
+			'activate' => $activate ,
 			'urladd' => site_url('admin/event/add') ,
 			'event' => $event
 		));
