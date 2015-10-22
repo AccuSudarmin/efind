@@ -26,6 +26,9 @@
          $this->db->from('article');
          $this->db->join('ref_category', 'article.arCategory = ref_category.catId');
          $this->db->join('admin', 'article.arAuthor = admin.amId');
+         $this->db->where(array(
+            'arStatus' => 1
+         ));
 
          return $this->db->get()->result();;
       }
@@ -61,7 +64,8 @@
          $this->db->join('admin', 'article.arAuthor = admin.amId');
          $this->db->order_by("arId", "DESC");
          $this->db->where(array(
-            'catId' => $idcategory
+            'catId' => $idcategory ,
+            'arStatus' => 1
          ));
 
          return $this->db->get()->result();

@@ -36,6 +36,7 @@
 						method="post"
 						action="<?php echo site_url('/admin/login/doLogin'); ?>"
 						success="<?php echo site_url('/admin'); ?>"
+						name="coba"
 						>
 						<p>
 							<az-input type="text" placeholder="Username" name="name" width= "250px" color="#2069b4"></az-input>
@@ -61,5 +62,4 @@
 		</footer>
 
 	</body>
-
 </html>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2015 at 08:23 AM
+-- Generation Time: Oct 18, 2015 at 09:59 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -216,6 +216,20 @@ CREATE TABLE IF NOT EXISTS `slider` (
 
 INSERT INTO `slider` (`slId`, `slTitle`, `slPict`, `slOrder`) VALUES
 (4, 'Slider 3', 'http://localhost/eventfinder/public/userfiles/image\\photo3.png', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slider_home`
+--
+
+CREATE TABLE IF NOT EXISTS `slider_home` (
+  `shId` int(11) NOT NULL AUTO_INCREMENT,
+  `shTitle` varchar(100) DEFAULT NULL,
+  `shDesc` text,
+  `shPict` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`shId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
