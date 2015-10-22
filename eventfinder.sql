@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2015 at 09:59 AM
+-- Generation Time: Oct 22, 2015 at 07:24 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `article` (
 --
 
 INSERT INTO `article` (`arId`, `arTitle`, `arContent`, `arDateStart`, `arDateEnd`, `arPict`, `arURL`, `arAuthor`, `arTicketPrice`, `arBarcode`, `arCategory`, `arContact`, `arDatePost`, `arStatus`) VALUES
-(42, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit', '                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2015-10-15', '2015-10-15', 'http://localhost/eventfinder/public/userfiles/image\\3.jpg', 'Lorem-ipsum-dolor-sit-amet,-consectetur-adipisicing-elit', 1, 'Rp. 2000.000,-', 'http://eventfinder.co.id', 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore', '2015-10-14', ''),
+(42, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit', '                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2015-10-15', '2015-10-15', 'http://localhost/eventfinder/public/userfiles/image\\3.jpg', 'Lorem-ipsum-dolor-sit-amet,-consectetur-adipisicing-elit', 1, 'Rp. 2000.000,-', 'http://eventfinder.co.id', 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore', '2015-10-14', '0'),
 (43, 'Sport Event Presented By Eventfinder', 'Sport Event Presented By Eventfinder&nbsp;Sport Event Presented By Eventfinder&nbsp;Sport Event Presented By Eventfinder', '2015-10-15', '2015-10-17', 'http://localhost/eventfinder/public/userfiles/image\\photo3.png', 'Sport-Event-Presented-By-Eventfinder', 1, 'Rp. 200.000,-', 'http://eventfinder.co.id', 3, 'Phone: 0411 70707070\r\nEmail: contact@eventfinder.co.id', '2015-10-15', '1');
 
 -- --------------------------------------------------------
@@ -168,8 +168,7 @@ CREATE TABLE IF NOT EXISTS `ref_map` (
 
 INSERT INTO `ref_map` (`mapId`, `mapLongitude`, `mapLatitude`, `mapZoom`, `mapArticleId`) VALUES
 (39, '119.42392891658528', '-5.13705695288282', 15, 42),
-(40, '119.41178306937218', '-5.135069401600222', 9, 43),
-(41, '119.43407247774303', '-5.319064392442244', 13, 43);
+(40, '119.41178306937218', '-5.135069401600222', 9, 43);
 
 -- --------------------------------------------------------
 
@@ -205,6 +204,7 @@ INSERT INTO `ref_social_media` (`smId`, `smTwitter`, `smFacebook`, `smLine`, `sm
 CREATE TABLE IF NOT EXISTS `slider` (
   `slId` int(11) NOT NULL AUTO_INCREMENT,
   `slTitle` text,
+  `slDesc` text,
   `slPict` text,
   `slOrder` int(11) NOT NULL,
   PRIMARY KEY (`slId`)
@@ -214,8 +214,8 @@ CREATE TABLE IF NOT EXISTS `slider` (
 -- Dumping data for table `slider`
 --
 
-INSERT INTO `slider` (`slId`, `slTitle`, `slPict`, `slOrder`) VALUES
-(4, 'Slider 3', 'http://localhost/eventfinder/public/userfiles/image\\photo3.png', 2);
+INSERT INTO `slider` (`slId`, `slTitle`, `slDesc`, `slPict`, `slOrder`) VALUES
+(4, 'Slider 3', 'lorem ipsum dolar sir amet lorem ipsum dolar sir amet lorem ipsum dolar sir amet', 'http://localhost/eventfinder/public/userfiles/image\\photo3.png', 2);
 
 -- --------------------------------------------------------
 
