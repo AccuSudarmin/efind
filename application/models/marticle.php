@@ -72,7 +72,7 @@
       }
 
       public function getByYearMonthAndCategory($year, $month, $idcategory) {
-         $month = ($month < 10) ? '0'.$month : $month;
+         $month = (strlen($month) == 1) ? '0'.$month : $month;
 
          $query = $this->db->query("
             SELECT * FROM article INNER JOIN ref_category ON article.arCategory = ref_category.catId INNER JOIN admin ON article.arAuthor = admin.amId WHERE catId = '" . $idcategory . "' AND arStatus = '1' AND (arDateStart LIKE '%" . $year . '-' . $month . "%' OR arDateEnd LIKE '%" . $year . '-' .$month . "%' ) ORDER BY arId DESC
