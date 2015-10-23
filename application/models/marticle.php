@@ -71,5 +71,30 @@
          return $this->db->get()->result();
       }
 
+      public function getByYearMonthAndCategory($year, $month, $idcategory) {
+         $month = ($month < 10) ? '0'.$month : $month;
+
+         $query = $this->db->query("
+            SELECT * FROM article INNER JOIN ref_category ON article.arCategory = ref_category.catId INNER JOIN admin ON article.arAuthor = admin.amId WHERE catId = '" . $idcategory . "' AND arStatus = '1' AND (arDateStart LIKE '%" . $year . '-' . $month . "%' OR arDateEnd LIKE '%" . $year . '-' .$month . "%' ) ORDER BY arId DESC
+         ");
+
+         $article = $query->result();
+
+         $totalDays = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+         $result = array();
+         for ($i=1; $i <= $totalDays; $i++) {
+            $today = array();
+            $days = ($i < 10) ? '0'.$i : $i;
+            $date = $year.'-'.$month.'-'.$days;
+            foreach ($article as $data) {
+               if ( $date >= $data->arDateStart && $date <= $data->arDateEnd ) array_push($today, $data);
+            }
+
+            $result[$days] = $today;
+         }
+
+         return $result;
+      }
+
    }
 ?>
