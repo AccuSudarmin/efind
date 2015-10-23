@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2015 at 07:24 AM
+-- Generation Time: Oct 23, 2015 at 07:55 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -58,10 +58,10 @@ CREATE TABLE IF NOT EXISTS `article` (
   `arAuthor` int(11) DEFAULT NULL,
   `arTicketPrice` text,
   `arBarcode` varchar(100) DEFAULT NULL,
-  `arCategory` int(11) DEFAULT NULL,
+  `arCategory` int(11) DEFAULT '1',
   `arContact` text,
   `arDatePost` varchar(11) DEFAULT NULL,
-  `arStatus` enum('1','0') NOT NULL,
+  `arStatus` enum('1','0') NOT NULL DEFAULT '1',
   PRIMARY KEY (`arId`),
   KEY `arAuthor` (`arAuthor`),
   KEY `arCategory` (`arCategory`),
@@ -73,8 +73,32 @@ CREATE TABLE IF NOT EXISTS `article` (
 --
 
 INSERT INTO `article` (`arId`, `arTitle`, `arContent`, `arDateStart`, `arDateEnd`, `arPict`, `arURL`, `arAuthor`, `arTicketPrice`, `arBarcode`, `arCategory`, `arContact`, `arDatePost`, `arStatus`) VALUES
-(42, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit', '                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2015-10-15', '2015-10-15', 'http://localhost/eventfinder/public/userfiles/image\\3.jpg', 'Lorem-ipsum-dolor-sit-amet,-consectetur-adipisicing-elit', 1, 'Rp. 2000.000,-', 'http://eventfinder.co.id', 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore', '2015-10-14', '0'),
-(43, 'Sport Event Presented By Eventfinder', 'Sport Event Presented By Eventfinder&nbsp;Sport Event Presented By Eventfinder&nbsp;Sport Event Presented By Eventfinder', '2015-10-15', '2015-10-17', 'http://localhost/eventfinder/public/userfiles/image\\photo3.png', 'Sport-Event-Presented-By-Eventfinder', 1, 'Rp. 200.000,-', 'http://eventfinder.co.id', 3, 'Phone: 0411 70707070\r\nEmail: contact@eventfinder.co.id', '2015-10-15', '1');
+(42, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit', '                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2014-10-15', '2015-10-15', 'http://localhost/eventfinder/public/userfiles/image/3.jpg', 'Lorem-ipsum-dolor-sit-amet,-consectetur-adipisicing-elit', 1, 'Rp. 2000.000,-', 'http://eventfinder.co.id', 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore', '2015-10-14', '1'),
+(43, 'Sport Event Presented By Eventfinder', 'Sport Event Presented By Eventfinder&nbsp;Sport Event Presented By Eventfinder&nbsp;Sport Event Presented By Eventfinder', '2015-10-15', '2015-10-17', 'http://localhost/eventfinder/public/userfiles/image/photo3.png', 'Sport-Event-Presented-By-Eventfinder', 1, 'Rp. 200.000,-', 'http://eventfinder.co.id', 3, 'Phone: 0411 70707070\r\nEmail: contact@eventfinder.co.id', '2015-10-15', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `form_event`
+--
+
+CREATE TABLE IF NOT EXISTS `form_event` (
+  `feId` int(11) NOT NULL AUTO_INCREMENT,
+  `feTitle` varchar(100) DEFAULT NULL,
+  `feContent` text,
+  `feDateStart` varchar(20) DEFAULT NULL,
+  `feDateEnd` varchar(20) DEFAULT NULL,
+  `fePict` text,
+  `feAuthor` varchar(50) DEFAULT NULL,
+  `feTicketPrice` varchar(50) DEFAULT NULL,
+  `feWebURL` varchar(100) DEFAULT NULL,
+  `feCategory` int(11) DEFAULT NULL,
+  `feContact` text,
+  `feAdminContact` text,
+  `feDatePost` varchar(20) DEFAULT NULL,
+  `feApproval` int(11) DEFAULT NULL,
+  PRIMARY KEY (`feId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -208,14 +232,15 @@ CREATE TABLE IF NOT EXISTS `slider` (
   `slPict` text,
   `slOrder` int(11) NOT NULL,
   PRIMARY KEY (`slId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `slider`
 --
 
 INSERT INTO `slider` (`slId`, `slTitle`, `slDesc`, `slPict`, `slOrder`) VALUES
-(4, 'Slider 3', 'lorem ipsum dolar sir amet lorem ipsum dolar sir amet lorem ipsum dolar sir amet', 'http://localhost/eventfinder/public/userfiles/image\\photo3.png', 2);
+(4, 'Slider 3', 'lorem ipsum dolar sir amet lorem ipsum dolar sir amet lorem ipsum dolar sir amet', 'http://localhost/eventfinder/public/userfiles/image\\photo3.png', 2),
+(5, 'Slider baru', 'Cobaka ini slidernya', 'http://localhost/eventfinder/public/userfiles/slider\\3.jpg', 2);
 
 -- --------------------------------------------------------
 

@@ -39,6 +39,15 @@
                </tr>
 
                <tr>
+                  <td class="label-form vertical-align-top">
+                     Description
+                  </td>
+                  <td>
+                     <textarea name="desc" rows="8" cols="40"></textarea>
+                  </td>
+               </tr>
+
+               <tr>
                   <td colspan="2">
                      <div class="float-right"> <az-button name="save" width="250px" color="#2069b4"> Save </az-button> </div>
                   </td>

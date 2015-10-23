@@ -50,11 +50,13 @@ class Slider extends MY_Controller {
 		$order = $this->mslider->getCurrentOrder();
 		$title = $this->input->post('title');
 		$picture = $this->input->post('picture');
+		$desc = $this->input->post('desc');
 
 		$this->db->trans_begin();
 
 		$result = $this->mslider->add( array(
 			'slTitle' => $title ,
+			'slDesc' => $desc ,
 			'slPict' => $picture ,
 			'slOrder' => $order
 		));
