@@ -65,8 +65,11 @@ class Event extends MY_Controller {
 		$barcode = $this->input->post('barcode');
 		$category = $this->input->post('category');
 		$contact = $this->input->post('contact');
+		$eventlocation = $this->input->post('eventloc');
 		$datepost = date("Y-m-j");
+		$metadesc = $this->input->post('metadesc');
 		$status = ($this->input->post('status')) ? 1 : 0;
+		$organizer = $this->input->post('organizer');
 
 		// social media
 		$twitter = $this->input->post('twitter');
@@ -92,12 +95,15 @@ class Event extends MY_Controller {
 			'arPict' => $pict ,
 			'arURL' => $url ,
 			'arAuthor' => $author ,
+			'arEventLocation' => $eventlocation ,
 			'arTicketPrice' => $ticket ,
 			'arBarcode' => $barcode ,
 			'arCategory' => $category ,
 			'arContact' => $contact ,
 			'arDatePost' => $datepost ,
-			'arStatus' => $status
+			'arStatus' => $status ,
+			'arMetaDesc' => $metadesc ,
+			'arOrganizer' => $organizer
 		));
 
 		if ($result) {
@@ -166,12 +172,15 @@ class Event extends MY_Controller {
 		$pict = $this->input->post('picture');
 		$url = preg_replace("( |\\|\"|\'|\/)", '-', $title);
 		$author = $this->userdata['id'];
+		$eventlocation = $this->input->post('eventloc');
 		$ticket = $this->input->post('ticket');
 		$barcode = $this->input->post('barcode');
 		$category = $this->input->post('category');
 		$contact = $this->input->post('contact');
 		$datepost = date("Y-m-j");
 		$status = ($this->input->post('status')) ? 1 : 0;
+		$metadesc = $this->input->post('metadesc');
+		$organizer = $this->input->post('organizer');
 
 		// social media
 		$twitter = $this->input->post('twitter');
@@ -199,12 +208,15 @@ class Event extends MY_Controller {
 			'arPict' => $pict ,
 			'arURL' => $url ,
 			'arAuthor' => $author ,
+			'arEventLocation' => $eventlocation ,
 			'arTicketPrice' => $ticket ,
 			'arBarcode' => $barcode ,
 			'arCategory' => $category ,
 			'arContact' => $contact ,
 			'arDatePost' => $datepost ,
-			'arStatus' => $status
+			'arStatus' => $status ,
+			'arOrganizer' => $organizer ,
+			'arMetaDesc' => $metadesc
 		));
 
 		if ($result) {

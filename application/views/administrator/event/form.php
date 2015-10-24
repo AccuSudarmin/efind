@@ -42,7 +42,6 @@
                      Category
                   </td>
                   <td>
-
                      <input type="radio" class="display-none input-category" name="category" id="music" value="1" checked>
                      <label for="music" class="form-option-icon">
                         <span class="back-effect"></span>
@@ -64,6 +63,15 @@
                </tr>
 
                <tr>
+                  <td class="label-form vertical-align-bottom">
+                     Organizer
+                  </td>
+                  <td>
+                     <input type="text" class='input-data' name="organizer" value="">
+                  </td>
+               </tr>
+
+               <tr>
                   <td class="label-form">
                      Date
                   </td>
@@ -80,6 +88,16 @@
                      <textarea name="contact" rows="8" cols="40"></textarea>
                   </td>
                </tr>
+
+               <tr>
+                  <td class="label-form vertical-align-top">
+                     Event Location
+                  </td>
+                  <td>
+                     <textarea name="eventloc" rows="8" cols="40"></textarea>
+                  </td>
+               </tr>
+
 
                <tr>
                   <td class="label-form">
@@ -131,6 +149,15 @@
                      <input type="text" class="input-data" name="lng" id="lng" readonly="true">
                      <input type="text" class="input-data" name="lat" id="lat" readonly="true">
                      <input type="text" class="input-data" name="mapzoom" id="mapzoom" readonly="true">
+                  </td>
+               </tr>
+
+               <tr>
+                  <td class="label-form vertical-align-top">
+                     Meta Description (SEO)
+                  </td>
+                  <td>
+                     <textarea name="metadesc" rows="8" cols="40"></textarea>
                   </td>
                </tr>
 

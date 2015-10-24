@@ -18,7 +18,7 @@
 
             if ($ext === 'png' || $ext === 'jpg' ) {
 
-               $data['loc'] =  $FOLDER_PATH . "\\". $entry;
+               $data['loc'] =  $FOLDER_PATH . "/". $entry;
                $data['type'] = 'image';
 
             } elseif ($ext === '') {

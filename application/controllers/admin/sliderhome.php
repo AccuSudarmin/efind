@@ -19,44 +19,46 @@ class Sliderhome extends MY_Controller {
 		));
 
 		$this->load->view('administrator/sliderhome/body' , array (
-         'pagetitle' => "Slider" ,
+         'pagetitle' => "Slider Home" ,
          'urlsorting' => site_url('admin/sliderhome/sorting') ,
-			'urladd' => site_url('admin/sliderhome/add') ,
+			'urledit' => site_url('admin/sliderhome/edit') ,
 			'urlaction' => site_url('admin/sliderhome/delete') ,
 			'urlsuccess' => site_url('admin/sliderhome') ,
-			'slider' => $sliderhome
+			'sliderhome' => $sliderhome
       ));
 
 		$this->load->view('administrator/footer');
 	}
 
-	public function add() {
+	public function edit($id) {
+		$sliderhome = $this->msliderhome->getById($id);
+
 		$this->load->view('administrator/head');
 		$this->load->view('administrator/header');
 		$this->load->view('administrator/sidebar' , array(
-			'activate' => "slider"
+			'activate' => "sliderhome"
 		));
-		$this->load->view('administrator/slider/form', array(
-			'title' => 'Input Data Slider' ,
-			'subtitle' => 'Content Management' ,
-			'urlaction' => site_url('admin/slider/save') ,
-			'urlsuccess' => site_url('admin/slider') ,
-			'urlback' => site_url('admin/slider')
+		$this->load->view('administrator/sliderhome/form-edit', array(
+			'title' => 'Edit Slider Home' ,
+			'urlaction' => site_url('admin/sliderhome/update') ,
+			'urlsuccess' => site_url('admin/sliderhome') ,
+			'urlback' => site_url('admin/sliderhome') ,
+			'sliderhome' => $sliderhome
 		));
 		$this->load->view('administrator/footer');
 	}
 
-	public function save(){
-		$order = $this->msliderhome->getCurrentOrder();
+	public function update($id){
 		$title = $this->input->post('title');
 		$picture = $this->input->post('picture');
+		$desc = $this->input->post('desc');
 
 		$this->db->trans_begin();
 
-		$result = $this->msliderhome->add( array(
-			'slTitle' => $title ,
-			'slPict' => $picture ,
-			'slOrder' => $order
+		$result = $this->msliderhome->update($id, array(
+			'shTitle' => $title ,
+			'shPict' => $picture ,
+			'shDesc' => $desc
 		));
 
 		$callback = array("type" => "modal-box");

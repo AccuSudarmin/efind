@@ -70,6 +70,15 @@
                </tr>
 
                <tr>
+                  <td class="label-form vertical-align-bottom">
+                     Organizer
+                  </td>
+                  <td>
+                     <input type="text" class='input-data' name="organizer" value="<?php echo $event->arOrganizer; ?>">
+                  </td>
+               </tr>
+
+               <tr>
                   <td class="label-form">
                      Date
                   </td>
@@ -84,6 +93,15 @@
                   </td>
                   <td>
                      <textarea name="contact" rows="8" cols="40"><?php echo $event->arContact; ?></textarea>
+                  </td>
+               </tr>
+
+               <tr>
+                  <td class="label-form vertical-align-top">
+                     Event Location
+                  </td>
+                  <td>
+                     <textarea name="eventloc" rows="8" cols="40"><?php echo $event->arEventLocation; ?></textarea>
                   </td>
                </tr>
 
@@ -137,6 +155,15 @@
                      <input type="text" class="input-data" name="lng" id="lng" readonly="true" value="<?php echo $map->mapLongitude; ?>">
                      <input type="text" class="input-data" name="lat" id="lat" readonly="true" value="<?php echo $map->mapLatitude; ?>">
                      <input type="text" class="input-data" name="mapzoom" id="mapzoom" readonly="true" value="<?php echo $map->mapZoom; ?>">
+                  </td>
+               </tr>
+
+               <tr>
+                  <td class="label-form vertical-align-top">
+                     Meta Description (SEO)
+                  </td>
+                  <td>
+                     <textarea name="metadesc" rows="8" cols="40"><?php echo $event->arMetaDesc; ?></textarea>
                   </td>
                </tr>
 
