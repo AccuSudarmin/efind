@@ -50,7 +50,12 @@
                   <img src="<?php echo $data->slPict; ?>" alt="Picture 2" />
                </div>
                <div class="gallery-description">
-                  <?php echo $data->slTitle; ?>
+                  <b> <?php echo $data->slTitle; ?> </b>
+                  <a href="#"></a>
+                  <p>
+                     <?php echo $data->slDesc; ?>
+                  </p>
+
                </div>
             </label>
          <?php endforeach; ?>
