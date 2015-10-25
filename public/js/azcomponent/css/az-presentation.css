@@ -1,0 +1,294 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);
+
+az-presentation {
+   border-radius: 10px;
+   display: block;
+   position: relative;
+   height: 699px;
+   width: 1100px;
+   margin: auto;
+   background-color: white;
+   box-sizing: border-box;
+   font-family: 'Oswald', sans-serif;
+   overflow: hidden;
+}
+
+az-presentation > az-pres-slide {
+   width: 100%;
+   height: 100%;
+   background-color: white;
+   padding: 5px 20px;
+   border-radius: 10px;
+   -webkit-transition: left 1s ease-in-out;
+   -moz-transition: left 1s ease-in-out;
+   -o-transition: left 1s ease-in-out;
+   -ms-transition: left 1s ease-in-out;
+   margin: auto;
+   position: absolute;
+   box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   text-align: center;
+   font-size: 30pt;
+}
+
+az-presentation > az-pres-slide > slide-title {
+   display: table-cell;
+   font-size: 40pt;
+   vertical-align: middle;
+
+   width: 100%;
+   height: intrinsic;
+   height: -moz-max-content;
+   height: -webkit-max-content;
+
+}
+
+az-presentation > az-pres-slide > header {
+   display: table-header-group;
+   /*margin: 10px auto;*/
+   color: #777;
+   font-size: 40pt;
+   width: intrinsic;
+   width: -moz-max-content;
+   width: -webkit-max-content;
+   height: intrinsic;
+   height: -moz-max-content;
+   height: -webkit-max-content;
+}
+
+az-presentation > az-pres-slide > slide-content {
+   text-align: left;
+   display: block;
+   margin-top: 10px;
+   font-size: 25pt;
+   font-weight: normal;
+}
+
+az-presentation > az-pres-slide .coding {
+   text-align: left;
+   font-family: 'Source Code Pro';
+   background-color: #E9E9F3;
+   border-left: solid 4px #BEBEBF;
+   color: black;
+   padding: 20px;
+   padding-top: 40px;
+   display: inline-block;
+   position: relative;
+   font-size: 17pt;
+}
+
+az-presentation > az-pres-slide .coding header {
+   font-family: 'Oswald', sans-serif;
+   position: absolute;
+   right: 0;
+   top: 0;
+   padding: 5px;
+   background-color: #636363;
+   color: white;
+   width: intrinsic;
+   width: -moz-max-content;
+   width: -webkit-max-content;
+   line-height: 30px;
+}
+
+az-presentation > az-pres-slide .coding span.def-syntax {
+   color: #150A9E;
+}
+
+az-presentation > az-pres-slide .coding span.string {
+   color: #5F8E5F;
+}
+
+az-presentation > az-pres-slide .coding span.bracket {
+   color: #bebebe;
+}
+
+/*animation fade*/
+
+.animation-fade {
+   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: fadein 1s; /* Firefox < 16 */
+   -ms-animation: fadein 1s; /* Internet Explorer */
+   -o-animation: fadein 1s; /* Opera < 12.1 */
+   animation: fadein 1s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/*end animation fade*/
+
+.animation-swipe-right {
+   -webkit-animation: swipe-right 1s; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: swipe-right 1s; /* Firefox < 16 */
+   -ms-animation: swipe-right 1s; /* Internet Explorer */
+   -o-animation: swipe-right 1s; /* Opera < 12.1 */
+   animation: swipe-right 1s;
+}
+
+@keyframes swipe-right {
+   from { left: 1100px; }
+   to   { left: 0px; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes swipe-right {
+   from { left: 1100px; }
+   to   { left: 0px; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes swipe-right {
+   from { left: 1100px; }
+   to   { left: 0px; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes swipe-right {
+   from { left: 1100px; }
+   to   { left: 0px; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes swipe-right {
+   from { left: 1100px; }
+   to   { left: 0px; }
+}
+
+.animation-swipe-left {
+   -webkit-animation: swipe-left 1s; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: swipe-left 1s; /* Firefox < 16 */
+   -ms-animation: swipe-left 1s; /* Internet Explorer */
+   -o-animation: swipe-left 1s; /* Opera < 12.1 */
+   animation: swipe-left 1s;
+}
+
+@keyframes swipe-left {
+   from { left: -1100px; }
+   to   { left: 0px; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes swipe-left {
+   from { left: -1100px; }
+   to   { left: 0px; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes swipe-left {
+   from { left: -1100px; }
+   to   { left: 0px; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes swipe-left {
+   from { left: -1100px; }
+   to   { left: 0px; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes swipe-left {
+   from { left: -1100px; }
+   to   { left: 0px; }
+}
+
+.animation-roll-up-in {
+   -webkit-animation: roll-up-in 1s; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: roll-up-in 1s; /* Firefox < 16 */
+   -ms-animation: roll-up-in 1s; /* Internet Explorer */
+   -o-animation: roll-up-in 1s; /* Opera < 12.1 */
+   animation: roll-up-in 1s;
+}
+
+@keyframes roll-up-in {
+   from { top: 699px; }
+   to   { top: 0px; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes roll-up-in {
+   from { top:  699px; }
+   to   { top: 0px; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes roll-up-in {
+   from { top:  699px; }
+   to   { top: 0px; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes roll-up-in {
+   from { top:  699px; }
+   to   { top: 0px; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes roll-up-in {
+   from { top:  699px; }
+   to   { top: 0px; }
+}
+
+.animation-roll-up-out {
+   -webkit-animation: roll-up-out 1s; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: roll-up-out 1s; /* Firefox < 16 */
+   -ms-animation: roll-up-out 1s; /* Internet Explorer */
+   -o-animation: roll-up-out 1s; /* Opera < 12.1 */
+   animation: roll-up-out 1s;
+}
+
+@keyframes roll-up-out {
+   from { top: 0px; }
+   to   { top: -699px; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes roll-up-out {
+   from { left:  0px; }
+   to   { top: -699px; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes roll-up-out {
+   from { left:  0px; }
+   to   { top: -699px; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes roll-up-out {
+   from { left:  0px; }
+   to   { top: -699px; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes roll-up-out {
+   from { left:  0px; }
+   to   { top: -699px; }
+}

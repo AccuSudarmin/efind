@@ -7,9 +7,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="<?php echo base_url('public/css/admin-style-login.css'); ?>">
 		<title>Login to Admin Eventfinder</title>
-		<script src="http://localhost/webcomponent/lib/azcomponent/webcomponentsjs/webcomponents.js"></script>
-      <link rel="import" href="http://localhost/webcomponent/lib/azcomponent/az-ui.html">
-		<link rel="import" href="http://localhost/webcomponent/lib/azcomponent/az-ajax.html">
+		<script src="<?php echo base_url('public/js/azcomponent/webcomponentsjs/webcomponents.js'); ?>"></script>
+		<link rel="import" href="<?php echo base_url('public/js/azcomponent/az-ui.html'); ?>">
+		<link rel="import" href="<?php echo base_url('public/js/azcomponent/az-ajax.html'); ?>">
 	</head>
 
 	<body>

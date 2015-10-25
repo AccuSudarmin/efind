@@ -1,0 +1,51 @@
+   az-input {
+      position: relative;
+      display: inline-block;
+   }
+
+   az-input > label.label-dynamis {
+      color: #bebebe;
+      position:absolute;
+      bottom: 0px;
+      font-size: 0.9em;
+      line-height: 30px;
+
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+   }
+
+   az-input input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px white unset;
+   }
+
+   az-input > label.label-trigger {
+      /*color: #8484E0 !important;*/
+      font-size: 0.8em !important;
+   }
+
+    az-input > input.border-hidden {
+      border: 0;
+      border-bottom: 1px solid #BEBEBE;
+      font-size: 15px;
+      box-sizing: border-box;
+      background: none;
+      position: absolute;
+      bottom: 0px;
+   }
+
+   az-input > input.border-hidden:focus {
+      outline: 0;
+   }
+
+   az-input > .border-bottom {
+      width: 0px;
+      border-bottom: 1px solid;
+      position: absolute;
+      bottom: 0px;
+      -webkit-transition: width 1s ease-in-out;
+      -moz-transition: width 1s ease-in-out;
+      -o-transition: width 1s ease-in-out;
+      transition: width 1s ease-in-out;
+   }

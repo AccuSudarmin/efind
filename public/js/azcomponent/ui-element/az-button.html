@@ -1,0 +1,76 @@
+<template id="button-template">
+   <button type="submit" class="this-button"></button>
+   <div class="button-effect"> </div>
+</template>
+
+<script>
+ (function() {
+   var importDoc = document._currentScript.ownerDocument; // importee
+
+   // az-button js
+   var azbutton = Object.create(HTMLElement.prototype);
+
+   azbutton.createdCallback = function () {
+      var template = importDoc.querySelector("template#button-template");
+      var main = this;
+
+      // import template into
+      var clone = importDoc.importNode(template.content, true);
+
+      var button = clone.querySelector('button')
+         , effect = clone.querySelector(".button-effect");
+
+      var mainWidth = main.getAttribute("width") || "150px"
+         , mainHeight = main.getAttribute("height") || "30px"
+         , mainColor = main.getAttribute("color") || "#8484E0";
+
+      button.innerHTML = main.innerHTML;
+      button.type = main.getAttribute('type') || 'submit';
+      button.name = main.getAttribute('name') || '';
+
+      main.innerHTML = "";
+      main.classList.add("button-crop");
+      // var root = main.createShadowRoot();
+      main.style.width = mainWidth;
+      main.style.height = mainHeight;
+
+      button.style.width = mainWidth;
+      button.style.height = mainHeight;
+      main.style.backgroundColor = mainColor;
+
+      var rgbSplit = main.style.backgroundColor.split(/\)/);
+      var hoverColor = "rgba" + rgbSplit[0].substring(3) + ",0.7)";
+
+      button.addEventListener("mouseover", function() {
+         main.style.backgroundColor = hoverColor;
+      });
+
+      button.addEventListener("mouseout", function() {
+         main.style.backgroundColor = mainColor;
+      });
+
+      button.addEventListener("click", function(e){
+         var middleOffset = (parseInt(mainWidth) > parseInt(mainHeight)) ? mainWidth : mainHeight;
+         effect.style.width = middleOffset;
+         effect.style.height = middleOffset;
+
+         effect.style.left = (e.clientX - this.getBoundingClientRect().left - parseInt(middleOffset)/2) + "px";
+         effect.style.top = (e.clientY - this.getBoundingClientRect().top - parseInt(middleOffset)/2) + "px";
+
+         effect.classList.add("trigger");
+         main.classList.add("shadow-trigger");
+
+         setTimeout(function () {
+            effect.classList.remove("trigger");
+            main.classList.remove("shadow-trigger");
+         }, 500);
+
+      });
+
+      main.appendChild(clone);
+   }
+
+   document.registerElement('az-button', {prototype: azbutton});
+   // end of js az-button
+   })();
+</script>

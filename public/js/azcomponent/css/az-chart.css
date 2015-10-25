@@ -1,0 +1,41 @@
+az-chart > bar > .graph-front {
+   display: block;
+   background-color: #FB7D7D;
+   width: 30px;
+   position: absolute;
+   bottom: 20px;
+   text-align: center;
+   box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   overflow: hidden;
+   padding-top: 10px;
+   color: white;
+   font-size: 10px;
+   -webkit-transition: 1s;
+}
+
+az-chart > bar > .graph-back {
+   display: block;
+   background-color: #EFEFEF;
+   width: 30px;
+   position: absolute;
+   height: 200px;
+}
+
+az-chart > bar > label {
+   position: absolute;
+   bottom: 0px;
+   font-size: 12px;
+   color: #8C7676;
+   text-align: center;
+   display: block;
+   width: 100%;
+}
+
+az-chart > bar {
+   display: inline-block;
+   position: relative;
+   height: 220px;
+   width: 30px;
+   margin: 0 8px;
+}

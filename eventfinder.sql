@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2015 at 07:55 AM
+-- Generation Time: Oct 25, 2015 at 03:49 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -56,12 +56,16 @@ CREATE TABLE IF NOT EXISTS `article` (
   `arPict` varchar(100) DEFAULT NULL,
   `arURL` varchar(100) DEFAULT NULL,
   `arAuthor` int(11) DEFAULT NULL,
+  `arEventLocation` text NOT NULL,
   `arTicketPrice` text,
   `arBarcode` varchar(100) DEFAULT NULL,
   `arCategory` int(11) DEFAULT '1',
   `arContact` text,
   `arDatePost` varchar(11) DEFAULT NULL,
   `arStatus` enum('1','0') NOT NULL DEFAULT '1',
+  `arSEODesc` text NOT NULL,
+  `arOrganizer` varchar(100) NOT NULL,
+  `arMetaDesc` text NOT NULL,
   PRIMARY KEY (`arId`),
   KEY `arAuthor` (`arAuthor`),
   KEY `arCategory` (`arCategory`),
@@ -72,9 +76,9 @@ CREATE TABLE IF NOT EXISTS `article` (
 -- Dumping data for table `article`
 --
 
-INSERT INTO `article` (`arId`, `arTitle`, `arContent`, `arDateStart`, `arDateEnd`, `arPict`, `arURL`, `arAuthor`, `arTicketPrice`, `arBarcode`, `arCategory`, `arContact`, `arDatePost`, `arStatus`) VALUES
-(42, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit', '                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2014-10-15', '2015-10-15', 'http://localhost/eventfinder/public/userfiles/image/3.jpg', 'Lorem-ipsum-dolor-sit-amet,-consectetur-adipisicing-elit', 1, 'Rp. 2000.000,-', 'http://eventfinder.co.id', 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore', '2015-10-14', '1'),
-(43, 'Sport Event Presented By Eventfinder', 'Sport Event Presented By Eventfinder&nbsp;Sport Event Presented By Eventfinder&nbsp;Sport Event Presented By Eventfinder', '2015-10-15', '2015-10-17', 'http://localhost/eventfinder/public/userfiles/image/photo3.png', 'Sport-Event-Presented-By-Eventfinder', 1, 'Rp. 200.000,-', 'http://eventfinder.co.id', 3, 'Phone: 0411 70707070\r\nEmail: contact@eventfinder.co.id', '2015-10-15', '1');
+INSERT INTO `article` (`arId`, `arTitle`, `arContent`, `arDateStart`, `arDateEnd`, `arPict`, `arURL`, `arAuthor`, `arEventLocation`, `arTicketPrice`, `arBarcode`, `arCategory`, `arContact`, `arDatePost`, `arStatus`, `arSEODesc`, `arOrganizer`, `arMetaDesc`) VALUES
+(42, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit', '                                                                                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.                                                               ', '2014-10-15', '2015-10-15', 'http://localhost/eventfinder/public/userfiles/image/3.jpg', 'Lorem-ipsum-dolor-sit-amet,-consectetur-adipisicing-elit', 1, 'Makassar', 'Rp. 2000.000,-', 'http://eventfinder.co.id', 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore', '2015-10-24', '1', '', 'Tiki', 'cobaki'),
+(43, 'Sport Event Presented By Eventfinder', 'Sport Event Presented By Eventfinder&nbsp;Sport Event Presented By Eventfinder&nbsp;Sport Event Presented By Eventfinder', '2015-10-15', '2015-10-17', 'http://localhost/eventfinder/public/userfiles/image/photo3.png', 'Sport-Event-Presented-By-Eventfinder', 1, '', 'Rp. 200.000,-', 'http://eventfinder.co.id', 3, 'Phone: 0411 70707070\r\nEmail: contact@eventfinder.co.id', '2015-10-15', '1', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -191,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `ref_map` (
 --
 
 INSERT INTO `ref_map` (`mapId`, `mapLongitude`, `mapLatitude`, `mapZoom`, `mapArticleId`) VALUES
-(39, '119.42392891658528', '-5.13705695288282', 15, 42),
+(39, '119.42392891658528', '-5.13705695288282', 14, 42),
 (40, '119.41178306937218', '-5.135069401600222', 9, 43);
 
 -- --------------------------------------------------------
@@ -254,7 +258,16 @@ CREATE TABLE IF NOT EXISTS `slider_home` (
   `shDesc` text,
   `shPict` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`shId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `slider_home`
+--
+
+INSERT INTO `slider_home` (`shId`, `shTitle`, `shDesc`, `shPict`) VALUES
+(1, 'Music Event', 'Music Event Concert1', 'http://localhost/eventfinder/public/userfiles/slider/3.jpg'),
+(2, 'Exhibition Event', 'Exhibition event', 'http://localhost/eventfinder/public/userfiles/slider/photo3.png'),
+(3, 'Sport Event', 'Sport Sport', 'http://localhost/eventfinder/public/userfiles/slider/2.jpg');
 
 -- --------------------------------------------------------
 
@@ -281,6 +294,32 @@ CREATE TABLE IF NOT EXISTS `visitor_total` (
   `vtTotal` int(11) DEFAULT NULL,
   PRIMARY KEY (`vtId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `web_profile`
+--
+
+CREATE TABLE IF NOT EXISTS `web_profile` (
+  `webTitle` varchar(100) NOT NULL,
+  `webDesc` text NOT NULL,
+  `webAbout` text NOT NULL,
+  `webEmail` varchar(50) NOT NULL,
+  `webPhone` varchar(50) NOT NULL,
+  `webTwitter` varchar(30) NOT NULL,
+  `webFacebook` varchar(30) NOT NULL,
+  `webLine` varchar(30) NOT NULL,
+  `webPath` varchar(30) NOT NULL,
+  `webInstagram` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `web_profile`
+--
+
+INSERT INTO `web_profile` (`webTitle`, `webDesc`, `webAbout`, `webEmail`, `webPhone`, `webTwitter`, `webFacebook`, `webLine`, `webPath`, `webInstagram`) VALUES
+('Eventfinder', 'Event Finder', 'Event Finder', 'eventfinder@gmail.com', '04115858585', '@eventfinder_id', '@eventfinder_id', '@eventfinder_id', '@eventfinder_id', '@eventfinder_id');
 
 --
 -- Constraints for dumped tables

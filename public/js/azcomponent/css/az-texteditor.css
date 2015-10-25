@@ -1,0 +1,178 @@
+.tools {
+	display: block;
+	background: white;
+	width: 100%;
+	border: solid 1px #bbb;
+	margin: 3px 0px 5px 0px;
+	-webkit-user-select: none; /* Chrome/Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+}
+
+.tools > ul {
+	padding: 5px;
+	margin: 0px;
+	text-align: left;
+	/*display: table;*/
+  	width: 100%;
+	box-sizing: border-box;
+  	/*overflow-x: hidden;*/
+}
+
+.tools > ul:not(:first-child) {
+    border-top: 1px solid #bbb;
+}
+
+.tools > ul > li {
+	list-style: none;
+  	display: inline-block;
+  	/*overflow: hidden;*/
+  	cursor: pointer;
+  	margin-right: 5px;
+  	vertical-align: middle;
+}
+
+.tools > ul > li > a > img {
+	max-height: 20px;
+}
+
+.tools select {
+	padding: 5px;
+}
+
+.tools .tool-font {
+	padding: 5px 10px;
+}
+
+.line-through {
+	text-decoration: line-through;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.group-fore-color {
+	display: block;
+  	position: relative;
+ 	bottom: 0px;
+  	margin-top: 0px;
+}
+
+.group-fore-color div {
+	display: list-item;
+  	float: none !important;
+}
+
+.fore-color-header {
+	width: 27px;
+  	padding: 5px 2px 5px 8px;
+}
+
+.fore-color-header img {
+	height: 15px;
+  	margin-top: 3px;
+  	position: absolute;
+}
+
+.fore-color-select {
+	position: absolute;
+  	background-color: white;
+  	padding: 5px;
+  	border: 1px #bebebe solid;
+  	width: 210px;
+  	visibility: hidden;
+}
+
+.fore-color-select > .def-fore-color > label {
+	display: block;
+  	float: left;
+  	height: 15px;
+  	width: 15px;
+  	margin: 1px 2px 1px 2px;
+  	border: solid 1px #bebebe;
+  	cursor: pointer;
+}
+
+.fore-color-select > .def-fore-color > label:hover{
+  border-color: #F15D52;
+}
+
+.input-hidden {
+	position: absolute;
+  	left: -9999px;
+}
+
+.fore-color-header:hover{
+  background-color: #F15D52;
+}
+
+.fore-color-select label:hover{
+  border-color: #F15D52;
+}
+.fore-color-select div{
+  display: inline-block;
+}
+.moreColor{
+  width: 98%;
+  border-top: solid 1px #bebebe;
+}
+.moreColor > input{
+  width: 20px;
+  background: none;
+  border: 0px;
+}
+.moreColor > label{
+  border: 0px;
+  width: inherit;
+  font-size: 13px;
+  margin: 0px;
+  padding: 0px;
+  float: none;
+  display: inline;
+  margin-bottom: 2px;
+}
+
+.select-margin input[type=radio] + label>img, .select-list input[type=radio] + label>img {
+  width: 30px;
+  transition: 100ms all;
+  cursor: pointer;
+}
+
+.select-margin input[type=radio]:checked + label>img {
+  background-color: #F15D52;
+}
+
+.select-script input[type=radio]:checked + label {
+  background-color: #F15D52;
+}
+
+.select-script input[type=radio] + label {
+  width: 30px;
+  transition: 100ms all;
+  cursor: pointer;
+}
+
+.select-list input[type=radio]:checked + label>img {
+  background-color: #F15D52;
+}
+
+.select-list input[type=radio] + label>img {
+  width: 30px;
+  transition: 100ms all;
+  cursor: pointer;
+
+}
+
+#indent > img, #outdent > img {
+  max-height: 30px;
+}
+
+.text-editor {
+	width: 100%;
+	border: solid 1px #bbb;
+}
+
+.tools a.selected , .tool-font:hover {
+	background-color: #F15D52;
+}

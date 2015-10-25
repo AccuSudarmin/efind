@@ -1,0 +1,313 @@
+<template id="text-editor">
+   <div class="editor">
+      <div class="tools">
+         <ul>
+            <li>
+               <a id="azprint">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAC50lEQVR4nO3dPWsUYRTF8eMbCoogGEXRxiqgHyBCLIPYWWnagGAr+DkEW2E/giA2CgoKUVCxVbQRG1lRQYmQQixikTuIi1mz4929s2f/PxhuXjbPPLOHO+wm82QkAAAAAAAAAAAAAAAAdMuO4v2fiHoj6mLU4wVz+R/9qE+jXo/6oWAuf9hZPQH4mpf0NbYNs605rtNpz9YUuq36IMa93Ul7tlriFG2u8kXWmqSDhfufhHVJByonQAebq+zgjcJ9T1LpW1E62Nzu6gkM8TzqlaivqyYyoHnr04u6UDWR7ejyKfpM1K4EO6gJ+tU/HscpGuPT5Q6u/j35dnX6OOhgcwRsjoDNEbA5AjZHwOYI2BwBmyNgcwRsjoDNEbA5AjZHwOYI2Fz2JTt/W2s0beuMsm319+K+OriWaSuHlb8UZVpkL3WZy5wcp2hsyyXlrzWaFtlrmS5nTo4ONpf1IuuUpKWksRrNZaldv2w205Kkl5kD0sHmsjp4r/JXCjYrB1aivk0ev635qL2hj2pnv6Q9mQN2eelKsyTkTeksphynaHMEbI6AzRGwOQI2R8DmCNgcAZsjYHMEbI6AzRGwOQI2R8DmCNhcZcB9SRdj2xdb83l/yM9hBHSwucorOlYkPRj42t2oa5IeT3Y6nio7+FnL72EEnKLNVQZ8tuX3MAI62Fzli6yepKvx8f2oF6Lemvx0PNHB5io7+KSke4X7nwl0sDkCNkfA5gjYHAGbqwx4VZtLRBe0eesZp605rtW0Z6slOthc5fvgZUkfC/c/Ti+iLqv44gU62FxlwLsK9z0p5cdIB5urDLgn6VhsbprjGsd/4hlJ5Yus8+LqybHjFG0uK+Afkr4njTXL1iX9zByQDjaXFfB7SY+SxpplDyW9yxyQDjaXdX/5OUlHJD2Jzw8ljTsrvkU9J+mzpC9ZA2cF3GhuynEz6qKko8n7cPFJv2/KcS1q+k05OEUDAAAAAAAAAAAAAAAAQJ5fzpH9zL8covMAAAAASUVORK5CYII="/>
+               </a>
+            </li>
+            <li>
+               <a id="azundo">
+                  <img src="data:image/png;base64,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"/>
+               </a>
+            </li>
+   	      <li>
+               <a id="azredo">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAFbUlEQVR4nO3cUU4bRxzH8e8sjuJEVrIkigoPUbYPRImIhPuWt7gniG8QjkBvwA1KT1D3BskJ6t7APIXHrRIleYqWgIIxeKYP3VVcarDBM16z+X0k5MUss2MN///MzgwLIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIlIhpuwK+NBsNltAu/i2eDXG3J30u865/fywl38BvAbo9Xpdf7UsR1R2BSSsaxXBSZLEAHfu3NnK39oEiKLoUYjrWWv3gQ7AYDDYAdjb20tDXCsURXDFXZsIXl9f34qiaBtgmr41FGvtbwCHh4fbaZpmVynj2bNnLYDT09M0dEZQBFfcwkZw0d/evn37NcDS0tKLcmv0X865/eFwuAnw9u3b19P8zvr6egcgiqJXxXsHBwfLAFfNBpMsZAOvra01b9y40YVy0/G0rLV/ABwdHW2d11BPnz7tjDZsYTgc/gywt7fXDVE3peiKq5VdgVFra2tNgKWlpS5wF8A5V2aVpmKMeQVQr9ebSZK04FvKffLkSac4Z9xncc4VEzPdEHVTBFfcQkRwEblRFHXzt+5aa8ur0NVt3Lx5swvw+PHjYtrzFcB5n8c5F4esUKkNXIyUyWeLuEZp+QIbAMaYDZj8WYwxrZCVUYquuFIjuFardfLDDTg/jVVZ6BStCK640iI4SZI28BKufZ87q42QhSuCK27uU5VxHMcAy8vLPWNMkHXc68ha+yNAmqapz3LnnqJHFusffeep+awkf019FqoUXXFzi+AiNQNb4P+WqNg8Z4zpjfnxQi01jhNqTloRXHFzi+BGo1H0vd6mI51zf+WHO+/evZu46P7w4cM2+fbaYgVoUVhrg0x4zGUUHcdx3Gg00vzbWRbw9wGstZsAHz58mGonxTgrKysJQK1W28nfejlDvXx4A/D+/fv2pBMvQym64uaSouv1ets5N9PWG+fcrrW2DfDp06d01jqNlNEGWF1d3Yqi6NdZy51BkBStCK64ufTBq6urPa4+57oLcHR01MqyLMjOw8LKysomgDHm95DXucjHjx+9tknQFB3HcQLgnLt04zrndgGOj49bAKEbF8Ba2wKIovISWxzHcZZlfaDvozyl6IoLGsG1Wq0Nl5+1cs7tn5yctGA+kQvw4MGDDhP2T81DrVZrxnGcZlmW+ihPEVxxoW+TNuHys1YnJyfBB1SF+/fvd/LDsfuW5805lwDePrsiuOKCRHCxclSMnqeNDOfcLwBZlo1bEfLq3r17nfyw9H53VB7Bqa/yQqXo1iXP/wvg8+fPO5NOnFUcx5uweIsNBedc0xiz56s8peiKCxrBk9LeyBNuNgPVY5wUFicln5Xvk677Kk8RXHFBItg515rmPGvtNsCXL1/SEPUYJ8uyLkAcxz8BDIfDJoAxJiF/xpYxJs5fy9jq8wL401dhoRp44ujZObd7cHAQfFB1npGR+qQRewzQaDRG/xAwxiQj+6jK/IO4kFJ0xXmN4Hq9ntRqtWSa+17n3NbEkxZDBnB4eNid8vyzEV/MCTSL6M/vdTHGNPn/FqZ94Hi2Kn+jCK44r4vLt27deg48v2jri3PuDcDXr1+9bi677ur1egug3+/3+HctWOvBMpnXPtg5Vwfii/pga+116Xvnqt/vd0OU67WBh8NhEkVRa9wsUfGwsMFgkPq8plxMKbrifE901M975sRgMNj2fC2ZgiK44nwPsn4ANs4OsvJbo9TntWQ63ueix42gT09PS5tz/t4pRVec1wg+e3vknPs7P+z6vI5MTxFccb4j+BjYL57S7pzb9lm+XJ4iuOJ8//toPPIFk3dLiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIyLz9A9ms2tXVO8VBAAAAAElFTkSuQmCC"/>
+               </a>
+            </li>
+            <li>
+               <a id="azremove-format"> Remove Format </a>
+            </li>
+         </ul>
+
+         <ul>
+            <li>
+               <select id="azfont">
+                  <option value="null">Select Font</option>
+   			      <option value="Arial">Arial</option>
+               	<option value="'Comic Sans MS'">Comic Sans MS</option>
+               	<option value="'Courier New'">Courier New</option>
+               	<option value="'Monotype Corsiva'">Monotype</option>
+               	<option value="Tahoma">Tahoma</option>
+               	<option value="'Times New Roman'">Times New Roman</option>
+   		      </select>
+               <select id="azfont-size">
+   			      <option value="1">1</option>
+                  <option value="2">2</option>
+               	<option value="3" selected>3</option>
+               	<option value="4">4</option>
+                  <option value="5">5</option>
+               	<option value="6"> 6</option>
+               	<option value="7"> 7 </option>
+               </select>
+   	      </li>
+            <li>
+               <a class='tool-font' id="azbold">B</a>
+               <a class='tool-font italic' id="azitalic">I</a>
+               <a class='tool-font' id="azunderline"> U </a>
+            </li>
+            <li>
+               <a class="line-through tool-font" id="azstrike-through">abc</a>
+            </li>
+            <li>
+               <div class="select-script down">
+                  <input type='radio' name='azscript' value='superscript' id='superscript' class='input-hidden'/>
+               	<label for='superscript' class="tool-font">x<sup>2</sup></label>
+
+               	<input type='radio' name='azscript' value='subscript' id='subscript' class='input-hidden'/>
+               	<label for='subscript' class="tool-font">x<sub>2</sub></label>
+   		      </div>
+            </li>
+            <li>
+   		      <div class="group-fore-color">
+                  <div id="fore-color-header" class="fore-color-header">
+                     <span id="foreColorSelected" style="border-bottom: 3px solid #bebebe;">A</span>
+                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9CAYAAACPgGwlAAADgklEQVR4nO3cT1ITQRTH8V+PHoALaEW9gK7REhexXHoEjsDSZY6AJ4Aj6FJDIZZAFQtKvQAZdOHSsAKrZJ6LQCo1hj+TSdL9Jt/PFor5pV71MK/ndSQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjoXYAcpaz9rPY2eYhfxL93PsDJfuxg7wn0KrIYTV2DGmycw2JSVT9Cx2gLJg5x2T9WPnmBaT9YOdd2LnGJVc0Xv728dSWI+dY3rC+uAzpSO5/+mXWssveyGoFTtHHWbK872PD2LnKEtupQ9ZsRY7Qm2JfoZkV7oktZ62PwWFldg5JmGynXy3+yJ2jnHSXemSgrIkV8ptpJw96aL3dj98v2h3XDGzzd7uh++xc1wl6aJLUnZma55aOJP1szNLdpVL0p3YAW7y+9fRn6X7j86CwqvYWW7pTe9gK5mNmHGSfpAb5aGFS7VFK0v+9j6U2WrsCDfykFGOip5/6X422U7sHFcx2U5KL1Wu46bokhSK89XYGa6ScrYyV0Xv7W8fmym5fXkzJbe/fh1XRZek7KxI6i3coEUrOrFzVOGu6EeHWyeykE4fbGHt6HDrJHaMKty0bGWt5fbXEMLjmBnM7Fu+130SM8Mk3K30oUzxV3sKGSbgtuiDFk7vYl3fpHdeWrQyt0WXpFD8jbIvb7J+KP66XOWS86LHG61KbwSqCtdFl6TstFg3Uz6v65kpz06L5PYKqkj+LdtNLt7C9UPQ6zldcq130D2Y07Vmwm3LVjaP0aqUR6CqcH97HwrqNOIac+D+9n6p/+PoeOnew9asNmzMbDPf7b6dxd+et+asdM1utMrDCFQVjSr6YA98Fi1cWPe2v36dxjzIjZrmaJWXEagqGrXSh6Z5siTRUyp1NHKlS9Np4ZrSopU1c6VrOuNLnkagqmhs0euOVnkbgaqisUWXJh+t8jgCVUVjNmfGqXE6JvlTKnU09kFuVJUWroktWlmjb+9DVU6eODmlUsdCFP22o1WeR6CqWIiiS4PRqmn8ThM0+kFuVP9n72Tp/iMFaWXcz03q5Htb7+ccK4qFWenSxWjVmBbOZH3vI1BVLFTRrzwd4/CUSh0L0bKVjZ6O8XpKpY6FWulDoydTnJ5SwQRay+2N1nJ7I3aOGNL7Fug5Se1LegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDJ/AMTiGQVOvVe4QAAAABJRU5ErkJggg=="/>
+                  </div>
+                  <div id="fore-color-select" class="fore-color-select">
+                     <div class="def-fore-color">
+                        <input type='radio' name='foreColor' value='rgb(255, 255, 255)' id='co1' class='input-hidden'/>
+               			<label for='co1' style="background-color: rgb(255, 255, 255);"></label>
+
+               			<input type='radio' name='foreColor' value='rgb(0, 0, 0)' id='co2' class='input-hidden'/>
+               			<label for='co2' style="background-color: rgb(0, 0, 0);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(213, 230, 230)' id='co3' class='input-hidden'/>
+                        <label for='co3' style="background-color: rgb(213, 230, 230);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(68, 84, 106)' id='co4' class='input-hidden'/>
+                        <label for='co4' style="background-color: rgb(68, 84, 106);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(91, 155, 213)' id='co5' class='input-hidden'/>
+                        <label for='co5' style="background-color: rgb(91, 155, 213);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(237, 125, 49)' id='co6' class='input-hidden'/>
+                        <label for='co6' style="background-color: rgb(237, 125, 49);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(165, 165, 165)' id='co7' class='input-hidden'/>
+                        <label for='co7' style="background-color: rgb(165, 165, 165);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(255, 192, 0)' id='co8' class='input-hidden'/>
+                        <label for='co8' style="background-color: rgb(255, 192, 0);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(68, 114, 196)' id='co9' class='input-hidden'/>
+                        <label for='co9' style="background-color: rgb(68, 114, 196);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(112, 173, 71)' id='co10' class='input-hidden'/>
+                        <label for='co10' style="background-color: rgb(112, 173, 71);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(242, 242, 242)' id='co11' class='input-hidden'/>
+                        <label for='co11' style="background-color: rgb(242, 242, 242);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(127, 127, 127)' id='co12' class='input-hidden'/>
+                        <label for='co12' style="background-color: rgb(127, 127, 127);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(208, 206, 206)' id='co13' class='input-hidden'/>
+                        <label for='co13' style="background-color: rgb(208, 206, 206);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(214, 220, 228)' id='co14' class='input-hidden'/>
+                        <label for='co14' style="background-color: rgb(214, 220, 228);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(222, 235, 246)' id='co15' class='input-hidden'/>
+                        <label for='co15' style="background-color: rgb(222, 235, 246);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(250, 229, 213)' id='co16' class='input-hidden'/>
+                        <label for='co16' style="background-color: rgb(250, 229, 213);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(237, 237, 237)' id='co17' class='input-hidden'/>
+                        <label for='co17' style="background-color: rgb(237, 237, 237);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(255, 242, 204)' id='co18' class='input-hidden'/>
+                        <label for='co18' style="background-color: rgb(255, 242, 204);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(217, 226, 243)' id='co19' class='input-hidden'/>
+                        <label for='co19' style="background-color: rgb(217, 226, 243);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(226, 239, 217)' id='co20' class='input-hidden'/>
+                        <label for='co20' style="background-color: rgb(226, 239, 217);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(216, 216, 216)' id='co21' class='input-hidden'/>
+                        <label for='co21' style="background-color: rgb(216, 216, 216);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(89, 89, 89)' id='co22' class='input-hidden'/>
+                        <label for='co2' style="background-color: rgb(89, 89, 89);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(174, 171, 171)' id='co23' class='input-hidden'/>
+                        <label for='co23' style="background-color: rgb(174, 171, 171);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(173, 185, 202)' id='co24' class='input-hidden'/>
+                        <label for='co24' style="background-color: rgb(173, 185, 202);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(189, 215, 238)' id='co25' class='input-hidden'/>
+                        <label for='co25' style="background-color: rgb(189, 215, 238);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(247, 203, 172)' id='co26' class='input-hidden'/>
+   	                  <label for='co26' style="background-color: rgb(247, 203, 172);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(219, 219, 219)' id='co27' class='input-hidden'/>
+                        <label for='co27' style="background-color: rgb(219, 219, 219);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(254, 229, 153)' id='co28' class='input-hidden'/>
+                        <label for='co28' style="background-color: rgb(254, 229, 153);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(180, 198, 231)' id='co29' class='input-hidden'/>
+                        <label for='co29' style="background-color: rgb(180, 198, 231);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(197, 224, 179)' id='co30' class='input-hidden'/>
+                        <label for='co30' style="background-color: rgb(197, 224, 179);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(191, 191, 191)' id='co31' class='input-hidden'/>
+                        <label for='co31' style="background-color: rgb(191, 191, 191);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(63, 63, 63)' id='co32' class='input-hidden'/>
+                        <label for='co32' style="background-color: rgb(63, 63, 63);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(117, 112, 112)' id='co33' class='input-hidden'/>
+                        <label for='co33' style="background-color: rgb(117, 112, 112);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(132, 150, 176)' id='co34' class='input-hidden'/>
+                        <label for='co34' style="background-color: rgb(132, 150, 176);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(156, 195, 229)' id='co35' class='input-hidden'/>
+                        <label for='co35' style="background-color: rgb(156, 195, 229);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(244, 177, 131)' id='co36' class='input-hidden'/>
+                        <label for='co36' style="background-color: rgb(244, 177, 131);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(201, 201, 201)' id='co37' class='input-hidden'/>
+                        <label for='co37' style="background-color: rgb(201, 201, 201);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(255, 217, 101)' id='co38' class='input-hidden'/>
+                        <label for='co8' style="background-color: rgb(255, 217, 101);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(142, 170, 219)' id='co39' class='input-hidden'/>
+                        <label for='co9' style="background-color: rgb(142, 170, 219);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(168, 208, 141)' id='co40' class='input-hidden'/>
+                        <label for='co10' style="background-color: rgb(168, 208, 141);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(165, 165, 165)' id='co41' class='input-hidden'/>
+                        <label for='co41' style="background-color: rgb(165, 165, 165);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(38, 38, 38)' id='co42' class='input-hidden'/>
+                        <label for='co42' style="background-color: rgb(38, 38, 38);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(58, 56, 56)' id='co43' class='input-hidden'/>
+                        <label for='co43' style="background-color: rgb(58, 56, 56);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(50, 63, 79)' id='co44' class='input-hidden'/>
+                        <label for='co44' style="background-color: rgb(50, 63, 79);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(46, 117, 181)' id='co45' class='input-hidden'/>
+                        <label for='co45' style="background-color: rgb(46, 117, 181);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(197, 90, 17)' id='co46' class='input-hidden'/>
+                        <label for='co46' style="background-color: rgb(197, 90, 17);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(123, 123, 123)' id='co47' class='input-hidden'/>
+                        <label for='co47' style="background-color: rgb(123, 123, 123);"></label>
+
+   					      <input type='radio' name='foreColor' value='rgb(191, 144, 0)' id='co48' class='input-hidden'/>
+                        <label for='co48' style="background-color: rgb(191, 144, 0);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(47, 84, 150)' id='co49' class='input-hidden'/>
+                        <label for='co49' style="background-color: rgb(47, 84, 150);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(83, 129, 53)' id='co50' class='input-hidden'/>
+                        <label for='co50' style="background-color: rgb(83, 129, 53);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(127, 127, 127)' id='co51' class='input-hidden'/>
+                        <label for='co51' style="background-color: rgb(127, 127, 127);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(12, 12, 12)' id='co52' class='input-hidden'/>
+                        <label for='co52' style="background-color: rgb(12, 12, 12);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(23, 22, 22)' id='co53' class='input-hidden'/>
+                        <label for='co53' style="background-color: rgb(23, 22, 22);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(34, 42, 53)' id='co54' class='input-hidden'/>
+                        <label for='co54' style="background-color: rgb(34, 42, 53);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(30, 78, 121)' id='co55' class='input-hidden'/>
+                        <label for='co55' style="background-color: rgb(30, 78, 121);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(131, 60, 11)' id='co56' class='input-hidden'/>
+                        <label for='co56' style="background-color: rgb(131, 60, 11);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(82, 82, 82)' id='co57' class='input-hidden'/>
+                        <label for='co57' style="background-color: rgb(82, 82, 82);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(127, 96, 0)' id='co58' class='input-hidden'/>
+                        <label for='co58' style="background-color: rgb(127, 96, 0);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(31, 56, 100)' id='co59' class='input-hidden'/>
+                        <label for='co59' style="background-color: rgb(31, 56, 100);"></label>
+
+                        <input type='radio' name='foreColor' value='rgb(55, 86, 35)' id='co60' class='input-hidden'/>
+                        <label for='co60' style="background-color: rgb(55, 86, 35);"></label>
+                     </div>
+
+                     More Color
+
+   				      <div class="moreColor">
+                        <input type="color" name="favcolor" id="morecolor" value="rgb(0 ,0 ,0)">
+                        <label for="morecolor">Select color</label>
+               		</div>
+                  </div>
+               </div>
+            </li>
+
+            <li>
+   		      <div class="select-margin">
+                  <input type='radio' name='azmargin' value='justifyLeft' id='left' class='input-hidden' checked/>
+                  <label for='left'>
+                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAA2ElEQVR4nO3cwQnCQBCG0V87sANLsAMtxQ4tISWkFO1AD+YaEDK4Yfc9mOsQdnP82AQAAAAAAAAAAAAAAACgrWuSR5K32TTTcpYlDlWLksxJLoX7RvZKcqpYdKxYsjgX7qJI5QXf8/3z2OaV5Nb6IwAAAAAAAAAYR29NVmkb1YM57S+lep6lJ9SAJqtzmqx12igAAAAAAAAAhtBbk9Vqpngnq3veyeI3mqz90YIBAAAAAAAA8Fe9NVmlbVQPvJO1Q5qszmmy1mmjAAAAAAAAAAAAAAAAgGF9AB9ghGL9BoekAAAAAElFTkSuQmCC" alt="left"/>
+                  </label>
+
+                  <input type='radio' name='azmargin' value='justifyCenter' id='center' class='input-hidden'/>
+                  <label for='center'>
+                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAA60lEQVR4nO3cwY3CQAwF0A8dbAcpgQ6glHS4JVACpUAHcIA7q43RJOY9yVfLGs/xywkAAAAAAAAAAAAAAADAWMckv0nualGdX29ZYlfVKMklyaGw3ze7JfmpaLSvaPIyFfaiSOWC5zx/HsvckpxGDwEAAAAAAAAA73TLcpVmqjq4ZPxSquta+kILVEZ2/msaPUBna1jwnF5ZLpkqAAAAAAAAADalW7ZqVJ3jTlZ77mTxN+5krY9MFwAAAAAAAACb0C3LVZqp6sCdrA9awxmlafQAna1hwXN6ZblkqgAAAAAAAAAAAAAAAIDNewDo0IRiVeRmWQAAAABJRU5ErkJggg=="/>
+                  </label>
+
+                  <input type='radio' name='azmargin' value='justifyRight' id='right' class='input-hidden'/>
+                  <label for='right'>
+                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAA/ElEQVR4nO3csW0CYQwG0I9kAJQNGIENYAQ2IBsyAiMka1BBmyop7gZIgg/D8Z5kXWdZ/q+0vgQAAAAAAAAAAAAAAACg1ybJIcm3uqqO4y5LLKoaJflIsi7s98wuSd4qGr1UNBmtCntRpPKB3zP8eVznkmTbPQQAAAAAAAAATGGf4USo+36qus4ZbrKWdat6PMv0P8TUdahaVuXJzq2sugd4JK/dA/zDafxuO4eY0GeSXZKv7kEAAAAAAAAAeA6byMmqqGPkZM2enCx+R07W/ZGTBQAAAAAAAMBs7SMna7bkZP2BnKyZk5N1f+RkAQAAAAAAAAAAAAAAAO1+ANWukdoxtq6dAAAAAElFTkSuQmCC"/>
+                  </label>
+
+                  <input type='radio' name='azmargin' value='justifyFull' id='full' class='input-hidden'/>
+                  <label for='full'>
+                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAAvklEQVR4nO3aQQ3CQBRF0QcOcIAEHIAUHCIBCVipA1hQAT/pT2eSnpPM9qXpzPImAAAAAAAAAAAAAAAAAGPdk7ySfJ1N573+yxanrqEknyS3xr0jW5JcOobOHSOra+MWTTov+Jn/y2ObJclj9EcAAAAAAAAAcByaLE0WRZosajRZ89FkAQAAAAAAALArTZYmiyJNFjWarPlosgAAAAAAAADYlSZLk0WRJosaTdZ8NFkAAAAAAAAAAAAAAADAcD9lSlkUeQNrzQAAAABJRU5ErkJggg==" alt="full"/>
+                  </label>
+   		      </div>
+            </li>
+            <li>
+               <div class="select-list">
+                  <input type='radio' name='azlist' value='insertOrderedList' id='insertOrderedList' class='input-hidden pointer'/>
+                  <label for='insertOrderedList'>
+                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAADg0lEQVR4nO3dPU7cQBTA8TfZvQDiAvSgOPIcgJTkBFBunxuQGqoUOQJVBFWSCroodWRHjuAWIHGAWU0K1mSx7GAHv5m1/f9JKy2Wl3nwNOOP8ZsVAQAAAAAAAAAAAAAAAAAAm81a6621t7HjGLt5yMbSND00xpyHbHPqgiR41VO3Q7SFp9QTbK312m2gmXqCsywz5fs0TS+NMQfabeKvV4HbywO3N3mhE4zAhpbgfRH5IiJ+xK/vq7+zF0Evk3rwSUTexA5C2VsR+SoiW338sqH14J3YAQzN0BK8EJH72EEou5eHXtyLoQ3R36SnoWsqhtaD0REJHjkSPHIkeORI8MiR4JELmmBjzHFl03aapochY5ga8/wuL9N2st97f5Xn+TvteAAAAAAAAABsIvVblaW6wjPv/Wme5x9CxTBFQRL83P3o9fIW9Et9NilN00t5ZrKBOmE9qgleDcsHzrm9LMtMlmXGe39UsyvThkq0e/DCObdXFMVNuSHP84uGJL9WjmWSoh37qsdlTrh0bNIjO79jBzBGG5PgPM8vWuxGdWFHMUtXngzPLT9DdWFHUXpw5Yz5rsOxd0chnFGLNUQvyjfOuS7D0UKoLuwk+Fl0kiS78/n8WkTEe3/U8tiL/xS8B8/n8x8ij5dFJFdZ0ASnaXoiIttc84YTbIguh+amB9zLEy96db+C9eBVck+bqheMMefL5fI6VDxTEaQHt13hjmnD/oWYLjxpuXzhnXYsUxRiurBaUVjLe/9TM5apUktwkiS7HdeGPtOKBQAAAAAAACMQfLqwup0JBl0bUXzGozt61GeTrLW33vv3ZW2Sc26vug/fZ6hHezbpxDm3v947i6K4qatNSpJkVzOWqVJN8HK5/LxeeFZiOA4nyglO9YSLh/D0RCldmc1mH8v3nGDpCprghkulhYiQYCXBnqq01t7WXQcbYw46LOFAdWFHQY/BTTc7RFovCP5Lxl9dKPJQnzS86sKiKG6a1ulo+eTlTv9RjVuU6sKmdTpaXAsvhOrCTqJV+K+SfNXxY+V3F5oRv7ZEpOj4f2kUewmHs8jtj17UBFdrkerueuFlVK+DrbVepN3NjA7rdKADtR68qgUWkYfZovWfS7PZ7HFmiVuVOoIN0caY49W6lSLytLSlbgoR/VC90VEO0f9SXeoQ/Yr21XYkFgAAAAAAAAAAAAAAAAAwNH8AXjflNJkPWU8AAAAASUVORK5CYII="/>
+                  </label>
+
+   			      <input type='radio' name='azlist' value='insertUnorderedList' id='insertUnorderedList' class='input-hidden pointer'/>
+               	<label for='insertUnorderedList'>
+                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAADDklEQVR4nO3dMXLTQBTG8fcEfUJl7Mo3iGU16UhJBzeIj2BKupR0cUtnTkBSUuGUFPaaG7hT6MwBokfhMJOEkGg9+wxS/r+ZNMm+1WZ21pIlf14RAAAAAAAAAAAAAAAAAAAAoPXU+wBFURybWf/WQVVX8/n8k/ex4TjBg8HgTZZlU1Xdv+/vZrauqmq0XC7PvcYApwnO8/wgy7JlnbZVVQ1CCN89xgGHCS6KYs/MVn9buXeZ2VpV+/P5/GfqsUAkS92hmY3rTq6IiKrum9k49TiwkXyCVfWtY80rEfksItbin6/X/2cSz1N1dMPAsWayZf9NciQiZyLyIkVnyVews/6/HkDTeJyD1441IxGJ7r9h1rJZxUl4vESfyWYiYmvqOJdEL11PhccKnu6iBvUkn+AQwkXMhJnZNIRwkXoc2Hjm0WlZlue9Xm8tIq8faTpeLBbvPcaADZcJFhEpy/Jbp9NZqurh3RsfZraqqmoUQuCBgzP3p0kiInme33rjzksyAAAAAAAAAAAAALhzfR6c5/mBqo5VtX/z92a2MrMJmSR/bhM8HA5PVfXBSIqZTRaLxTuvMcDpIztFURyr6ofH2qnqYa/XW5VlyUp2Qrqw5Tw+F32yRbrwJPU4sOGRTYpOF0bUkC6MlDy6cveKOXEN6cJIpAtbzuMcvHKsGQnpwige6cKZxKcLZzXbkS6M5LGCJ7uoQT3Jb3RcXl7+6Ha7+6p6WKf99S1LMkpOvNKFX7rdrqjq0UPtzOyEdKEvz3ThRafTWWZZ9lL+vPqdXV1djUMIH72ODwAAAAAAAAAAAAAA0FhsTtlybE7ZcmxO2XLER1uuaZtTki6M1LTNKSeyXTy1SY6k/kZhj/JIF3puTtnfou8nrWnx0ZGQLoySPF14fdFU+xz8u6ZmU9KFkTzOwbNd1KCe5BNcVVV0FHSbGtTjsjmlxF0FnrETmh+vi6yR1EvtzyT+2wAQwfVhw3A4PBWR0T2bU65FZMrXGPrbxdOkvaqqbr3PzbJsya1JAAAAAAAAAAAAAAAAAADwX/kFQKPfr/lZ66oAAAAASUVORK5CYII="/>
+                  </label>
+   		      </div>
+            </li>
+            <li>
+               <a id="azindent" class="pointer">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAACgElEQVR4nO3d3XHTQBDA8V2Zd0wHKkH2FUA6iEtQB0AFmAowHYQK4lQQU4A+6CB0YBrQ8oAAOwOeMNnTyfL/N+PX1U7We5nV7YxFAAAAAAAAAAAAAAAAAAAAAAAAACCt1yJyKyLG51mf+/5v6UK9AolIIyKFY7xLtheRVx6BMo8gvdwxFpx4FriUn988PM9eRK5SJwEAAAAAAAAAABDHcrl8nzoH/OF54S8iIiEEE5G267qyaZqv3vHxfzzvgw8VqroLIbyJFB9PFKvAoqpzEdmEEO5DCC9jPUemtws22p0sEfl9RB8xs33XdWXbtnfez5Np7oKNcifrn1R1PpvNtiGE2wjdnDvHm5RBCnxgZWbtYrFwO4JkertgrjtZgxzRf2Nmm7qu33k/H8eSFbjHOBXZ0Ef0Y0WWZS3jVDypO/jQru/mb64JXbjUHXzoSlXboiiuUycyJWPq4ENbESmrqvruEOuijamDD63M7MF5nLpIYy2wqOo8y7Ldcrn8GPlV56SNtsC/qOpV13V56jzO1YvUCZxiZuu6rj+kzuOcjbLAZvZgZmXTNF9S53LuRndEm9mNqhYU18doOjjyleLFGksHb1U1p7j+knawme1VdV1V1aeUeUxZygK3Zraq65p3zxElOaLNbF1V1cLpYoGdrBMGfRfdjz8r5/tfdrJOGKyDzWzTjz/el/u5c7xJif4/eIDxpxSRGxGZR4o/NNedrNgF3qpq2bZtzGu/O3E6zqYoSoH78edtVVWfY8TH08Uo8M7MSsYfAAAAAAAAAAAAHJnabhQ7WY9McTcqlVHuZOWOseCE3y4cH367EAAAAAAAAAAAAAAAAAAAAAAAAEByPwCFuN50bLxQOgAAAABJRU5ErkJggg==" height="30px"/>
+               </a>
+               <a id="azoutdent" class="pointer">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAACmklEQVR4nO3d31HbQBDH8d9q8k5SQdwBOqsA3AGkA3cAqSBQQZIOnAowFQQKOEt0kHQABeDLA3rIMPy193yK8v3M+Mkz6x2fT/Jq17IEAAAAAAAAAAAAAAAAAAAAAAAAAGUdSDqXlHhs9fjZv5cuzCuQpFZS7Rjvf3Yj6YNHoMojSG/iGAtOPBd4rvtPHrZzI2lWOgkAAAAAAAAAAIDhmU6nX0rnMDbvSicgSSGE/aqqFrofGDgrnM6oePaDN9I0zbGZXYppkCyK7eCmafYkLSXNzLaaHDqQdCLpyCOvAbiUdCrpyiOY50zWq9V1fVhV1cLM3j98Lsb41pzGOAvmNpO10x3c79qFfHfbxDHW6OzsHBxCOEgpdfI/lM41rlkw15msnezg6XT61cxOMoW/kNPhbIyyLvCD8gcFZDtEN01zXFVVJxa3KPcdHEL42O/amXdsvJ3rDq7r+tDMOrG4g+GygzOVP3Cw9QL35c/ysYsWKG/jBW6aZi+ldJqx/IGDjc/B6/V6YmYzx1yQwcYL3LbtdYwxpJROHfOBs62/Ra9Wq7P1ej1LKf1yyAfOXMqktm2vzKxOKS084sGPe7vwuVbga2zQLsQz3C9Vdl13YWYT3TfzUViWa9ExxtsY4ydJJymlMbXy/jlZ+8Exxu8ppVpSl/N18LTsDf+2bX9nLqfGdn+uwd4n60UhhH0zW/bn6EcxkyVpoPfJelHbttd9OfXNMezEMdbo7HwuOsZ4u1qtPt/d3R05fQGbi5msJxWtOR9rM1IH+yr6y4a/yqk55VQexX+6Ikkxxh99OXVZOhcAAAAAAAAAAABkMrbZKGayHhjjbFQpg5zJmjjGghP+u3B4+O9CAAAAAAAAAAAAAAAAAAAAAAAAAMX9AZ20gIuXOujOAAAAAElFTkSuQmCC" height="30px" alt="outdent"/>
+               </a>
+            </li>
+         </ul>
+      </div>
+
+      <iframe class="text-editor"></iframe>
+   </div>
+</template>
+
+<script src="../js/az-texteditor.js" charset="utf-8"></script>

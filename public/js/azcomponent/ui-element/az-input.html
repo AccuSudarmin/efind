@@ -1,0 +1,79 @@
+<template id="input-text">
+   <label class="label-dynamis"></label>
+   <input type="text" class="border-hidden">
+   <div class="border-bottom"> </div>
+</template>
+
+<script>
+(function() {
+   var importDoc = document._currentScript.ownerDocument;
+
+   // az-input js
+   var azinput = Object.create(HTMLElement.prototype);
+
+   azinput.createdCallback = function () {
+      var main = this;
+      var template = importDoc.querySelector("template#input-text");
+
+      var clone = importDoc.importNode(template.content, true);
+
+      var input = clone.querySelector("input")
+         , label = clone.querySelector("label")
+         , border = clone.querySelector(".border-bottom");
+
+      var mainWidth = main.getAttribute("width") || "150px"
+         , mainHeight = main.getAttribute("height") || "30px"
+         , mainColor = main.getAttribute("color") || "blue";
+
+      input.type = this.getAttribute("type");
+      input.name = this.getAttribute("name");
+      input.style.width = mainWidth;
+      input.style.height = mainHeight;
+      input.value = main.innerHTML;
+      main.innerHTML = '';
+
+      border.style.height = "1px";
+      border.style.borderColor = mainColor;
+
+      label.innerHTML = this.getAttribute("placeholder");
+
+      if (input.value != '') {
+         label.classList.add("label-trigger");
+         label.style.bottom = mainHeight;
+         label.style.lineHeight = "unset";
+      }
+
+      input.addEventListener("focus", function(){
+         border.style.width = mainWidth;
+         label.style.color = mainColor;
+      });
+
+      input.addEventListener("blur", function(){
+         border.style.width = "0px";
+         label.style.color = "#bebebe";
+
+      });
+
+      input.addEventListener("keyup", function(){
+         if (this.value.length > 0) {
+            label.classList.add("label-trigger");
+            label.style.bottom = mainHeight;
+            label.style.lineHeight = "unset";
+         } else {
+            label.classList.remove("label-trigger");
+            label.style.bottom = "0px";
+            label.style.lineHeight = "30px";
+         }
+      });
+
+      this.classList.add("make-relative");
+      this.style.height = (parseInt(mainHeight) + 20) + "px";
+      this.style.width = mainWidth;
+
+      main.appendChild(clone);
+   }
+
+   document.registerElement('az-input', {prototype: azinput});
+   // end of az-input js
+})();
+</script>

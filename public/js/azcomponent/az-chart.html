@@ -1,0 +1,48 @@
+   <link rel="stylesheet" href="./css/az-chart.css">
+
+   <template id="az-chart">
+      <div class="graph-back"></div>
+      <div class="graph-front"></div>
+      <label></label>
+   </template>
+<script>
+   (function() {
+      var importDoc = document._currentScript.ownerDocument; // importee
+
+      // az-button js
+      var azchart = Object.create(HTMLElement.prototype);
+
+      azchart.createdCallback = function () {
+         var template = importDoc.querySelector("template#az-chart");
+
+         console.log(this.hasAttribute("column"));
+
+         var bar = this.querySelectorAll('bar');
+
+         [].forEach.call(bar, function (elm) {
+            var clone = importDoc.importNode(template.content, true);
+
+            var gf = clone.querySelector("div.graph-front")
+               , lb = clone.querySelector("label");
+
+            var label = elm.innerHTML
+               , value = elm. getAttribute("value");
+
+            gf.style.height = "0px";
+            gf.innerHTML = value;
+            lb.innerHTML = label;
+
+            elm.innerHTML = "";
+            elm.appendChild(clone);
+
+            setTimeout(function () {
+               gf.style.height = ( parseInt(value)*2 ) + "px";
+            }, 10);
+         });
+
+      };
+
+      document.registerElement('az-chart', {prototype: azchart});
+      // end of js az-button
+   })();
+</script>
