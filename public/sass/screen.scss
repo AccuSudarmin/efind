@@ -76,12 +76,8 @@ body#calendar{
     top: 0;
     bottom: 0;
     z-index: 200;
-    background-color: #fff;
+    background-color: #bebebe;
     padding: 0px;
-   //  transition: all 2s;
-   // -o-transition: all 2s;
-   // -moz-transition: all 2s;
-   // -webkit-transition: all 2s;
 
       img{
          max-width: 80%;
@@ -668,9 +664,7 @@ footer{
 
       }
 
-      .activated{
-         height:100% !important;
-      }
+
 
       .main-calendar{
          width: 100%;
@@ -913,6 +907,10 @@ footer{
       .main-width{
          max-width: 100%;
          width:100%;
+      }
+
+      .activated{
+         height:100% !important;
       }
 
       .straight-menu{

@@ -1,35 +1,3 @@
-<!DOCTYPE html>
-<html>
-   <head>
-      <link rel="apple-touch-icon" sizes="57x57" href="<?php echo base_url('public/favico/apple-icon-57x57.png');?>">
-      <link rel="apple-touch-icon" sizes="60x60" href="<?php echo base_url('public/favico/apple-icon-60x60.png');?>">
-      <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url('public/favico/apple-icon-72x72.png');?>">
-      <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('public/favico/apple-icon-76x76.png');?>">
-      <link rel="apple-touch-icon" sizes="114x114" href="<?php echo base_url('public/favico/apple-icon-114x114.png');?>">
-      <link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url('public/favico/apple-icon-120x120.png');?>">
-      <link rel="apple-touch-icon" sizes="144x144" href="<?php echo base_url('public/favico/apple-icon-144x144.png');?>">
-      <link rel="apple-touch-icon" sizes="152x152" href="<?php echo base_url('public/favico/apple-icon-152x152.png');?>">
-      <link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url('public/favico/apple-icon-180x180.png');?>">
-      <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo base_url('public/favico/android-icon-192x192.png');?>">
-      <link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url('public/favico/favicon-32x32.png');?>">
-      <link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url('public/favico/favicon-96x96.png');?>">
-      <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('public/favico/favicon-16x16.png');?>">
-      <link rel="manifest" href="<?php echo base_url('public/favico/manifest.json');?>">
-      <meta name="msapplication-TileColor" content="#ffffff">
-      <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-      <!-- <meta name="theme-color" content="#ffffff"> -->
-
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Event Finder Mockup</title>
-      <link rel="stylesheet" href="<?php echo base_url('public/stylesheets/screen.css');?>" media="screen, projection" title="no title" charset="utf-8">
-      <link rel="stylesheet" href="<?php echo base_url('public/stylesheets/print.css');?>" media="print" title="no title" charset="utf-8">
-      <link rel="stylesheet" href="<?php echo base_url('public/stylesheets/ie.css');?>" media="screen" title="no title" charset="utf-8">
-      <link rel="stylesheet" href="<?php echo base_url('public/css/font-awesome.css');?>" media="screen" title="no title" charset="utf-8">
-      <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
-
-   </head>
    <body id="home">
 
       <nav id="mobile-menu" class="floatok">
@@ -76,9 +44,8 @@
          <i class="fa fa-bars"></i>
       </button>
 
-      <section class="slide-wrapper">
          <?php $this->load->view('slider');?>
-      </section>
+
 
       <section class="bodywrapper">
          <div class="tagline"><center><h1> Find your favorite event to be spent this week </h1></center></div>
@@ -121,49 +88,15 @@
 
         </nav>
       </section>
-      <footer>
-        <!-- <div class="footer-container main-width">
-          <div class="footer-list rights">
-            <h3> Judul </h3>
-            <ul>
-              <li> <a href="#"> Home </a> </li>
-              <li> Profil</li>
-              <li><a href="#">Penjaminan Mutu</a></li>
-              <li><a href="#"> Layanan </a></li>
-              <li><a href="#"> Fasilitas </a></li>
-              <li><a href="#"> Regulasi </a></li>
-              <li><a href="#"> Download </a></li>
-              <li><a href="#"> Forum </a></li>
-              <li><a href="#"> Kontak Kami </a></li>
-            </ul>
-          </div>
 
-          <div class="footer-list contact rights">
-            <h3> CONTACT US </h3>
-            <ul>
-              <li> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </li>
+      p<footer>
 
-            </ul>
-          </div>
-
-          <div class="footer-social">
-             <ul>
-                <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li> <i class="fa fa-facebook"></i></li>
-                <li> <i class="fa fa-youtube"></i></li>
-             </ul>
-          </div>
-
-        </div> -->
 
         <center>Copyright (c) 2015 Copyright Holder All Rights Reserved.</center>
       </footer>
    </div>
 
       <script src="<?php echo base_url('public/js/home.js');?>"></script>
-<!-- 
-      </script>
 
-      </script> -->
    </body>
 </html>

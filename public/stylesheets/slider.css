@@ -1,0 +1,14 @@
+/* line 1, ../sass/slider.scss */
+.active-slide {
+  display: block;
+}
+
+/* line 4, ../sass/slider.scss */
+.slide {
+  width: 100%;
+  height: 680px;
+  position: absolute;
+  background-size: 100% 100% !important;
+  background-position: 50% 50%;
+  display: none;
+}

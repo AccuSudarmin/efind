@@ -1,7 +1,10 @@
 var main = function(){
 
 
-
+      $('.slide').first().addClass('activeslide');
+      $('.dot').first().addClass('activedot');
+      //
+      // $(element_id).addClassName(newClassName);
       $('.activeslide').show();
 
 
