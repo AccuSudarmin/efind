@@ -2,14 +2,26 @@
 /*component */
 
 .button-default {
-   background-color: #8C8B8B;
+   background-color: #fff;
+   color: black;
+}
+
+.button-primary {
+   background-color: #337ab7;
+   color: white;
 }
 
 .button-danger {
    background-color: #D06565;
+   color: white;
 }
 
-.button-default, .button-danger {
+.button-success {
+   background-color: #5cb85c;
+   color: white;
+}
+
+.button-default, .button-danger , .button-primary , .button-success {
    display: inline-block;
    width: 20px;
    height: 20px;
@@ -20,10 +32,9 @@
    text-align: center;
    border: none;
    padding: 0px;
-   color: white;
 }
 
-.button-default:hover , .button-danger:hover {
+.button-default:hover , .button-danger:hover , .button-primary:hover , .button-success:hover {
    opacity: 0.5;
 }
 

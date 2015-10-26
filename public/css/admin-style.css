@@ -227,7 +227,8 @@ section.main {
 
 .header-content-manager {
    padding: 0px 5px 5px 20px;
-    width: 95%;
+   width: 95%;
+   min-height: 32px;
     /* margin-left: 2.5%; */
     /* border-bottom: 1px solid #bbb; */
 }
