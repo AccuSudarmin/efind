@@ -20,23 +20,24 @@ $warna2: #f5f5f5;
 }
 
 body{
+  max-width: 1824px;
   width: 100%;
   left: 0;
   height: 100%;
   font-weight: 400;
   position: relative;
   // overflow: hidden;
-  margin: 0;
+  margin: 0 auto;
       color: #565a5c;
     font-family: $body;
     font-size: 14px;
     line-height: 1.43;
+}
 
-    div, ul, nav, li{
+
+    ul, nav{
       overflow: hidden;
     }
-
-}
 
 body#home{
    background-color: $warna2;
@@ -44,6 +45,10 @@ body#home{
 
 body#calendar{
    background-color: #fff;
+
+   div{
+     overflow: hidden;
+   }
 }
 
 .icon-close{
@@ -75,8 +80,8 @@ body#calendar{
    position: fixed;
     top: 0;
     bottom: 0;
-    z-index: 200;
-    background-color: #bebebe;
+    z-index: 400;
+    background-color: #fff;
     padding: 0px;
 
       img{
@@ -92,6 +97,7 @@ body#calendar{
       a{
          color: #B5B5B5;
          text-decoration: none;
+         font-size: 200%;
       }
 
       a:hover{
@@ -329,8 +335,6 @@ section.slide-wrapper{
         width:100%;
         height: 680px;
         position: absolute;
-        background-size: 1350px 100%;
-        background-position: 50% 50%;
         display: none;
 
 
@@ -583,11 +587,24 @@ footer{
    margin-bottom: 10px;
    margin-top: 10px;
 
-   h2{
-      font-size: 15px;
+   select, input{
+      font-size: 120%;
       color: $mainred;
-      padding-left: 10px;
-      padding-right: 10px;
+      font-weight: 700;
+      // padding-left: 10px;
+      // padding-right: 10px;
+      border: none;
+      float: left;
+      margin: 5px;
+      text-align: center;
+   }
+
+   input{
+     width : 100px;
+   }
+
+   button{
+     cursor: pointer;
    }
 
    i.fa-search{
@@ -635,7 +652,7 @@ footer{
 
       li{
          float: left;
-         height:200px;
+        //  height:200px;
       }
 
       li.thearrow{
@@ -675,7 +692,7 @@ footer{
         -webkit-transition: all 2s;
 
 
-         li{
+         ul li{
             width: 25%;
             height: 200px;
             position:relative;
@@ -780,6 +797,7 @@ footer{
       img{
          opacity: 0.5;
          -webkit-filter:grayscale(100%);
+         width: 100%;
       }
    }
 
@@ -918,10 +936,10 @@ footer{
       }
 
       .calendar-container .calendar-ul .main-calendar {
-        height: 100%;
+        // height: 100%;
 
 
-        li {
+        ul li {
         width: 100%;
         height: 344px;
         float:none;

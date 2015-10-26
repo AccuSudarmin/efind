@@ -89,7 +89,7 @@
         </nav>
       </section>
 
-      p<footer>
+      <footer>
 
 
         <center>Copyright (c) 2015 Copyright Holder All Rights Reserved.</center>

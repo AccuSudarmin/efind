@@ -1,13 +1,13 @@
 <section class="slide-wrapper">
   <div class="slider">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
    <script src="<?php echo base_url('public/js/slider.js');?>"></script>
 
    <div class="ninja-wrap">
       <section class="slider-cont">
         <?php foreach($slider as $data):?>
 
-         <div class="slide" style="background: url('<?php echo $data->slPict; ?>') no-repeat; background-position: 50% 50%;     ">
+         <div class="slide" style="background: url('<?php echo $data->slPict; ?>') no-repeat; background-size: cover;
+         background-position: 50% 50%;     ">
            <div class="container">
              <section class="row main-width">
                <section class="slide-copy">

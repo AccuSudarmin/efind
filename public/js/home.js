@@ -6,9 +6,9 @@ var navbar= function(){
       left: "0px"
     }, 200);
 
-    $('body').animate({
-      left: "50%"
-    }, 200);
+    // $('body').animate({
+    //   left: "50%"
+    // }, 200);
   });
 
   $('.icon-close').click(function() {
@@ -16,9 +16,9 @@ var navbar= function(){
       left: "-50%"
     }, 200);
 
-    $('body').animate({
-      left: "0px"
-    }, 200);
+    // $('body').animate({
+    //   left: "0px"
+    // }, 200);
   });
 
 };
