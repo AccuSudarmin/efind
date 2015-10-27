@@ -28,6 +28,7 @@
 .hiccup-back-overlay {
    position: fixed;
    display: block;
+   left: 0;
    z-index: 1001;
    width: 100%;
    height: 100%;
