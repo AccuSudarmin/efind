@@ -53,3 +53,4 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'admin/dashboard';
+$route['music/(:any)'] = 'music/view/$1';
