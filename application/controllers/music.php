@@ -16,12 +16,15 @@ class Music extends CI_Controller{
       $this->load->view('head');
       $this->load->view('body-calender-open');
       $this->load->view('menu');
-		$this->load->view('calender');
-      // $this->load->view('article-container');
+		$this->load->view('calender' , array(
+         'event' => $event ,
+         'month' => $month ,
+         'year' => $year
+      ));
       $this->load->view('footer-calender');
 	}
 
-   public function coba() {
+   public function view($url) {
       $this->load->view('head');
       $this->load->view('body-calender-open');
       $this->load->view('menu');
@@ -29,7 +32,7 @@ class Music extends CI_Controller{
       $this->load->view('footer-calender');
 	}
 
-   public function view($link) {
+   public function show($link) {
       $callback = array("type" => "dialog-box");
 		$callback['message'] = '
       <div class="article-container">
