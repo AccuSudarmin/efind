@@ -151,18 +151,37 @@ class Submission extends MY_Controller {
 	}
 
 	public function view($id) {
-		// $event = $this->marticle->getById($id);
-		//
-		// $this->load->view('administrator/head');
-		// $this->load->view('administrator/header');
-		// $this->load->view('administrator/sidebar' , array(
-		// 	'activate' => "event"
-		// ));
-		// $this->load->view('administrator/event/view', array(
-		// 	'title' => 'View Event'
-		// ));
+		$submission = $this->msubmission->getById($id);
+
 		$callback = array("type" => "dialog-box");
-		$callback['message'] = "coba";
+		$callback['message'] = "
+			<div class='fill-article'>
+				<article>
+					<h1> Lorem ipsum dolor sit amet, consectetur adipisicing elit. </h1>
+					<img src='http://localhost/eventfinder/public/img/bola.jpg'>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+					</article>
+				<aside>
+					<ul>
+						<li> From <i class='tanggal'>28th September</i> to <i class='tanggal'>29th September</i> </li>
+						<li> <i class='fa fa-map-marker'></i> Gedung Mulo, Makassar  </li>
+						<li> <strong> Ticket Price : Free </strong> </li>
+						<li>
+							Contact : <br>
+							Siamang <br>
+							Jl. Sianu Siapa <br>
+							Makassar
+						</li>
+						<li>
+							Twitter : <a href='#'> @sianu </a> <br>
+							Facebook : <a href='#'> Sianu </a> <br>
+							Line : <a href='#'> @sianu </a> <br>
+						</li>
+					</ul>
+				</aside>
+			</div>
+		";
 		echo json_encode($callback);
 	}
 }

@@ -1,22 +1,21 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+   defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+   class Home extends CI_Controller {
 
-  function __construct() {
-    parent::__construct();
+      function __construct() {
+         parent::__construct();
 
-    $this->load->model('mslider');
-  }
-	public function index()
-	{
-    $slider = $this->mslider->getAll();
+         $this->load->model('mslider');
+      }
 
-    $this->load->view('head');
-		$this->load->view('home', array(
-      'slider' => $slider,
-    )
+      public function index() {
+         $slider = $this->mslider->getAll();
 
-  );
-
-  }};
+         $this->load->view('head');
+         $this->load->view('home', array(
+            'slider' => $slider,
+         ));
+      }
+   }
+?>

@@ -6,10 +6,11 @@
 	<link rel="stylesheet"  media="(max-width: 460px)" href="<?php echo base_url('public/css/admin-style460.css'); ?>" />
 	<link rel="stylesheet" href="<?php echo base_url('public/css/font-awesome.css'); ?>" />
 	<link rel="stylesheet" href="<?php echo base_url('public/js/azuploader/css/azuploader.css'); ?>" />
-	<script src="http://localhost/webcomponent/lib/azcomponent/webcomponentsjs/webcomponents.js"></script>
-	<link rel="import" href="http://localhost/webcomponent/lib/azcomponent/az-ui.html">
-	<link rel="import" href="http://localhost/webcomponent/lib/azcomponent/az-ajax.html">
-	<link rel="import" href="http://localhost/webcomponent/lib/azcomponent/az-chart.html">
+
+	<script src="<?php echo base_url('public/azcomponent/webcomponentsjs/webcomponents.js'); ?>"></script>
+	<link rel="import" href="<?php echo base_url('public/azcomponent/az-ajax.html'); ?>">
+	<link rel="import" href="<?php echo base_url('public/azcomponent/az-ui.html'); ?>">
+	<link rel="import" href="<?php echo base_url('public/azcomponent/az-chart.html'); ?>">
 	<title>Eventfinder Administrator</title>
 	<style media="screen">
 		#map {

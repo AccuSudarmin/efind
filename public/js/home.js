@@ -21,13 +21,14 @@ var navbar= function(){
     // }, 200);
   });
 
-  $('.aboutus').click(function() {
-    var aboutus = document.querySelector('.about-us');
-
-    if (aboutus.style.display == 'none') aboutus.style.display = 'block';
-    else aboutus.style.display = 'none';
-
-  });
 };
 
 $(document).ready(navbar);
+
+$('.aboutus').click(function() {
+  var aboutus = document.querySelector('.about-us');
+
+  if (aboutus.style.display != 'block') aboutus.style.display = 'block';
+  else aboutus.style.display = 'none';
+
+});

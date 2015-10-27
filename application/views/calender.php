@@ -76,10 +76,23 @@
             <!-- <li class="thearrow"><a href="#" class="arrow-prev"><i class="fa fa-angle-left"></i></a></li> -->
             <li class="main-calendar">
                  <ul>
-                 <li class="selected"><div class="isi-calender">
-                      <div class="calender-date"> 01 | Mon </div> <article> <ul> <ol><a href="#"> Lorem </a> </ol> <ol> Ipsum </ol> </ul> </article> </div>
-                    <img src="<?php echo base_url('public/img/music1.jpg');?>">
-                    <img src="<?php echo base_url('public/img/music5.jpg');?>">
+                 <li class="selected">
+                     <div class="isi-calender">
+                        <div class="calender-date"> 01 | Mon </div>
+                        <article>
+                           <ul>
+                              <ol>
+                                 <a is="az-anchorajax"
+                                 action='<?php echo site_url('music/view/lorem')  ?>'
+                                 method='click'
+                                 > Lorem </a>
+                              </ol>
+                              <ol> Ipsum </ol>
+                           </ul>
+                        </article>
+                     </div>
+                     <img src="<?php echo base_url('public/img/music1.jpg');?>">
+                     <img src="<?php echo base_url('public/img/music5.jpg');?>">
                  </li>
                  <li><div class="isi-calender">
                       <div class="calender-date"> 01 | Monday </div> <article> <ul> <ol><a href="#"> Lorem </a> </ol> <ol> Ipsum </ol> </ul> </article> </div><img src="<?php echo base_url('public/img/music5.jpg');?>"></li>

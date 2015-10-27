@@ -20,15 +20,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Eventfinder Indonesia</title>
-      <link rel="stylesheet" href="<?php echo base_url('public/stylesheets/screen.css');?>" media="screen, projection" title="no title" charset="utf-8">
-      <link rel="stylesheet" href="<?php echo base_url('public/stylesheets/print.css');?>" media="print" title="no title" charset="utf-8">
-      <link rel="stylesheet" href="<?php echo base_url('public/stylesheets/ie.css');?>" media="screen" title="no title" charset="utf-8">
-      <link rel="stylesheet" href="<?php echo base_url('public/css/font-awesome.css');?>" media="screen" title="no title" charset="utf-8">
       <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+      <!-- head utk submission -->
+      <link rel="stylesheet" href="<?php echo base_url('public/css/submission-style.css'); ?>" />
+      <link rel="stylesheet" href="<?php echo base_url('public/css/font-awesome.css'); ?>" />
+      <link rel="stylesheet" href="<?php echo base_url('public/js/azuploader/css/azuploader.css'); ?>" />
+
       <script src="<?php echo base_url('public/azcomponent/webcomponentsjs/webcomponents.js'); ?>"></script>
       <link rel="import" href="<?php echo base_url('public/azcomponent/az-ajax.html'); ?>">
+      <link rel="import" href="<?php echo base_url('public/azcomponent/az-ui.html'); ?>">
+
 
    </head>

@@ -1,0 +1,70 @@
+.fill-article {
+   background: #fff;
+   position: relative;
+   box-sizing: border-box;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   width: 1000px;
+   text-align: left;
+}
+
+.fill-article > article {
+   width: 60%;
+   padding: 10px 20px 40px 20px;
+   box-sizing: border-box;
+}
+
+.fill-article > article h1 {
+   font-size: 200%;
+   font-weight: 700;
+   line-height: 1;
+   text-transform: uppercase;
+   margin-bottom: 15px;
+}
+
+.fill-article > article img {
+   width: 100%;
+   height: auto;
+   text-align: center;
+}
+
+.fill-article aside {
+   width: 40%;
+   padding: 10px;
+   background: #2F3541;
+   color: #bebebe;
+   top: 0;
+   position: absolute;
+   right: 0;
+   box-sizing: border-box;
+   bottom: 0;
+}
+
+.fill-article aside ul {
+   list-style: none;
+   padding: 0;
+}
+
+.fill-article aside ul li {
+   text-align: justify;
+   margin-top: 10px;
+   border-bottom: 1px solid #454D5D;
+   padding-bottom: 5px;
+   width: 100%;
+}
+
+.fill-article aside ul li .tanggal {
+   font-weight: 700;
+   color: #fff;
+   font-size: 110%;
+}
+
+.fill-article aside ul li.barcode {
+   text-align: center;
+   display: inline-block;
+   vertical-align: middle;
+}
+
+.fill-article aside ul li.barcode img {
+   width: 100px;
+}
