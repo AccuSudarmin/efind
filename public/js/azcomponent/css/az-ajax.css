@@ -43,13 +43,27 @@
    vertical-align: middle;
 }
 
+.back-overlay-close-button {
+   float: right;
+   text-align: right;
+   vertical-align: middle;
+   font-size: 200%;
+   color: #fff;
+   padding: 10px;
+   cursor: pointer;
+}
+
+.back-overlay-close-button:hover {
+   color: #bebebe;
+}
+
 .hiccup-back-overlay-child {
    vertical-align: middle;
    display: inline-block;
    max-height: 90%;
    max-width: 90%;
-   overflow-y: scroll;
-   overflow-x: hidden;
+   overflow-y: scroll !important;
+   overflow-x: hidden !important;
 }
 
 .suggest-content:hover {

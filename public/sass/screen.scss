@@ -64,6 +64,7 @@ body#calendar{
    background: #fff;
    width:100%;
    position: relative;
+   margin-bottom: 10px;
 
    header.navigation{
       position: relative;
@@ -789,6 +790,8 @@ footer{
 }
 
 .article-container{
+   position: relative;
+   background: #fff;
 
    .flex-img{
       background-color: rgba(0, 0, 0, 1);

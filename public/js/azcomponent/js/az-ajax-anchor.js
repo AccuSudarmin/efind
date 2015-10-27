@@ -87,8 +87,10 @@
                break;
             case 'dialog-box':
                var dialogChild = ElementBuild({'tag' : 'div' , 'class' : 'hiccup-back-overlay-child'}, response.message),
-                  dialog = ElementBuild({'tag' : 'div' , 'class' : 'hiccup-back-overlay'});
+                  dialog = ElementBuild({'tag' : 'div' , 'class' : 'hiccup-back-overlay'})
+                  buttonClose = ElementBuild({'tag' : 'div' , 'class' : 'back-overlay-close-button'}, '<i class="fa fa-times"> </i>');
 
+               dialog.appendChild(buttonClose);
                dialog.appendChild(dialogChild);
 
                if (response.zindex) {
@@ -97,6 +99,12 @@
 
                dialog.addEventListener('click', function(){
                   this.parentNode.removeChild( this );
+               });
+
+               buttonClose.addEventListener('click', function(e) {
+                  dialog.parentNode.removeChild(dialog);
+
+                  e.stopPropagation();
                });
 
                dialogChild.addEventListener('click', function(e){

@@ -14,8 +14,18 @@ class Music extends CI_Controller{
       $event = $this->marticle->getByYearMonthAndCategory($year, $month, 1);
 
       $this->load->view('head');
+      $this->load->view('body-calender-open');
+      $this->load->view('menu');
 		$this->load->view('calender');
       // $this->load->view('article-container');
+      $this->load->view('footer-calender');
+	}
+
+   public function coba() {
+      $this->load->view('head');
+      $this->load->view('body-calender-open');
+      $this->load->view('menu');
+      $this->load->view('article-container');
       $this->load->view('footer-calender');
 	}
 
