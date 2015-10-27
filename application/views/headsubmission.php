@@ -29,9 +29,9 @@
       <link rel="stylesheet" href="<?php echo base_url('public/css/font-awesome.css'); ?>" />
       <link rel="stylesheet" href="<?php echo base_url('public/js/azuploader/css/azuploader.css'); ?>" />
 
-      <script src="<?php echo base_url('public/azcomponent/webcomponentsjs/webcomponents.js'); ?>"></script>
-      <link rel="import" href="<?php echo base_url('public/azcomponent/az-ajax.html'); ?>">
-      <link rel="import" href="<?php echo base_url('public/azcomponent/az-ui.html'); ?>">
+      <script src="<?php echo base_url('public/js/azcomponent/webcomponentsjs/webcomponents.js'); ?>"></script>
+      <link rel="import" href="<?php echo base_url('public/js/azcomponent/az-ajax.html'); ?>">
+      <link rel="import" href="<?php echo base_url('public/js/azcomponent/az-ui.html'); ?>">
 
 
    </head>

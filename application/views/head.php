@@ -28,7 +28,7 @@
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-      <script src="<?php echo base_url('public/azcomponent/webcomponentsjs/webcomponents.js'); ?>"></script>
-      <link rel="import" href="<?php echo base_url('public/azcomponent/az-ajax.html'); ?>">
+      <script src="<?php echo base_url('public/js/azcomponent/webcomponentsjs/webcomponents.js'); ?>"></script>
+      <link rel="import" href="<?php echo base_url('public/js/azcomponent/az-ajax.html'); ?>">
 
    </head>
