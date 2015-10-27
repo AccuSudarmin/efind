@@ -63,59 +63,63 @@
         </div>
       </div>
 
-         <?php $this->load->view('slider');?>
-
+      <?php $this->load->view('slider');?>
 
       <section class="bodywrapper">
          <div class="tagline"><center><h1> Find your favorite event to be spent this week </h1></center></div>
-        <nav class="main-menu">
-              <div class="main-menu-wrapper">
-                 <a href="#">
-                 <div class="inner-ninja">
-                 <div class="div-img-bg" style="background-image:url(<?php echo base_url('public/img/menu1.jpg');?>);"></div></div>
+         <nav class="main-menu">
+            <div class="main-menu-wrapper">
+               <a href="<?php echo site_url('music'); ?>">
+                  <div class="inner-ninja">
+                     <div class="div-img-bg" style="background-image:url(<?php echo base_url('public/img/menu1.jpg');?>);"></div>
+                  </div>
+                  <article>
+                     <h1> Music Event</h1>
+                     <p>
+                        "There is no such thing as going to too many concerts".
+                        Find out where's your favorite bands next concert.
+                     </p>
+                  </article>
+               </a>
+            </div>
 
-                 <article>
-                <h1> Music Event</h1>
-                <p> "There is no such thing as going to too many concerts".
-                Find out where's your favorite bands next concert.</p></article>
-             </a>
+            <div class="main-menu-wrapper">
+               <a href="<?php echo site_url('exhibition'); ?>">
+                  <div class="inner-ninja">
+                     <div class="div-img-bg" style="background-image:url(<?php echo base_url('public/img/eksebisi.jpg');?>);"></div>
+                  </div>
 
-              </div>
+                  <article>
+                     <h1> Exhibitions Event</h1>
+                     <p>
+                        Discover the best art or product exhibition for the upcoming week (or month)
+                     </p>
+                  </article>
+               </a>
+            </div>
 
-              <div class="main-menu-wrapper">
-                 <a href="#">
-                 <div class="inner-ninja">
-                 <div class="div-img-bg" style="background-image:url(<?php echo base_url('public/img/eksebisi.jpg');?>);"></div></div>
+            <div class="main-menu-wrapper">
+               <a href="<?php echo site_url('sport'); ?>">
+                  <div class="inner-ninja">
+                    <div class="div-img-bg" style="background-image:url(<?php echo base_url('public/img/bola.jpg');?>);"></div>
+                  </div>
 
-                 <article>
-                <h1> Exhibitions Event</h1>
-                <p> Discover the best art or product exhibition for the upcoming week (or month)</p></article></a>
+                  <article>
+                     <h1> Sport Events </h1>
+                     <p> Football, Basketball, Badminton, Drag Race, Marathon, Triathlon, you name it! You'll never miss the  big game anymore!</p>
+                  </article>
+               </a>
+            </div>
 
-              </div>
-
-              <div class="main-menu-wrapper">
-                 <a href="#">
-                 <div class="inner-ninja">
-                 <div class="div-img-bg" style="background-image:url(<?php echo base_url('public/img/bola.jpg');?>);"></div></div>
-
-                 <article>
-                <h1> Sport Events </h1>
-                <p> Football, Basketball, Badminton, Drag Race, Marathon, Triathlon, you name it! You'll never miss the  big game anymore!</p></article></a>
-
-              </div>
-
-
-        </nav>
+         </nav>
       </section>
 
-      <footer>
+   <footer>
+      <center>Copyright (c) 2015 Copyright Holder All Rights Reserved.</center>
+   </footer>
+</div>
 
+<script src="<?php echo base_url('public/js/home.js');?>"></script>
 
-        <center>Copyright (c) 2015 Copyright Holder All Rights Reserved.</center>
-      </footer>
-   </div>
-
-      <script src="<?php echo base_url('public/js/home.js');?>"></script>
-
-   </body>
+</body>
 </html>
