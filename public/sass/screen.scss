@@ -92,6 +92,8 @@ body#calendar{
       li{
          padding: 10px;
          border-bottom: 1px solid #bebebe;
+
+         overflow: hidden;
       }
 
       a{
@@ -889,6 +891,54 @@ footer{
 }
 
 
+
+.about-us{
+  background: #F44336;
+  padding-top: 120px;
+  color: #e0e0e0;
+  font-size: 110%;
+  display: none;
+
+  h2, h3{
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  h2{
+    font-size: 200%;
+  }
+
+  h3{
+    font-size: 150%;
+  }
+
+  ul {
+    padding-bottom: 20px;
+
+      .maps{
+        width:100%;
+
+        iframe{
+          width: 100%;
+        }
+      }
+
+      li {
+      width: 50%;
+      float: left;
+      padding: 20px;
+
+      &:nth-child(2){
+        border-left: 1px solid #e0e0e0;
+      }
+
+      p{
+        padding-top: 10px;
+      }
+
+    }
+  }
+}
 
 @media only screen and (min-width:0px) and (max-width:786px){
 
