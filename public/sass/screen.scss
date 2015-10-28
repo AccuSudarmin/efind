@@ -46,7 +46,7 @@ body#home{
 body#calendar{
    background-color: #fff;
 
-   div{
+   div:not(.map){
      overflow: hidden;
    }
 }
@@ -507,6 +507,29 @@ section.bodywrapper{
    }
 }
 
+.related-search{
+   width: 100%;
+   margin-top: 50px;
+   border-top: 2px solid #ebebeb;
+   padding-top: 5px;
+
+   h2{
+      font-size: 130%;
+   }
+
+   h5{
+      text-transform: capitalize;
+      text-align: left;
+      font-family: $heading;
+   }
+
+   .related-box{
+      padding: 10px 10px 10px 0px;
+      width: 33.3%;
+      float: left;
+   }
+}
+
 footer{
    padding-top: 20px;
   background: #333333;
@@ -798,6 +821,7 @@ footer{
 .article-container{
    position: relative;
    background: #fff;
+   min-width: 90%;
 
    .flex-img{
       background-color: rgba(0, 0, 0, 1);
