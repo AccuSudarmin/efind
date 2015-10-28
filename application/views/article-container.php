@@ -1,4 +1,3 @@
- <script src="https://maps.googleapis.com/maps/api/js"></script>
  <style>
      #map {
       width: 500px;
@@ -31,7 +30,7 @@
                <i class="fa fa-map-marker"></i> <?php echo $event->arEventLocation; ?>
             </li>
             <li>
-               <div id="map" style="height: 200px;"></div>
+               <div id='map' is='map-component' mapLat='<?php echo $event->mapLatitude ?>' mapLng='<?php echo $event->mapLongitude ?>"' mapZoom = '<?php echo $event->mapZoom ?>'></div>
                <input type="hidden" id="mapLat" value="<?php echo $event->mapLatitude; ?>">
                <input type="hidden" id="mapLng" value="<?php echo $event->mapLongitude; ?>">
                <input type="hidden" id="mapZoom" value="<?php echo $event->mapZoom; ?>">
@@ -58,29 +57,3 @@
       </aside>
    </div>
 </div>
-
-<script>
-   function initialize() {
-      var mapCanvas = document.getElementById('map');
-      var lat = parseFloat(document.getElementById('mapLat').value)
-         , lng = parseFloat(document.getElementById('mapLng').value)
-         , zoom = parseFloat(document.getElementById('mapZoom').value);
-      var haightAshbury = {'lat': lat, 'lng': lng};
-
-      map = new google.maps.Map(document.getElementById('map'), {
-         'zoom': zoom,
-         'center': haightAshbury,
-         'mapTypeId': google.maps.MapTypeId.ROADMAP
-      });
-
-      addMarker(haightAshbury);
-   }
-
-   function addMarker(location) {
-      var marker = new google.maps.Marker({
-         position: location,
-         map: map
-      });
-   }
-   google.maps.event.addDomListener(window, 'load', initialize);
-</script>
