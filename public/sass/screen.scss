@@ -46,7 +46,7 @@ body#home{
 body#calendar{
    background-color: #fff;
 
-   div:not(.map){
+   div:not(#map){
      overflow: hidden;
    }
 }

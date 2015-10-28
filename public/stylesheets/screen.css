@@ -103,7 +103,7 @@ body#calendar {
   background-color: #fff;
 }
 /* line 49, ../sass/screen.scss */
-body#calendar div:not(.map) {
+body#calendar div:not(#map) {
   overflow: hidden;
 }
 
