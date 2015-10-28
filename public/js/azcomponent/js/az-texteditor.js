@@ -80,7 +80,7 @@
          var editorContent = editor.contentWindow;
       }
 
-      editorContent.body.innerHTML = this.innerHTML;
+      editorContent.body.innerHTML = this.textContent;
 
       editorContent.designMode = 'on';
 

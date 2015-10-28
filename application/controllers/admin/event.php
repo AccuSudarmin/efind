@@ -255,7 +255,7 @@ class Event extends MY_Controller {
 	public function delete($idarticle) {
 		$this->marticle->delete($idarticle);
 		$this->msocialmedia->deleteByIdArticle($idarticle);
-		$this->msocialmedia->deleteByIdArticle($idarticle);
+		$this->mmaps->deleteByIdArticle($idarticle);
 
 		redirect('admin/event');
 	}

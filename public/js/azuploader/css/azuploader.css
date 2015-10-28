@@ -8,23 +8,79 @@
    text-align: center;
 }
 
+.azuploader-back-overlay:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
 .azuploader-modal-box {
    max-width: 70%;
    display: inline-block;
    vertical-align: middle;
-   /* position: absolute; */
-   margin-top: 10%;
    background: #F8F6F6;
    box-sizing: border-box;
+   max-height: 90%;
+   padding: 0;
+   position: relative;
 }
 
 .azuploader-head {
    display: inline-block;
-   padding: 10px;
+   line-height: 40px;
    width: 100%;
-   background: #4E4E4E;
+   background: #3A3939;
    color: white;
    box-sizing: border-box;
+   position: relative;
+   z-index: 2;
+   text-align: center;
+}
+
+.azuploader-head-title {
+   display: inline-block;
+}
+
+.azuploader-close-button {
+   position: absolute;
+   right: 10px;
+   top: 0px;
+   display: block;
+}
+
+.azuploader-sidemenu {
+   width: 19.6%;
+   display: block;
+   margin: 0px;
+   vertical-align: top;
+   overflow: hidden;
+   height: 100%;
+   position: absolute;
+   background-color: #4E4E4E;
+   top: 0;
+   z-index: 1;
+   box-sizing: border-box;
+   padding-top: 40px;
+   text-align: left;
+   color: white;
+}
+
+.azuploader-sidemenu ul {
+   list-style: none;
+   padding-left: 10px;
+}
+
+.azuploader-sidemenu ul li {
+   margin-top: 5px;
+   margin-bottom: 5px;
+}
+
+.azuploader-body {
+   width: 80%;
+   display: inline-block;
+   margin-left: 20%;
+   overflow: hidden;
 }
 
 .azuploader-navigation {
@@ -40,7 +96,9 @@
 .azuploader-content {
    padding: 20px;
    display: block;
-   text-align: center;
+   text-align: left;
+   overflow-y: scroll;
+   height: 400px;
 }
 
 .azuploader-content > .azuploader-container {
@@ -53,6 +111,7 @@
    margin: 10px;
    border: 1px solid #DCDCDC;
    position: relative;
+   text-align: center;
 }
 
 .azuploader-content > .azuploader-container:hover {

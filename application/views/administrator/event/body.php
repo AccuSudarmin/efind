@@ -53,7 +53,7 @@
                      ?>
                   </td>
                   <td>
-                     <button type="button" onclick="location.href='<?php echo site_url('admin/event/edit/' . $data->arId)  ?>';" class='button-default'/>
+                     <button type="button" onclick="location.href='<?php echo site_url('admin/event/edit/' . $data->arId)  ?>';" class='button-primary'/>
                         <i class="fa fa-pencil"></i>
                      </button>
                      <button type="button" onclick="if (!confirm('Are you sure delete this event?')) return; location.href='<?php echo site_url('admin/event/delete/' . $data->arId)  ?>';" class='button-danger'/>
