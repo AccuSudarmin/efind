@@ -1,0 +1,110 @@
+/* line 10, ../sass/submission.scss */
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* line 14, ../sass/submission.scss */
+h2 {
+  font-size: 400%;
+  font-weight: 700;
+}
+
+/* line 19, ../sass/submission.scss */
+h4 {
+  font-size: 150%;
+  font-weight: 400;
+}
+
+/* line 24, ../sass/submission.scss */
+h5 {
+  color: #F44336;
+  font-size: 110%;
+}
+
+/* line 29, ../sass/submission.scss */
+h2, h4 {
+  text-align: center;
+  color: #F44336;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+}
+
+/* line 36, ../sass/submission.scss */
+span.eventfinder-text {
+  font-family: 'Lobster', cursive;
+  color: red;
+  font-size: 130%;
+}
+
+/* line 42, ../sass/submission.scss */
+.content {
+  width: 80%;
+  margin: 0 auto;
+  height: auto;
+}
+
+/* line 48, ../sass/submission.scss */
+.container {
+  margin: 20px 0;
+}
+/* line 51, ../sass/submission.scss */
+.container table {
+  width: 100%;
+}
+/* line 54, ../sass/submission.scss */
+.container table td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+/* line 59, ../sass/submission.scss */
+.container table td img {
+  width: 20px;
+}
+/* line 63, ../sass/submission.scss */
+.container table td input[type="text"], .container table td textarea {
+  width: 100%;
+  padding: 10px;
+}
+/* line 69, ../sass/submission.scss */
+.container table input[type="file"] {
+  display: none;
+}
+/* line 73, ../sass/submission.scss */
+.container table label[for="picture"] {
+  padding: 10px;
+  margin: 5px 0;
+  background: #F44336;
+  border-color: red;
+  border-radius: 5px;
+  color: #fff;
+}
+/* line 81, ../sass/submission.scss */
+.container table label[for="picture"]:hover {
+  background: #3b3b3b;
+  color: #F44336;
+}
+/* line 88, ../sass/submission.scss */
+.container table .social-input td {
+  float: left;
+}
+/* line 91, ../sass/submission.scss */
+.container table .social-input td input[type="text"] {
+  width: 171px;
+}
+/* line 95, ../sass/submission.scss */
+.container table .social-input td img {
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+}
+
+/* line 106, ../sass/submission.scss */
+.float-right {
+  float: right;
+}
+
+/* line 111, ../sass/submission.scss */
+.please-contact td {
+  padding-top: 8% !important;
+}

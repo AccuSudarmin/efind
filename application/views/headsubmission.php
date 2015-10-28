@@ -22,12 +22,14 @@
       <title>Eventfinder Indonesia</title>
       <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
       <!-- head utk submission -->
-      <link rel="stylesheet" href="<?php echo base_url('public/css/submission-style.css'); ?>" />
+      <!-- <link rel="stylesheet" href="<?php echo base_url('public/css/submission-style.css'); ?>" /> -->
       <link rel="stylesheet" href="<?php echo base_url('public/css/font-awesome.css'); ?>" />
-      <link rel="stylesheet" href="<?php echo base_url('public/js/azuploader/css/azuploader.css'); ?>" />
+      <link rel="stylesheet" href="<?php echo base_url('public/stylesheets/submission.css'); ?>" />
+      <!-- <link rel="stylesheet" href="<?php echo base_url('public/js/azuploader/css/azuploader.css'); ?>" /> -->
 
       <script src="<?php echo base_url('public/js/azcomponent/webcomponentsjs/webcomponents.js'); ?>"></script>
       <link rel="import" href="<?php echo base_url('public/js/azcomponent/az-ajax.html'); ?>">
