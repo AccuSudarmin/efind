@@ -46,8 +46,12 @@ body#home{
 body#calendar{
    background-color: #fff;
 
-   div:not(#map){
-     overflow: hidden;
+   // div:not(#map){
+   //   overflow: hidden;
+   // }
+
+   .article-container, .flex-img, .fill-article{
+      overflow: hidden;
    }
 }
 
