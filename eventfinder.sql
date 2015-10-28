@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2015 at 04:04 AM
+-- Generation Time: Oct 28, 2015 at 02:54 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `article` (
 --
 
 INSERT INTO `article` (`arId`, `arTitle`, `arContent`, `arDateStart`, `arDateEnd`, `arPict`, `arURL`, `arAuthor`, `arEventLocation`, `arTicketPrice`, `arBarcode`, `arCategory`, `arContact`, `arDatePost`, `arStatus`, `arSEODesc`, `arOrganizer`, `arMetaDesc`) VALUES
-(43, 'The Rock Campus', '<div class="eventContent" style="box-sizing: border-box; margin: 0px; padding: 0px 0px 20px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Turut memeriahkan :</div><div class="eventContent" style="box-sizing: border-box; margin: 0px; padding: 0px 0px 20px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;"><ol style="box-sizing: border-box; margin: 0px; padding: 0px 0px 0px 20px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;"><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Tremor</li><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Sixsense Rock</li><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Brand New Eyes</li><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Science</li><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Aaarggghhh!</li><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Host acara by: Ezra Simantunjak.</li></ol></div>', '2015-10-23', '2015-10-24', 'http://localhost/eventfinder/public/userfiles/image/therockcampus.jpg', 'The-Rock-Campus', 1, 'Rolling Stone Cafe, Jakarta', 'Rp. 500.0000 (Umum)', 'http://Evenfinder.co.id', 1, 'Wita Wibisono 0818791521', '2015-10-28', '1', '', 'TRC Management', 'Music Event, The Rock Campus');
+(43, 'The Rock Campus', '                                                                        <div class="eventContent" style="box-sizing: border-box; margin: 0px; padding: 0px 0px 20px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Turut memeriahkan :</div><div class="eventContent" style="box-sizing: border-box; margin: 0px; padding: 0px 0px 20px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;"><ol style="box-sizing: border-box; margin: 0px; padding: 0px 0px 0px 20px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;"><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Tremor</li><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Sixsense Rock</li><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Brand New Eyes</li><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Science</li><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Aaarggghhh!</li><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Host acara by: Ezra Simantunjak.</li></ol></div>                                                               ', '2015-10-23', '2015-10-24', 'http://localhost/eventfinder/public/userfiles/image/therockcampus.jpg', 'The-Rock-Campus', 1, 'Rolling Stone Cafe, Jakarta', 'Rp. 500.0000 (Umum)', 'http://Evenfinder.co.id', 1, 'Wita Wibisono 0818791521', '2015-10-28', '1', '', 'TRC Management', 'Music Event, The Rock Campus');
 
 -- --------------------------------------------------------
 
@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `ref_map` (
 --
 
 INSERT INTO `ref_map` (`mapId`, `mapLongitude`, `mapLatitude`, `mapZoom`, `mapArticleId`) VALUES
-(48, '106.82008203759324', '-6.276937552501346', 16, 43);
+(48, '106.82005374113942', '-6.2769780775348245', 17, 43);
 
 -- --------------------------------------------------------
 
