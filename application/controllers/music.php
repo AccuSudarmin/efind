@@ -27,10 +27,14 @@ class Music extends CI_Controller{
 	}
 
    public function view($url) {
+      $event = $this->marticle->getByURL($url);
+
       $this->load->view('head');
       $this->load->view('body-calender-open');
       $this->load->view('menu');
-      $this->load->view('article-container');
+      $this->load->view('article-container', array(
+         'event' => $event
+      ));
       $this->load->view('footer-calender');
 	}
 

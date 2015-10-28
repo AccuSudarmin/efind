@@ -220,7 +220,7 @@
       map = new google.maps.Map(document.getElementById('map'), {
          zoom: mapZoom,
          center: haightAshbury,
-         mapTypeId: google.maps.MapTypeId.TERRAIN
+         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
       autocomplete = new google.maps.places.Autocomplete(input);

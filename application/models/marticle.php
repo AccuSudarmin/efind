@@ -57,6 +57,22 @@
          return $data;
       }
 
+      public function getByURL($url) {
+         $data = $this->db->get_where('article' , array('arURL' => $url))->row();
+
+         $this->db->select('*');
+         $this->db->from('article');
+         $this->db->join('ref_category', 'article.arCategory = ref_category.catId');
+         $this->db->join('ref_map', 'ref_map.mapArticleId = article.arId');
+         $this->db->join('ref_social_media', 'ref_social_media.smArticleId = article.arId');
+         $this->db->join('admin', 'article.arAuthor = admin.amId');
+         $this->db->where(array(
+            'arURL' => $url
+         ));
+
+         return $this->db->get()->row();
+      }
+
       public function getByCategory($idcategory) {
          $this->db->select('*');
          $this->db->from('article');
