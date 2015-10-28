@@ -1,18 +1,21 @@
 <div class="calendar-container">
-   <form action= "">
+   <form is='az-form'
+      action = "<?php echo $urlaction; ?>"
+      method = "post">
       <select name ="month">
          <?php
             for ($i = 0; $i <= 12; $i++){
-               echo "<option value = " . date('m') . "> " . date('F') . "</option>";
+               $date = date_create_from_format('n' , $i);
+               echo "<option value = " . date_format($date, 'm') . "> " . date_format($date, 'F') . "</option>";
             }
          ?>
       </select>
 
-      <input type = "number" min="1999" value="1999" name="Year"> </input>
+      <input type = "number" min="1999" value="1999" name="year"> </input>
       <button><i class="fa fa-search"> </i></button>
    </form>
 
-   <ul class="calendar-ul">
+   <ul class="calendar-ul" id="list-event">
       <?php
          $i = 1; foreach ($event as $key => $value):
 
@@ -26,7 +29,11 @@
 
             <li>
                <div class="isi-calender">
+                  <?php if(date_format($date, 'l') == 'Saturday' || date_format($date, 'l') == 'Sunday'): ?>
+                  <div class="calender-date tanggal-merah"> <?php echo $key; ?> | <?php echo date_format($date, 'l'); ?> </div>
+                  <?php else: ?>
                   <div class="calender-date"> <?php echo $key; ?> | <?php echo date_format($date, 'l'); ?> </div>
+                  <?php endif; ?>
                   <article>
                      <ul>
 
@@ -34,7 +41,6 @@
                         <ol>
                            <a is="az-anchorajax"
                               href = '<?php echo $urlview . '/' . $data->arURL; ?>'
-                              target="_blank"
                               action='<?php echo site_url('music/show/' . $data->arId);  ?>'
                               method='click'
                            > <?php echo $data->arTitle; ?> </a>

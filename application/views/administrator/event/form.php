@@ -208,7 +208,7 @@
       map = new google.maps.Map(document.getElementById('map'), {
          zoom: 4,
          center: haightAshbury,
-         mapTypeId: google.maps.MapTypeId.TERRAIN
+         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
       autocomplete = new google.maps.places.Autocomplete(input);

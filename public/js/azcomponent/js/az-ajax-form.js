@@ -140,6 +140,9 @@
             case 'own-div':
                _( response.targetDiv ).insertAdjacentHTML( 'afterend', response.message );
                break;
+            case 'own-div-clear':
+               _( response.targetDiv ).innerHTML = response.message;
+               break;
             default:
                createOverlay( response );
          }
