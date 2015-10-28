@@ -17,6 +17,7 @@ class Music extends CI_Controller{
       $this->load->view('body-calender-open');
       $this->load->view('menu');
 		$this->load->view('calender' , array(
+         'urlview' => site_url('music') ,
          'event' => $event ,
          'month' => $month ,
          'year' => $year

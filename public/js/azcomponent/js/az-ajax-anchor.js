@@ -125,11 +125,16 @@
       this.activateSubmit = function () {
          var ajax = new azajax(this);
          if (this.Method === "CLICK" || this.Method === 'click') {
-            this.addEventListener('click' , function (e) {
-               ajax.post();
 
-               if(e.preventDefault) e.preventDefault()
-               else e.returnValue = false;
+            this.addEventListener('click' , function (e) {
+               e = e || window.event;
+
+               if(!e.ctrlKey && !e.altKey && !e.metaKey && !e.shiftKey){
+                  ajax.post();
+                  if(e.preventDefault) e.preventDefault()
+                  else e.returnValue = false;
+               }
+
             });
          }
       }

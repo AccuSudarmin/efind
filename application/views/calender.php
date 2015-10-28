@@ -33,6 +33,8 @@
                         <?php foreach ($value as $data): ?>
                         <ol>
                            <a is="az-anchorajax"
+                              href = '<?php echo $urlview . '/' . $data->arURL; ?>'
+                              target="_blank"
                               action='<?php echo site_url('music/show/' . $data->arId);  ?>'
                               method='click'
                            > <?php echo $data->arTitle; ?> </a>
