@@ -41,7 +41,7 @@
                         <ol>
                            <a is="az-anchorajax"
                               href = '<?php echo $urlview . '/' . $data->arURL; ?>'
-                              action='<?php echo site_url('music/show/' . $data->arId);  ?>'
+                              action='<?php echo site_url('music/show/' . $data->arURL);  ?>'
                               method='click'
                            > <?php echo $data->arTitle; ?> </a>
                         </ol>

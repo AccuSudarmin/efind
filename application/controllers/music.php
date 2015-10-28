@@ -38,9 +38,14 @@ class Music extends CI_Controller{
       $this->load->view('footer-calender');
 	}
 
-   public function show($link) {
+   public function show($url) {
+      $event = $this->marticle->getByURL($url);
+
+      $dateStart = date_format(date_create_from_format("Y-m-j" , $event->arDateStart), 'd F Y');
+      $dateEnd = date_format(date_create_from_format("Y-m-j" , $event->arDateEnd), 'd F Y');
+
       $callback = array("type" => "dialog-box");
-		$callback['message'] = '
+		$message = '
       <div class="article-container">
          <div class="flex-img">
             <img src=' . base_url('public/img/bola.jpg') . '>
@@ -77,10 +82,9 @@ class Music extends CI_Controller{
             </aside>
          </div>
       </div>
-
-
       ';
 
+      $callback['message'] = $message;
       echo json_encode($callback);
    }
 
