@@ -14,6 +14,9 @@
          <h1> <?php echo $event->arTitle; ?> </h1>
          <img src="<?php echo $event->arPict; ?>">
          <?php echo $event->arContent; ?>
+
+         <?php $this->load->view('related-search');?>
+
       </article>
       <aside>
          <ul>
