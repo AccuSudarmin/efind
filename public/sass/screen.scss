@@ -65,6 +65,7 @@ body#calendar{
    width:100%;
    position: relative;
    margin-bottom: 10px;
+   overflow: hidden;
 
    header.navigation{
       position: relative;
@@ -699,6 +700,7 @@ footer{
             width: 25%;
             height: 200px;
             position:relative;
+            overflow: hidden;
 
             &:hover {
                .isi-calender{
@@ -946,6 +948,135 @@ footer{
     }
   }
 }
+
+.search-submission{
+   margin-top: 50px;
+   margin-bottom: 20px;
+   color: $mainred;
+
+   div{
+      overflow: hidden;
+   }
+
+   h3{
+      font-size: 150%;
+      font-weight: 700;
+   }
+
+   .div-head{
+      border-bottom: 2px solid $mainred;
+      padding-bottom: 20px;
+   }
+
+   .search-button{
+
+      input{
+         margin-top: 10px;
+         padding: 5px;
+         border-radius: 5px;
+         width: 90%;
+         border: 1px solid #bebebe;
+      }
+   }
+
+   .result-bar, .aside-bar{
+      float: left;
+      margin-top: 50px;
+   }
+
+   .result-bar{
+
+
+      width: 70%;
+      border-right: 1px solid #ebebeb;
+      padding-right: 10px;
+
+
+      .div-box{
+         margin-top: 20px;
+         border-bottom: 2px dotted #ebebeb;
+         padding-bottom: 20px;
+
+         h5{
+            background: $mainred;
+            color: #fff;
+            font-weight: 700;
+            padding: 5px;
+            display: inline-block;
+         }
+
+         h2{
+            text-transform: uppercase;
+            font-size: 180%;
+            width: 100%;
+            margin-bottom: 20px;
+         }
+
+
+         .div-img{
+            float: left;
+            width: 30%;
+
+
+            img{
+               width:100%;
+            }
+         }
+      }
+
+      .div-info{
+         padding: 0 10px;
+         float: left;
+         width: 70%;
+         color: #000;
+         text-align: justify;
+
+         a.read-more{
+            text-align: right;
+            display: inherit;
+            color: $mainred;
+         }
+
+      }
+   }
+
+   .aside-bar{
+      width:30%;
+      padding: 10px;
+
+
+      .aside-box{
+         margin-bottom: 20px;
+         padding-bottom: 10px;
+         border-bottom: 1px solid #ebebeb;
+
+         h2{
+            margin-bottom: 0px;
+         }
+      }
+
+      h2{
+         text-transform: uppercase;
+         font-size: 180%;
+         width: 100%;
+         margin-bottom: 20px;
+      }
+
+      h5{
+         background: $mainred;
+         color: #fff;
+         font-weight: 700;
+         padding: 5px;
+         display: inline-block;
+      }
+
+      img{
+         width: 100%;
+      }
+
+   }
+}
+
 
 @media only screen and (min-width:0px) and (max-width:786px){
 
