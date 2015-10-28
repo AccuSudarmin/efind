@@ -14,7 +14,7 @@
    <div class="content">
       <div class="container form">
          <form is='az-form'
-            action = "<?php echo $urlaction . '/' . $sliderhome->shId; ?>"
+            action = "<?php echo $urlaction . '/' . $featuredimage->shId; ?>"
             success = "<?php echo $urlsuccess; ?>"
             method = "post"
             >
@@ -24,7 +24,7 @@
                      Title
                   </td>
                   <td>
-                     <az-input type="text" placeholder="Title Slider" name="title" width= "100%" color="#2069b4"><?php echo $sliderhome->shTitle; ?></az-input>
+                     <az-input type="text" placeholder="Title Slider" name="title" width= "100%" color="#2069b4"><?php echo $featuredimage->shTitle; ?></az-input>
                   </td>
                </tr>
 
@@ -33,7 +33,7 @@
                      Picture
                   </td>
                   <td>
-                     <input type="text" class="input-data" name="picture" id="picture" value="<?php echo $sliderhome->shPict; ?>" readonly="true">
+                     <input type="text" class="input-data" name="picture" id="picture" value="<?php echo $featuredimage->shPict; ?>" readonly="true">
                      <az-button name="choosepicture" type='button' id="browsepicture" class="overflow-visible" width="150px" color="#FB7D7D"> Choose Picture </az-button>
                   </td>
                </tr>
@@ -43,7 +43,7 @@
                      Description
                   </td>
                   <td>
-                     <textarea name="desc" rows="8" cols="40"><?php echo $sliderhome->shDesc; ?></textarea>
+                     <textarea name="desc" rows="8" cols="40"><?php echo $featuredimage->shDesc; ?></textarea>
                   </td>
                </tr>
 

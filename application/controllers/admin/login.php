@@ -59,6 +59,8 @@ class Login extends CI_Controller {
 
 	public function dologout() {
 		$this->session->unset_userdata('admin_eventfinder');
+
+		redirect('/admin');
 	}
 }
 ?>

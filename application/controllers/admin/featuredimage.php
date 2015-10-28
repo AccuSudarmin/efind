@@ -1,49 +1,49 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Sliderhome extends MY_Controller {
+class Featuredimage extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();
 
-		$this->load->model('msliderhome');
+		$this->load->model('mfeaturedimage');
 	}
 
 	public function index() {
-		$sliderhome = $this->msliderhome->getAll();
+		$featuredimage = $this->mfeaturedimage->getAll();
 
 		$this->load->view('administrator/head');
 		$this->load->view('administrator/header');
 		$this->load->view('administrator/sidebar', array(
-			'activate' => "sliderhome"
+			'activate' => "featuredimage"
 		));
 
-		$this->load->view('administrator/sliderhome/body' , array (
+		$this->load->view('administrator/featuredimage/body' , array (
          'pagetitle' => "Slider Home" ,
-         'urlsorting' => site_url('admin/sliderhome/sorting') ,
-			'urledit' => site_url('admin/sliderhome/edit') ,
-			'urlaction' => site_url('admin/sliderhome/delete') ,
-			'urlsuccess' => site_url('admin/sliderhome') ,
-			'sliderhome' => $sliderhome
+         'urlsorting' => site_url('admin/featuredimage/sorting') ,
+			'urledit' => site_url('admin/featuredimage/edit') ,
+			'urlaction' => site_url('admin/featuredimage/delete') ,
+			'urlsuccess' => site_url('admin/featuredimage') ,
+			'featuredimage' => $featuredimage
       ));
 
 		$this->load->view('administrator/footer');
 	}
 
 	public function edit($id) {
-		$sliderhome = $this->msliderhome->getById($id);
+		$featuredimage = $this->mfeaturedimage->getById($id);
 
 		$this->load->view('administrator/head');
 		$this->load->view('administrator/header');
 		$this->load->view('administrator/sidebar' , array(
-			'activate' => "sliderhome"
+			'activate' => "featuredimage"
 		));
-		$this->load->view('administrator/sliderhome/form-edit', array(
+		$this->load->view('administrator/featuredimage/form-edit', array(
 			'title' => 'Edit Slider Home' ,
-			'urlaction' => site_url('admin/sliderhome/update') ,
-			'urlsuccess' => site_url('admin/sliderhome') ,
-			'urlback' => site_url('admin/sliderhome') ,
-			'sliderhome' => $sliderhome
+			'urlaction' => site_url('admin/featuredimage/update') ,
+			'urlsuccess' => site_url('admin/featuredimage') ,
+			'urlback' => site_url('admin/featuredimage') ,
+			'featuredimage' => $featuredimage
 		));
 		$this->load->view('administrator/footer');
 	}
@@ -55,7 +55,7 @@ class Sliderhome extends MY_Controller {
 
 		$this->db->trans_begin();
 
-		$result = $this->msliderhome->update($id, array(
+		$result = $this->mfeaturedimage->update($id, array(
 			'shTitle' => $title ,
 			'shPict' => $picture ,
 			'shDesc' => $desc
@@ -80,7 +80,7 @@ class Sliderhome extends MY_Controller {
 		$result = true;
 
 		foreach($_POST as $key => $val){
-			$query = $this->msliderhome->delete($key);
+			$query = $this->mfeaturedimage->delete($key);
 			if (!$query) $result = false;
 		}
 
@@ -97,7 +97,7 @@ class Sliderhome extends MY_Controller {
 	}
 
    public function sorting() {
-		$sliderhome = $this->msliderhome->getAll();
+		$featuredimage = $this->mfeaturedimage->getAll();
 
 		$this->load->view('administrator/head');
 		$this->load->view('administrator/header');
@@ -110,7 +110,7 @@ class Sliderhome extends MY_Controller {
          'urltarget' => site_url('admin/slider/sortingupdate') ,
          'urlsuccess' => site_url('admin/slider') ,
 			'urlback' => site_url('admin/slider') ,
-			'slider' => $sliderhome
+			'slider' => $featuredimage
       ));
 
 		$this->load->view('administrator/footer');
@@ -120,9 +120,9 @@ class Sliderhome extends MY_Controller {
 		$dataOBJ = json_decode($this->input->post('orderingValue'));
 
 		$this->db->trans_start();
-      foreach ($dataOBJ as $sliderhome) {
-         $result = $this->msliderhome->update($sliderhome->id, array(
-            'slOrder' => $sliderhome->orderNum
+      foreach ($dataOBJ as $featuredimage) {
+         $result = $this->mfeaturedimage->update($featuredimage->id, array(
+            'slOrder' => $featuredimage->orderNum
          ));
       }
 		$this->db->trans_complete();

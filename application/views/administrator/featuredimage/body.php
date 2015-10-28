@@ -16,7 +16,7 @@
                <th> Picture </th>
                <th> Action </th>
             </tr>
-            <?php  $i = 1; foreach ($sliderhome as $data): ?>
+            <?php  $i = 1; foreach ($featuredimage as $data): ?>
                <tr>
                   <td> <?php echo $i; ?> </td>
                   <td> <?php echo $data->shTitle; ?> </td>

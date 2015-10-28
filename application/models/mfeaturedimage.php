@@ -1,7 +1,7 @@
 <?php
    defined('BASEPATH') OR exit('No direct script access allowed');
 
-   class Msliderhome extends CI_Model {
+   class Mfeaturedimage extends CI_Model {
 
       public function add($data) {
          $this->db->insert('slider_home', $data);
@@ -14,7 +14,7 @@
 
          return ($this->db->affected_rows() != 1) ? false : true;
       }
-      
+
       // public function delete($id) {
       //    $this->db->delete('slider_home', array('slId' => $id));
       //

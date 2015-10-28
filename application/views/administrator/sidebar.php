@@ -3,7 +3,7 @@
    $event = "";
    $gallery = "";
    $slider = "";
-   $sliderhome = "";
+   $featuredimage = "";
    $setting = "";
    $eventsubmission = "";
 
@@ -20,8 +20,8 @@
       case 'slider':
          $slider = "active";
          break;
-      case 'sliderhome':
-         $sliderhome = "active";
+      case 'featureimage':
+         $featuredimage = "active";
          break;
       case 'setting':
          $setting = "active";
@@ -58,8 +58,8 @@
       <li class="<?php echo $slider;?>">
          <a href="<?php echo site_url('/admin/slider') ?>"> <i class="fa fa-object-ungroup"></i>&nbsp;&nbsp; Slider</a>
       </li>
-      <li class="<?php echo $sliderhome;?>">
-         <a href="<?php echo site_url('/admin/sliderhome') ?>"> <i class="fa fa-object-ungroup"></i>&nbsp;&nbsp; Slider Home</a>
+      <li class="<?php echo $featuredimage;?>">
+         <a href="<?php echo site_url('/admin/featuredimage') ?>"> <i class="fa fa-object-ungroup"></i>&nbsp;&nbsp; Featured Image</a>
       </li>
       <li class="<?php echo $setting;?>">
          <a href="<?php echo site_url('/admin/setting') ?>"> <i class="fa fa-cog"></i>&nbsp;&nbsp; Setting</a>
