@@ -108,3 +108,16 @@ span.eventfinder-text {
 .please-contact td {
   padding-top: 8% !important;
 }
+
+/* line 116, ../sass/submission.scss */
+.thankyou-note {
+  width: 80%;
+  margin: 0 auto;
+  padding: 50px;
+}
+/* line 121, ../sass/submission.scss */
+.thankyou-note .logo-small {
+  overflow: hidden;
+  text-align: center;
+  margin: 10px auto;
+}
