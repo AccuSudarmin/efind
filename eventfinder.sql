@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2015 at 02:30 PM
+-- Generation Time: Oct 28, 2015 at 04:04 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -70,14 +70,14 @@ CREATE TABLE IF NOT EXISTS `article` (
   KEY `arAuthor` (`arAuthor`),
   KEY `arCategory` (`arCategory`),
   KEY `arPict` (`arPict`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
 
 --
 -- Dumping data for table `article`
 --
 
 INSERT INTO `article` (`arId`, `arTitle`, `arContent`, `arDateStart`, `arDateEnd`, `arPict`, `arURL`, `arAuthor`, `arEventLocation`, `arTicketPrice`, `arBarcode`, `arCategory`, `arContact`, `arDatePost`, `arStatus`, `arSEODesc`, `arOrganizer`, `arMetaDesc`) VALUES
-(42, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit', '                                                                                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.                                                               ', '2014-10-15', '2015-10-15', 'http://localhost/eventfinder/public/userfiles/image/3.jpg', 'Lorem-ipsum-dolor-sit-amet,-consectetur-adipisicing-elit', 1, 'Makassar', 'Rp. 2000.000,-', 'http://eventfinder.co.id', 2, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore', '2015-10-24', '1', '', 'Tiki', 'cobaki');
+(43, 'The Rock Campus', '<div class="eventContent" style="box-sizing: border-box; margin: 0px; padding: 0px 0px 20px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Turut memeriahkan :</div><div class="eventContent" style="box-sizing: border-box; margin: 0px; padding: 0px 0px 20px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;"><ol style="box-sizing: border-box; margin: 0px; padding: 0px 0px 0px 20px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;"><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Tremor</li><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Sixsense Rock</li><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Brand New Eyes</li><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Science</li><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Aaarggghhh!</li><li style="box-sizing: border-box; margin: 0px; padding: 0px; transition-timing-function: ease-out; -webkit-font-smoothing: antialiased;">Host acara by: Ezra Simantunjak.</li></ol></div>', '2015-10-23', '2015-10-24', 'http://localhost/eventfinder/public/userfiles/image/therockcampus.jpg', 'The-Rock-Campus', 1, 'Rolling Stone Cafe, Jakarta', 'Rp. 500.0000 (Umum)', 'http://Evenfinder.co.id', 1, 'Wita Wibisono 0818791521', '2015-10-28', '1', '', 'TRC Management', 'Music Event, The Rock Campus');
 
 -- --------------------------------------------------------
 
@@ -163,21 +163,14 @@ CREATE TABLE IF NOT EXISTS `ref_map` (
   `mapZoom` int(50) DEFAULT NULL,
   `mapArticleId` int(11) DEFAULT NULL,
   PRIMARY KEY (`mapId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=48 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=50 ;
 
 --
 -- Dumping data for table `ref_map`
 --
 
 INSERT INTO `ref_map` (`mapId`, `mapLongitude`, `mapLatitude`, `mapZoom`, `mapArticleId`) VALUES
-(39, '119.42392891658528', '-5.13705695288282', 14, 42),
-(40, '119.41178306937218', '-5.135069401600222', 9, 43),
-(42, '119.42572545376606', '-5.148529060970211', 12, 44),
-(43, '119.41178306937218', '-5.135069401600222', 10, 45),
-(44, '119.41178306937218', '-5.135069401600222', 12, 46),
-(45, '119.41178306937218', '-5.135069401600222', 9, 47),
-(46, '119.41178306937218', '-5.135069401600222', 12, 48),
-(47, '119.41178306937218', '-5.135069401600222', 4, 49);
+(48, '106.82008203759324', '-6.276937552501346', 16, 43);
 
 -- --------------------------------------------------------
 
@@ -194,15 +187,14 @@ CREATE TABLE IF NOT EXISTS `ref_social_media` (
   `smInstagram` varchar(50) DEFAULT NULL,
   `smArticleId` int(11) DEFAULT NULL,
   PRIMARY KEY (`smId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=42 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
 
 --
 -- Dumping data for table `ref_social_media`
 --
 
 INSERT INTO `ref_social_media` (`smId`, `smTwitter`, `smFacebook`, `smLine`, `smPath`, `smInstagram`, `smArticleId`) VALUES
-(39, '@twitter1', '@facebook1', '@line1', '@path1', '@instagram1', 42),
-(41, 'tw', 'a', 'a', 'a', 'a', 44);
+(42, '@trcmanagement', '@trcmanagement', '@trcmanagement', '@trcmanagement', '@trcmanagement', 43);
 
 -- --------------------------------------------------------
 
@@ -217,16 +209,15 @@ CREATE TABLE IF NOT EXISTS `slider` (
   `slPict` text,
   `slOrder` int(11) NOT NULL,
   PRIMARY KEY (`slId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `slider`
 --
 
 INSERT INTO `slider` (`slId`, `slTitle`, `slDesc`, `slPict`, `slOrder`) VALUES
-(4, 'Slider 3', 'lorem ipsum dolar sir amet lorem ipsum dolar sir amet lorem ipsum dolar sir amet', 'http://localhost/eventfinder/public/userfiles/image/photo3.png', 2),
-(5, 'Slider baru', 'Cobaka ini slidernya', 'http://localhost/eventfinder/public/userfiles/slider/3.jpg', 2),
-(6, 'Coaki', 'mocua kao', 'http://localhost/eventfinder/public/userfiles/image/photo2.png', 3);
+(8, 'Music Event', 'Feel the sound of nature', 'http://localhost/eventfinder/public/userfiles/image/water.jpg', 2),
+(9, 'Feel The Bulb', 'Come to feel the bulb', 'http://localhost/eventfinder/public/userfiles/image/night.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -281,13 +272,6 @@ CREATE TABLE IF NOT EXISTS `submission_event` (
   PRIMARY KEY (`seId`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
---
--- Dumping data for table `submission_event`
---
-
-INSERT INTO `submission_event` (`seId`, `seTitle`, `seContent`, `seDateStart`, `seDateEnd`, `sePict`, `seOrganizer`, `seTicketPrice`, `seWebURL`, `seCategory`, `seContact`, `seEventLocation`, `seAdminContact`, `seDatePost`, `seApproval`, `seTwitter`, `seFacebook`, `seLine`, `sePath`, `seInstagram`) VALUES
-(1, 'Coba', 'Submission Content', '2015-10-10', '2015-10-10', NULL, 'Eventfinder', 'Rp. 2000', 'http://eventfinder.co.id', 1, NULL, '', NULL, NULL, '0', '', '', '', '', '');
-
 -- --------------------------------------------------------
 
 --
@@ -338,7 +322,7 @@ CREATE TABLE IF NOT EXISTS `web_profile` (
 --
 
 INSERT INTO `web_profile` (`webTitle`, `webDesc`, `webAbout`, `webEmail`, `webPhone`, `webTwitter`, `webFacebook`, `webLine`, `webPath`, `webInstagram`) VALUES
-('Eventfinder', 'Event Finder', 'Event Finder', 'eventfinder@gmail.com', '04115858585', '@eventfinder_id', '@eventfinder_id', '@eventfinder_id', '@eventfinder_id', '@eventfinder_id');
+('Eventfinder Indonesia', 'Your one and true guide to upcoming events, concerts, exhibitions, parties & more! Find out best events, activities and things to do in town.', 'Your one and true guide to upcoming events, concerts, exhibitions, parties & more! Find out best events, activities and things to do in town.', 'eventfinder@gmail.com', '04115858585', '@eventfinder_id', '@eventfinder_id', '@eventfinder_id', '@eventfinder_id', '@eventfinder_id');
 
 --
 -- Constraints for dumped tables
