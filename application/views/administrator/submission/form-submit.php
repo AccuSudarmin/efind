@@ -123,10 +123,10 @@
 
                <tr>
                   <td class="label-form">
-                     Url for barcode
+                     Website
                   </td>
                   <td>
-                     <input class="input-data" type="text" name="barcode" value='<?php echo $submission->seWebURL; ?>'>
+                     <input class="input-data" type="text" name="urlwebsite" value='<?php echo $submission->seWebURL; ?>'>
                   </td>
                </tr>
 
