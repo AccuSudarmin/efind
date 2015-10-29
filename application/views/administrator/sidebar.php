@@ -20,7 +20,7 @@
       case 'slider':
          $slider = "active";
          break;
-      case 'featureimage':
+      case 'featuredimage':
          $featuredimage = "active";
          break;
       case 'setting':
