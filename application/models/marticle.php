@@ -67,7 +67,7 @@
          $this->db->where(array(
             'arURL' => $url
          ));
-         
+
          return $this->db->get()->row();
       }
 
@@ -108,6 +108,19 @@
          }
 
          return $result;
+      }
+
+      public function getRelatedByTag($idarticle){
+         $query = $this->db->query("
+            SELECT et.arTitle, et.arPict, et.arURL , ref_category.catName, at1.etArticleId, Count(at1.etName) AS common_tag_count
+            FROM events_tags AS at1 INNER JOIN events_tags AS at2 ON at1.etName = at2.etName INNER JOIN article as et ON at1.etArticleId = et.arId INNER JOIN ref_category ON et.arCategory = ref_category.catId
+            WHERE at2.etArticleId = '". $idarticle . "'
+            GROUP BY at1.etArticleId
+            HAVING at1.etArticleId != '". $idarticle . "'
+            ORDER BY Count(at1.etName) DESC
+         ");
+
+         return $query->result();
       }
 
    }

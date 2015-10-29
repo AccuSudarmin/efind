@@ -28,18 +28,21 @@ class Music extends CI_Controller{
 
    public function view($url) {
       $event = $this->marticle->getByURL($url);
+      $relatedEvent = $this->marticle->getRelatedByTag($event->arId);
 
       $this->load->view('head');
       $this->load->view('body-calender-open');
       $this->load->view('menu');
       $this->load->view('article-container', array(
-         'event' => $event
+         'event' => $event ,
+         'relatedEvent' => $relatedEvent
       ));
       $this->load->view('footer-calender');
 	}
 
    public function show($url) {
       $event = $this->marticle->getByURL($url);
+      $relatedEvent = $this->marticle->getRelatedByTag($event->arId);
 
       $dateStart = date_format(date_create_from_format("Y-m-j" , $event->arDateStart), 'd F Y');
       $dateEnd = date_format(date_create_from_format("Y-m-j" , $event->arDateEnd), 'd F Y');
@@ -54,7 +57,27 @@ class Music extends CI_Controller{
                <article>
                   <h1> ' . $event->arTitle . ' </h1>
                   <img src=' . $event->arPict . '>
-                  ' . $event->arContent . '
+                  ' . $event->arContent;
+
+      $message .= "
+                  <div class='related-search'>
+                     <h2> RELATED POSTS </h2> ";
+
+      foreach ($relatedEvent as $datarelated){
+
+         $message .= "
+                  <div class='related-box'>
+                     <h5> <a href='" . site_url('/' . $datarelated->catName . '/' . $datarelated->arURL) . "' target='_blank'> " . $datarelated->arTitle . "</a> </h5>
+                     ";
+
+         if (!empty($datarelated->arPict)) $message .= "<img src='" . $datarelated->arPict . "'>";
+
+         $message .= "</div>";
+      }
+
+      $message .=  "</div>";
+
+      $message .= '
                </article>
                <aside>
                   <ul>
