@@ -7,12 +7,18 @@
          parent::__construct();
 
          $this->load->model('mslider');
+         $this->load->model('mwebprofile');
       }
 
       public function index() {
          $slider = $this->mslider->getAll();
+         $webprofile = $this->mwebprofile->getAll();
 
-         $this->load->view('head');
+         $this->load->view('head' ,array(
+            'webtitle' => $webprofile->webTitle ,
+            'webdesc' => $webprofile->webDesc
+         ));
+
          $this->load->view('home', array(
             'slider' => $slider,
          ));
