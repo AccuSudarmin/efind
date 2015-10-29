@@ -4,8 +4,8 @@
       <h4> to get featured on <span class="eventfinder-text"> eventfinder.co.id </span> </h4>
       <div class="container form">
          <form is='az-form'
-            action = ""
-            success = ""
+            action = "<?php echo $urlaction; ?>"
+            success = "<?php echo $urlsuccess; ?>"
             method = "post"
             >
             <table class="table-form">
@@ -109,10 +109,10 @@
 
                <tr>
                   <td class="label-form">
-                     Url for barcode
+                     Website
                   </td>
                   <td>
-                     <input class="input-data" type="text" name="barcode">
+                     <input class="input-data" type="text" name="urlwebsite">
                   </td>
                </tr>
 
@@ -135,7 +135,7 @@
                      Personal Relations Manager <br> Contact
                   </td>
                   <td>
-                     <textarea name="contact" rows="8" cols="40"></textarea>
+                     <textarea name="contactadmin" rows="8" cols="40"></textarea>
                   </td>
                </tr>
 
@@ -148,11 +148,4 @@
             </table>
          </form>
       </div>
-   </div>
-
-
-   <div class= "thankyou-note">
-      <h2> THANKYOU FOR SUBMITTING YOUR EVENTS!</h2>
-      <h4> we'll get back to you asap! :) <br><br><br> sincerely, <span class="eventfinder-text"> eventfinder.co.id </span> </h4>
-      <div class="logo-small"> <a href="http://eventfinder.co.id"> <img src="<?php echo base_url('public\favico\apple-icon-180x180.png');?>"> </a> </div>
    </div>

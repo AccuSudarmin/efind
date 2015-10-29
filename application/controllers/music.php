@@ -67,7 +67,7 @@ class Music extends CI_Controller{
 
          $message .= "
                   <div class='related-box'>
-                     <h5> <a href='" . site_url('/' . $datarelated->catName . '/' . $datarelated->arURL) . "' target='_blank'> " . $datarelated->arTitle . "</a> </h5>
+                     <h5> <a href='" . site_url('/' . strtolower($datarelated->catName) . '/' . $datarelated->arURL) . "' target='_blank'> " . $datarelated->arTitle . "</a> </h5>
                      ";
 
          if (!empty($datarelated->arPict)) $message .= "<img src='" . $datarelated->arPict . "'>";

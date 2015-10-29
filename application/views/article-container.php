@@ -44,10 +44,10 @@
                <?php echo $event->arContact; ?>
             </li>
             <li>
-               Twitter : <a href="#"> <?php echo $event->smTwitter; ?> </a> <br>
-               Facebook : <a href="#"> <?php echo $event->smFacebook; ?> </a> <br>
-               Line : <a href="#"> <?php echo $event->smLine; ?> </a> <br>
-               Instagram : <a href="#"> <?php echo $event->smInstagram; ?> </a> <br>
+               Twitter : <a href="https://instagram.com/" target="_blank"> <?php echo $event->smTwitter; ?> </a> <br>
+               Facebook : <a href="https://www.facebook.com/<?php echo $event->smInstagram; ?>" target="_blank"> <?php echo $event->smFacebook; ?> </a> <br>
+               Line : <?php echo $event->smLine; ?> <br>
+               Instagram : <a href="https://instagram.com/<?php echo $event->smInstagram; ?>" target="_blank"> <?php echo $event->smInstagram; ?> </a> <br>
                Path : <a href="#"> <?php echo $event->smPath ?> </a>
             </li>
             <li class="barcode">
