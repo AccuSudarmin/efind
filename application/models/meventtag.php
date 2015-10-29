@@ -21,5 +21,11 @@
          return $data;
       }
 
+      public function deleteByIdArticle($idarticle) {
+         $this->db->delete('events_tags', array('etArticleId' => $idarticle));
+
+         return ($this->db->affected_rows() != 1) ? false : true;
+      }
+
    }
 ?>

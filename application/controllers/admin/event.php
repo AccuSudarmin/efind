@@ -300,7 +300,7 @@ class Event extends MY_Controller {
 		$this->marticle->delete($idarticle);
 		$this->msocialmedia->deleteByIdArticle($idarticle);
 		$this->mmaps->deleteByIdArticle($idarticle);
-
+		$this->meventtag->deleteByIdArticle($idarticle);
 		redirect('admin/event');
 	}
 
