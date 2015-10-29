@@ -51,6 +51,11 @@ body#calendar{
    // }
 
 
+   .hiccup-back-overlay-child{
+      min-height: 80%;
+      min-width: 90%;
+   }
+
    #map{
       width: 405px;
       height: 205px;
@@ -420,6 +425,10 @@ section.slide-wrapper{
          display: block;
       }
    }
+}
+
+.activeevent{
+   display: block;
 }
 
 .tagline{
@@ -803,7 +812,13 @@ footer{
                   }
                }
 
+
+               .isi-calender img{
+                  display: none;
+               }
+               
                img{
+
                   width:100%;
                   height:auto;
                   transition: all 2s;

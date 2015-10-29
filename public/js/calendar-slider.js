@@ -4,10 +4,10 @@ var calendarslider = function(){
       var kalender = $('.isi-calender img');
       kalender.first().addClass('activeevent');
 
-      $('.activekalender').show();
+      $('.activeevent').show();
 
       var autoslide = setInterval(function(){
-         var sliders = $('.activekalender');
+         var sliders = $('.activeevent');
          var nextsliders = sliders.next();
 
          var dot = $('.activedot');
@@ -18,11 +18,11 @@ var calendarslider = function(){
            nextdot = $('.dot').first();
          }
 
-         sliders.fadeOut("600").removeClass('activekalender');
-         nextsliders.fadeIn("600").addClass('activekalender');
+         sliders.fadeOut("600").removeClass('activeevent');
+         nextsliders.fadeIn("600").addClass('activeevent');
 
       },
-      5000);
+      2000);
 
    } else {
       $('.isi-calender img').first().show();
@@ -32,3 +32,6 @@ var calendarslider = function(){
 
 
 };
+
+
+$(document).ready(calendarslider);
