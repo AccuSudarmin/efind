@@ -6,10 +6,17 @@
       function __construct() {
          parent::__construct();
 
+         $this->load->model('mwebprofile');
       }
 
       public function index() {
-         $this->load->view('head');
+         $webprofile = $this->mwebprofile->getAll();
+
+         $this->load->view('head' ,array(
+            'webtitle' => $webprofile->webTitle ,
+            'webdesc' => $webprofile->webDesc
+         ));
+         
          $this->load->view('menu');
          $this->load->view('search');
          $this->load->view('footer-calender');

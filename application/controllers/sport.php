@@ -6,14 +6,19 @@ class Sport extends CI_Controller{
       parent::__construct();
 
       $this->load->model('marticle');
+      $this->load->model('mwebprofile');
    }
 
    public function index() {
       $year = date('Y');
       $month = date('m');
       $event = $this->marticle->getByYearMonthAndCategory($year, $month, 3);
+      $webprofile = $this->mwebprofile->getAll();
 
-      $this->load->view('head');
+      $this->load->view('head' ,array(
+         'webtitle' => $webprofile->webTitle ,
+         'webdesc' => $webprofile->webDesc
+      ));
       $this->load->view('body-calender-open');
       $this->load->view('menu');
 		$this->load->view('calender' , array(
@@ -29,8 +34,12 @@ class Sport extends CI_Controller{
    public function view($url) {
       $event = $this->marticle->getByURL($url);
       $relatedEvent = $this->marticle->getRelatedByTag($event->arId);
+      $webprofile = $this->mwebprofile->getAll();
 
-      $this->load->view('head');
+      $this->load->view('head' ,array(
+         'webtitle' => $webprofile->webTitle ,
+         'webdesc' => $webprofile->webDesc
+      ));
       $this->load->view('body-calender-open');
       $this->load->view('menu');
       $this->load->view('article-container', array(
