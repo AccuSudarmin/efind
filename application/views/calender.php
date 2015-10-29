@@ -59,7 +59,9 @@
                      foreach ($value as $data):
                ?>
                   <?php if (!empty($data->arPict)): ?>
-                     <img src="<?php echo $data->arPict; ?>">
+                     <calendar-slider>
+                        <img src="<?php echo $data->arPict; ?>">
+                     <calendar-slider>
                   <?php endif; ?>
                <?php
                      endforeach;
