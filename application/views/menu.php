@@ -3,9 +3,9 @@
     <ul>
       <li><a href="http://eventfinder.co.id"><img src="<?php echo base_url('public/img/long-logo.png');?>"></a></li>
       <li><a href="#"><i class="fa fa-home"> </i> Home  </a> </li>
-      <li><a href="#"><i class="fa fa-music"> </i> Music Events  </a> </li>
-      <li><a href="#"><i class="fa fa-paint-brush"> </i> Exhibition Events  </a> </li>
-      <li><a href="#"><i class="fa fa-futbol-o"> </i> Sport Events</a> </li>
+      <li><a href="<?php echo site_url('music');?>"><i class="fa fa-music"> </i> Music Events  </a> </li>
+      <li><a href="<?php echo site_url('exhibition');?>"><i class="fa fa-paint-brush"> </i> Exhibition Events  </a> </li>
+      <li><a href="<?php echo site_url('sport');?>"><i class="fa fa-futbol-o"> </i> Sport Events</a> </li>
       <li class="mobile-sc"> <i class="fa fa-search rights mobile-search"> </i><div class='searchbar rights mobile-search'><input type="text"> </div>
       </li>
       <li class="social-icon"> <a href="#"><i class="fa fa-youtube"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -19,10 +19,10 @@
       <nav class="rights">
          <div class="ul-wrapper">
             <ul class="left-ul rights">
-               <li><a href="#"> Home </a> </li>
-               <li><a href="<?php echo site_url('calender');?>">Music </a> </li>
-               <li><a href="#">Exhibition </a> </li>
-               <li><a href="#">Sport</a> </li>
+               <li><a href="<?php echo site_url();?>"> Home </a> </li>
+               <li><a href="<?php echo site_url('music');?>">Music </a> </li>
+               <li><a href="<?php echo site_url('exhibition');?>">Exhibition </a> </li>
+               <li><a href="<?php echo site_url('sport');?>">Sport</a> </li>
                <li><a class="aboutus" href="#">About Us </a>
             </ul>
 
