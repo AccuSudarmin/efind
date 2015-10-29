@@ -30,6 +30,7 @@
 
       <script src="<?php echo base_url('public/js/azcomponent/webcomponentsjs/webcomponents.js'); ?>"></script>
       <link rel="import" href="<?php echo base_url('public/js/azcomponent/az-ajax.html'); ?>">
-      <link rel="import" href="<?php echo base_url('public/js/mapcomponent.html'); ?>">
+      <script src="https://maps.googleapis.com/maps/api/js"></script>
+      <script src="<?php echo base_url('public/js/mapcomponent.js'); ?>"></script>
 
    </head>

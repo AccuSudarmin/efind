@@ -155,6 +155,16 @@
 
                <tr>
                   <td class="label-form vertical-align-top">
+                     Event Tag
+                  </td>
+                  <td>
+                     <textarea name="eventtag" rows="8" cols="40"></textarea> <br>
+                     <i>Use comma's to seperate tag </i>
+                  </td>
+               </tr>
+
+               <tr>
+                  <td class="label-form vertical-align-top">
                      Meta Description (SEO)
                   </td>
                   <td>

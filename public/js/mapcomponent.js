@@ -1,5 +1,4 @@
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-<script>
+
    (function() {
 
       var mapcomponent = Object.create(HTMLDivElement.prototype);
@@ -28,4 +27,3 @@
       });
       // end of js az-button
    })();
-</script>

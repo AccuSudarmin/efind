@@ -10,6 +10,7 @@ class Submission extends MY_Controller {
 		$this->load->model('marticle');
 		$this->load->model('msocialmedia');
 		$this->load->model('mmaps');
+		$this->load->model('meventtag');
 	}
 
 	public function index() {
@@ -84,6 +85,9 @@ class Submission extends MY_Controller {
 		$latitude = $this->input->post('lat');
 		$zoom = $this->input->post('mapzoom');
 
+		//tag
+		$eventtag = $this->input->post('eventtag');
+
 		$url = $this->marticle->getAvailableUrl($url);
 
 		$this->db->trans_begin();
@@ -129,6 +133,17 @@ class Submission extends MY_Controller {
 			$this->msubmission->update($id, array(
 				'seApproval' => '1'
 			));
+
+			$tags = explode("," , $eventtag);
+
+			foreach ($tags as $data) {
+				if (!empty($data)) {
+					$this->meventtag->add( array(
+						'etName' => $data ,
+						'etArticleId' => $idarticle
+					));
+				}
+			}
 		}
 
 		$callback = array("type" => "modal-box");

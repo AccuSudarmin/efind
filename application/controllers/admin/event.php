@@ -9,6 +9,7 @@ class Event extends MY_Controller {
 		$this->load->model('marticle');
 		$this->load->model('msocialmedia');
 		$this->load->model('mmaps');
+		$this->load->model('meventtag');
 	}
 
 	public function index() {
@@ -59,7 +60,7 @@ class Event extends MY_Controller {
 		$datestart = $this->input->post('datestart');
 		$dateend = $this->input->post('dateend');
 		$pict = $this->input->post('picture');
-		$url = preg_replace("( |\\|\"|\'|\/)", '-', $title);
+		$url = preg_replace("( |,|\\|\"|\'|\/)", '-', $title);
 		$author = $this->userdata['id'];
 		$ticket = $this->input->post('ticket');
 		$barcode = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" . $this->input->post('urlwebsite') . "&choe=UTF-8";
@@ -83,6 +84,9 @@ class Event extends MY_Controller {
 		$longitude = $this->input->post('lng');
 		$latitude = $this->input->post('lat');
 		$zoom = $this->input->post('mapzoom');
+
+		//tag
+		$eventtag = $this->input->post('eventtag');
 
 		$url = $this->marticle->getAvailableUrl($url);
 
@@ -125,6 +129,17 @@ class Event extends MY_Controller {
 				'mapZoom' => $zoom ,
 				'mapArticleId' => $idarticle
 			));
+
+			$tags = explode("," , $eventtag);
+
+			foreach ($tags as $data) {
+				if (!empty($data)) {
+					$this->meventtag->add( array(
+						'etName' => $data ,
+						'etArticleId' => $idarticle
+					));
+				}
+			}
 		}
 
 		$callback = array("type" => "modal-box");
@@ -136,7 +151,7 @@ class Event extends MY_Controller {
       } else {
          $this->db->trans_commit();
          $callback['message'] = "Data berhasil disimpan";
-         $callback['delayURL'] = 1000;
+         $callback['delayURL'] = 500;
       }
 
 		echo json_encode($callback);
@@ -146,6 +161,13 @@ class Event extends MY_Controller {
 		$event = $this->marticle->getById($id);
 		$sosmed = $this->msocialmedia->getByIdArticle($id);
 		$map = $this->mmaps->getByIdArticle($id);
+		$tag = $this->meventtag->getByIdArticle($id);
+		$tags = array();
+		foreach ($tag as $data) {
+			array_push($tags, $data->etName);
+		}
+
+		$eventtag = implode(",", $tags);
 
 		$this->load->view('administrator/head');
 		$this->load->view('administrator/header');
@@ -160,7 +182,8 @@ class Event extends MY_Controller {
 			'urlback' => site_url('/admin/event') ,
 			'event' => $event ,
 			'sosmed' => $sosmed ,
-			'map' => $map
+			'map' => $map ,
+			'tag' => $eventtag
 		));
 	}
 
@@ -196,6 +219,9 @@ class Event extends MY_Controller {
 		$longitude = $this->input->post('lng');
 		$latitude = $this->input->post('lat');
 		$zoom = $this->input->post('mapzoom');
+
+		//event tag
+		$eventtag = $this->input->post('eventtag');
 
 		if ($url != $event->arURL) {
 			$url = $this->marticle->getAvailableUrl($url);
@@ -239,6 +265,20 @@ class Event extends MY_Controller {
 				'mapZoom' => $zoom ,
 				'mapArticleId' => $idarticle
 			));
+
+			$tags = explode("," , $eventtag);
+
+			foreach ($tags as $data) {
+				if (!empty($data)) {
+					$exist = $this->meventtag->checkExist($data, $idarticle);
+					if(!$exist){
+						$this->meventtag->add( array(
+							'etName' => $data ,
+							'etArticleId' => $idarticle
+						));
+					}
+				}
+			}
 		}
 
 		$callback = array("type" => "modal-box");

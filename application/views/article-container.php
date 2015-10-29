@@ -37,15 +37,16 @@
             </i>
             </li>
             <li>
-               <strong> Ticket Price : <?php echo $event->arTicketPrice; ?> </strong>
+               <strong> Ticket Price :</strong> <br> <?php echo $event->arTicketPrice; ?>
             </li>
             <li>
+               <strong> Contact :</strong> <br>
                <?php echo $event->arContact; ?>
             </li>
             <li>
                Twitter : <a href="#"> <?php echo $event->smTwitter; ?> </a> <br>
                Facebook : <a href="#"> <?php echo $event->smFacebook; ?> </a> <br>
-               Line : <a href="#"> <?php echo $event->smLine; ?> </a> <br> <br>
+               Line : <a href="#"> <?php echo $event->smLine; ?> </a> <br>
                Instagram : <a href="#"> <?php echo $event->smInstagram; ?> </a> <br>
                Path : <a href="#"> <?php echo $event->smPath ?> </a>
             </li>
