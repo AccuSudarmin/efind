@@ -62,7 +62,8 @@ class Event extends MY_Controller {
 		$url = preg_replace("( |\\|\"|\'|\/)", '-', $title);
 		$author = $this->userdata['id'];
 		$ticket = $this->input->post('ticket');
-		$barcode = $this->input->post('barcode');
+		$barcode = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" . $this->input->post('urlwebsite') . "&choe=UTF-8";
+		$urlwebsite = $this->input->post('urlwebsite');
 		$category = $this->input->post('category');
 		$contact = $this->input->post('contact');
 		$eventlocation = $this->input->post('eventloc');
@@ -98,6 +99,7 @@ class Event extends MY_Controller {
 			'arEventLocation' => $eventlocation ,
 			'arTicketPrice' => $ticket ,
 			'arBarcode' => $barcode ,
+			'arURLWebsite' => $urlwebsite ,
 			'arCategory' => $category ,
 			'arContact' => $contact ,
 			'arDatePost' => $datepost ,
@@ -174,7 +176,8 @@ class Event extends MY_Controller {
 		$author = $this->userdata['id'];
 		$eventlocation = $this->input->post('eventloc');
 		$ticket = $this->input->post('ticket');
-		$barcode = $this->input->post('barcode');
+		$barcode = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" . $this->input->post('urlwebsite') . "&choe=UTF-8";
+		$urlwebsite = $this->input->post('urlwebsite');
 		$category = $this->input->post('category');
 		$contact = $this->input->post('contact');
 		$datepost = date("Y-m-j");
@@ -211,6 +214,7 @@ class Event extends MY_Controller {
 			'arEventLocation' => $eventlocation ,
 			'arTicketPrice' => $ticket ,
 			'arBarcode' => $barcode ,
+			'arURLWebsite' => $urlwebsite ,
 			'arCategory' => $category ,
 			'arContact' => $contact ,
 			'arDatePost' => $datepost ,

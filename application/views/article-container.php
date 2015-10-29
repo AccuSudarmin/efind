@@ -50,7 +50,7 @@
                Path : <a href="#"> <?php echo $event->smPath ?> </a>
             </li>
             <li class="barcode">
-               <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=<?php echo $event->arBarcode; ?>&choe=UTF-8" title="<?php echo $event->arBarcode; ?>" />
+               <img src="<?php echo $event->arBarcode; ?>" title="<?php echo $event->arURLWebsite; ?>" />
                <p> scan me </p>
             </li>
          </ul>

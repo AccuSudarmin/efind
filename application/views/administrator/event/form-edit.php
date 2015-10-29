@@ -126,10 +126,10 @@
 
                <tr>
                   <td class="label-form">
-                     Url for barcode
+                     Website Evet
                   </td>
                   <td>
-                     <input class="input-data" type="text" name="barcode" value='<?php echo $event->arBarcode; ?>'>
+                     <input class="input-data" type="text" name="urlwebsite" value="<?php echo $event->arURLWebsite; ?>">
                   </td>
                </tr>
 
