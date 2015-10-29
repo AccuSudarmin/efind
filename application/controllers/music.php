@@ -40,47 +40,53 @@ class Music extends CI_Controller{
 
    public function show($url) {
       $event = $this->marticle->getByURL($url);
-      
+
       $dateStart = date_format(date_create_from_format("Y-m-j" , $event->arDateStart), 'd F Y');
       $dateEnd = date_format(date_create_from_format("Y-m-j" , $event->arDateEnd), 'd F Y');
 
       $callback = array("type" => "dialog-box");
 		$message = '
-      <div class="article-container">
-         <div class="flex-img">
-            <img src=' . base_url('public/img/bola.jpg') . '>
-         </div>
-         <div class="fill-article main-width">
-            <article>
-               <h1> ' . $event->arTitle . ' </h1>
-               <img src=' . $event->arPict . '>
-               ' . $event->arContent . '
-            </article>
-            <aside>
-               <ul>
-                  <li> From <i class="tanggal"> ' . $dateStart . ' </i> to <i class="tanggal">' . $dateEnd . '</i> </li>
-                  <li> <i class="fa fa-map-marker"></i>' . $event->arEventLocation . '</li>';
-      if (!empty($event->mapLongitude) && !empty($event->mapLatitude)) $message .= "<li><div id='map' is='map-component' mapLat='" . $event->mapLatitude . "' mapLng='" . $event->mapLongitude . "' mapZoom = '" . $event->mapZoom . "'></div></li>";
+         <div class="article-container">
+            <div class="flex-img">
+               <img src=' . base_url('public/img/bola.jpg') . '>
+            </div>
+            <div class="fill-article main-width">
+               <article>
+                  <h1> ' . $event->arTitle . ' </h1>
+                  <img src=' . $event->arPict . '>
+                  ' . $event->arContent . '
+               </article>
+               <aside>
+                  <ul>
+                     <li> From <i class="tanggal"> ' . $dateStart . ' </i> to <i class="tanggal">' . $dateEnd . '</i> </li>
+                     <li> <i class="fa fa-map-marker"></i>' . $event->arEventLocation . '</li>
+      ';
+
+      if (!empty($event->mapLongitude) && !empty($event->mapLatitude)) {
+         $message .= "<li><div id='map' is='map-component' mapLat='" . $event->mapLatitude;
+         $message .= "' mapLng='" . $event->mapLongitude . "' mapZoom = '" . $event->mapZoom . "'></div></li>";
+      }
 
       $message .= '
-                  <li> <strong> Ticket Price : Free </strong> </li>
-                  <li> Contact : <br>
-                     Siamang <br>
-                     Jl. Sianu Siapa </br>
-                     Makassar
-                  </li>
-                  <li> Twitter : <a href="#"> @sianu </a> <br>
-                       Facebook : <a href="#"> Sianu </a> <br>
-                       Line : <a href="#"> @sianu </a> <br>
-                  </li>
-                  <li class="barcode">
-                     <img src=' . base_url('public/img/barcode.jpg') . '>
-                     <p> scan me </p>
-                  </li>
-               </ul>
-            </aside>
+                     <li> <strong> Ticket Price : Free </strong> </li>
+                     <li> Contact : <br>
+                        ' . $event->arContact . '
+                     </li>
+                     <li>
+                        Twitter : <a href="#"> ' . $event->smTwitter . ' </a> <br>
+                        Facebook : <a href="#"> ' . $event->smFacebook . ' </a> <br>
+                        Line : <a href="#"> ' . $event->smLine . ' </a> <br>
+                        Instagram : <a href="#"> ' . $event->smInstagram . ' </a> <br>
+                        Path : <a href="#"> ' . $event->smPath . ' </a>
+                     </li>
+                     <li class="barcode">
+                        <img src="' . $event->arBarcode . '" title="' . $event->arURLWebsite . '">
+                        <p> scan me </p>
+                     </li>
+                  </ul>
+               </aside>
+            </div>
          </div>
-      </div>
       ';
 
       $callback['message'] = $message;
