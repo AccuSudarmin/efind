@@ -6,12 +6,15 @@
          <?php
             for ($i = 0; $i <= 12; $i++){
                $date = date_create_from_format('n' , $i);
-               echo "<option value = " . date_format($date, 'm') . "> " . date_format($date, 'F') . "</option>";
+               $optionMonthm = date_format($date, 'm');
+               $optionMonthF = date_format($date, 'F');
+               if ($optionMonthm == $month ) echo "<option value = " . $optionMonthm . " selected> " . $optionMonthF . "</option>";
+               else echo "<option value = " . $optionMonthm . "> " . $optionMonthF . "</option>";
             }
          ?>
       </select>
 
-      <input type = "number" min="1999" value="1999" name="year"> </input>
+      <input type = "number" min="1999" value="<?php echo $year; ?>" name="year"> </input>
       <button><i class="fa fa-search"> </i></button>
    </form>
 

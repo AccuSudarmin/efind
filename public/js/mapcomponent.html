@@ -7,12 +7,12 @@
       mapcomponent.attachedCallback = function () {
          var lat = parseFloat(this.getAttribute('mapLat'))
             , lng = parseFloat(this.getAttribute('mapLng'))
-            , zoom = parseFloat(this.getAttribute('mapZoom'));
+            , mapZoom = parseFloat(this.getAttribute('mapZoom'));
 
          var location = new google.maps.LatLng(lat, lng);
          var map = new google.maps.Map(this, {
             center: location,
-            zoom: 8,
+            zoom: mapZoom,
             mapTypeId: google.maps.MapTypeId.ROADMAP
          });
 

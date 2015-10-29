@@ -58,8 +58,6 @@
       }
 
       public function getByURL($url) {
-         $data = $this->db->get_where('article' , array('arURL' => $url))->row();
-
          $this->db->select('*');
          $this->db->from('article');
          $this->db->join('ref_category', 'article.arCategory = ref_category.catId');
@@ -69,7 +67,7 @@
          $this->db->where(array(
             'arURL' => $url
          ));
-
+         
          return $this->db->get()->row();
       }
 
