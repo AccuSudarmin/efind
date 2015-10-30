@@ -13,7 +13,16 @@ class Event extends MY_Controller {
 	}
 
 	public function index() {
+		$this->load->library('pagination');
+
 		$category = $this->input->get('category');
+
+		$config['base_url'] = 'http://example.com/index.php/test/page/';
+		$config['total_rows'] = 200;
+		$config['per_page'] = 20;
+
+		$this->pagination->initialize($config);
+		$pagination = $this->pagination->create_links();
 
 		if ($category) {
 			$event = $this->marticle->getByCategory($category);
@@ -32,7 +41,8 @@ class Event extends MY_Controller {
 		$this->load->view('administrator/event/body' , array(
 			'activate' => $activate ,
 			'urladd' => site_url('admin/event/add') ,
-			'event' => $event
+			'event' => $event ,
+			'pagination' => $pagination
 		));
 
 	}

@@ -63,5 +63,8 @@
                </tr>
             <?php $i++; endforeach; ?>
          </table>
+            <div class="pagination">
+               <?php echo $pagination; ?>
+            </div>
    </div>
 </section>
