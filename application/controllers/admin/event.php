@@ -12,12 +12,13 @@ class Event extends MY_Controller {
 		$this->load->model('meventtag');
 	}
 
-	public function index() {
+	public function index($page = 1) {
 		$this->load->library('pagination');
 
 		$category = $this->input->get('category');
 
-		$config['base_url'] = 'http://example.com/index.php/test/page/';
+		$config['base_url'] = site_url('admin/event/page') . "/";
+		$config['use_page_numbers'] = TRUE;
 		$config['total_rows'] = 200;
 		$config['per_page'] = 20;
 
