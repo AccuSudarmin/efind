@@ -17,21 +17,25 @@ class Event extends MY_Controller {
 
 		$category = $this->input->get('category');
 
-		$config['base_url'] = site_url('admin/event/page') . "/";
-		$config['use_page_numbers'] = TRUE;
-		$config['total_rows'] = 200;
-		$config['per_page'] = 20;
-
-		$this->pagination->initialize($config);
-		$pagination = $this->pagination->create_links();
+		$limit = 10;
+		$offset = ($page - 1) * $limit;
 
 		if ($category) {
 			$event = $this->marticle->getByCategory($category);
 			$activate = $category;
 		} else {
-			$event = $this->marticle->getAll();
+			$event = $this->marticle->getAll($limit, $offset);
 			$activate = '0';
 		}
+
+		//pagination setup
+		$config['base_url'] = site_url('admin/event') . "/";
+		$config['use_page_numbers'] = TRUE;
+		$config['total_rows'] = $this->marticle->countAll();
+		$config['per_page'] = $limit;
+
+		$this->pagination->initialize($config);
+		$pagination = $this->pagination->create_links();
 
 		$this->load->view('administrator/head');
 		$this->load->view('administrator/header');

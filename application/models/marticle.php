@@ -21,7 +21,7 @@
          return ($this->db->affected_rows() != 1) ? false : true;
       }
 
-      public function getAll(){
+      public function getAll($limit = 0, $offset = 0){
          $this->db->select('*');
          $this->db->from('article');
          $this->db->join('ref_category', 'article.arCategory = ref_category.catId');
@@ -29,8 +29,13 @@
          $this->db->where(array(
             'arStatus' => 1
          ));
+         if ($limit > 0) $this->db->limit($limit, $offset);
 
          return $this->db->get()->result();;
+      }
+
+      public function countAll() {
+         return $this->db->get('article' )->num_rows();
       }
 
       public function getAvailableUrl($url) {

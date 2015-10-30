@@ -53,6 +53,6 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'admin/dashboard';
-$route['admin/event/page/(:any)'] = 'admin/event/index/$1';
+$route['admin/event/(:any)'] = 'admin/event/index/$1';
 $route['music/(:any)'] = 'music/view/$1';
 $route['music/showbydate'] = 'music/showbydate';
