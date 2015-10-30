@@ -172,6 +172,6 @@ class Submission extends MY_Controller {
 
 		$this->load->view('administrator/submission/view', array(
 			'submission' => $submission
-		))
+		));
 	}
 }
