@@ -59,13 +59,12 @@
    </div>
 </section>
 
-<script src="<?php echo base_url('public/js/azuploader/azuploader.js') ?>" charset="utf-8"></script>
 <script type="text/javascript">
    var az = new azuploader({
       button: 'browsepicture' ,
       baseURL: 'http://localhost/eventfinder/public/js/azuploader' ,
       modul: [
-         {method:'getName', target: 'picture'}
+         {method:'getFilesLocation', target: 'picture'}
       ]
    });
 

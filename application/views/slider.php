@@ -29,8 +29,8 @@
       <ul class="slider-dots">
          <li><a href="#" class="arrow-prev"><i class="fa fa-angle-left"></i></a></li>
          <?php foreach($slider as $data):?>
-        <li class="dot">&bull;</li>
-      <?php endforeach; ?>
+            <li class="dot"><i class="fa fa-circle fa-1"></i></li>
+         <?php endforeach; ?>
         <li> <a href="#" class="arrow-next"><i class="fa fa-angle-right"></i></a></li>
       </ul>
     </div>
