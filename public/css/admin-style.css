@@ -225,6 +225,20 @@ section.main {
    margin: 10px;
 }
 
+.pagination{
+   text-align: right;
+}
+
+.pagination a{
+   padding: 5px;
+   text-decoration: none;
+   color: red;
+}
+
+.max-width{
+   width: 90% !important;
+}
+
 .header-content-manager {
    padding: 0px 5px 5px 20px;
    width: 95%;
