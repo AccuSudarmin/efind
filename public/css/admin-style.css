@@ -277,6 +277,14 @@ section.main {
    opacity: 0.8;
 }
 
+.button-manager-ic a {
+   color: black;
+}
+
+.button-manager-ic:hover a {
+   color: #FB7D7D;
+}
+
 .button-manager > .select-description {
    padding: 4px;
    display: inline-block;
