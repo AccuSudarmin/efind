@@ -18,10 +18,10 @@
          <span id="totalSelected" class="select-description">
          </span>
       </div>
-      <div class="float-right sorting-manager">
+      <!-- <div class="float-right sorting-manager">
          <span class="active"> Name </span>
          <span> Size </span>
-      </div>
+      </div> -->
    </div>
 
    <div class="content">
