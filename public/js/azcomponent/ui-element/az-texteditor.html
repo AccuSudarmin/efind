@@ -303,6 +303,37 @@
                   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAACmklEQVR4nO3d31HbQBDH8d9q8k5SQdwBOqsA3AGkA3cAqSBQQZIOnAowFQQKOEt0kHQABeDLA3rIMPy193yK8v3M+Mkz6x2fT/Jq17IEAAAAAAAAAAAAAAAAAAAAAAAAAGUdSDqXlHhs9fjZv5cuzCuQpFZS7Rjvf3Yj6YNHoMojSG/iGAtOPBd4rvtPHrZzI2lWOgkAAAAAAAAAAIDhmU6nX0rnMDbvSicgSSGE/aqqFrofGDgrnM6oePaDN9I0zbGZXYppkCyK7eCmafYkLSXNzLaaHDqQdCLpyCOvAbiUdCrpyiOY50zWq9V1fVhV1cLM3j98Lsb41pzGOAvmNpO10x3c79qFfHfbxDHW6OzsHBxCOEgpdfI/lM41rlkw15msnezg6XT61cxOMoW/kNPhbIyyLvCD8gcFZDtEN01zXFVVJxa3KPcdHEL42O/amXdsvJ3rDq7r+tDMOrG4g+GygzOVP3Cw9QL35c/ysYsWKG/jBW6aZi+ldJqx/IGDjc/B6/V6YmYzx1yQwcYL3LbtdYwxpJROHfOBs62/Ra9Wq7P1ej1LKf1yyAfOXMqktm2vzKxOKS084sGPe7vwuVbga2zQLsQz3C9Vdl13YWYT3TfzUViWa9ExxtsY4ydJJymlMbXy/jlZ+8Exxu8ppVpSl/N18LTsDf+2bX9nLqfGdn+uwd4n60UhhH0zW/bn6EcxkyVpoPfJelHbttd9OfXNMezEMdbo7HwuOsZ4u1qtPt/d3R05fQGbi5msJxWtOR9rM1IH+yr6y4a/yqk55VQexX+6Ikkxxh99OXVZOhcAAAAAAAAAAABkMrbZKGayHhjjbFQpg5zJmjjGghP+u3B4+O9CAAAAAAAAAAAAAAAAAAAAAAAAAMX9AZ20gIuXOujOAAAAAElFTkSuQmCC" height="30px" alt="outdent"/>
                </a>
             </li>
+            <li>
+               <div class="azanchor-group">
+                  <span id="azanchor" class="pointer">
+                     a
+                  </span>
+                  <div id="azanchor-input-container" style="visibility:hidden">
+                     <input type="text" id="azanchor-value">
+                     <button type="button" id="azinsert-link">Insert Link</button>
+                  </div>
+               </div>
+               <div id="azremoveanchor" class="pointer">
+                  ar
+               </div>
+            </li>
+            <li>
+               <div class="azimg-insert-group">
+                  <span id="azimg" class="pointer">
+                     insertimg
+                  </span>
+                  <div id="azimg-insert-container" style="display:none">
+                     <input type="text" id="azimg-value">
+                     <button type="button" id="azchoosepict">Choose Picture</button>
+                     <input type="text" id="azimgwidth">
+                     <input type="text" id="azimgheight">
+                     <button type="button" id="azinsert-img">Insert Image</button>
+                  </div>
+               </div>
+               <div id="azimg-resize" class="pointer">
+                  resizeimg
+               </div>
+            </li>
          </ul>
       </div>
 
@@ -310,4 +341,5 @@
    </div>
 </template>
 
+<link rel="import" href="../js/azuploader/azuploader.html">
 <script src="../js/az-texteditor.js" charset="utf-8"></script>

@@ -14,6 +14,14 @@
       elm.style.visibility = 'visible';
    }
 
+   function showDispaly (elm, display){
+      elm.style.display = display;
+   }
+
+   function hideDisplay (elm) {
+      elm.style.display = 'none';
+   }
+
    function _(node, id){
       return node.getElementById(id);
    }
@@ -43,6 +51,7 @@
       var main = this;
 
       this.name = this.getAttribute('name');
+      this.urluploader = this.getAttribute('urlcomponent');
 
       var clone = importDoc.importNode(template.content, true);
 
@@ -66,7 +75,19 @@
          , buttonOutdent = _(clone, 'azoutdent')
          , buttonForeColor = clone.getElementById('fore-color-header')
          , foreColor = clone.getElementById('fore-color-select')
-         , valueForeColor = clone.querySelectorAll('input[type=radio][name=foreColor]');
+         , valueForeColor = clone.querySelectorAll('input[type=radio][name=foreColor]')
+         , buttonAnchor = _(clone, 'azanchor')
+         , buttonRemoveAnchor = _(clone, 'azremoveanchor')
+         , anchorInputContainer = _(clone, 'azanchor-input-container')
+         , buttonInserLink = _(clone, 'azinsert-link')
+         , anchorValue = _(clone, 'azanchor-value')
+         , buttonImg = _(clone, 'azimg')
+         , imgInsertContainer = _(clone, 'azimg-insert-container')
+         , buttonInsertImg = _(clone, 'azinsert-img')
+         , imgValue = _(clone, 'azimg-value')
+         , buttonResizeImg = _(clone, 'azimg-resize')
+         , imgHeight = _(clone, 'azimgheight')
+         , imgWidth = _(clone, 'azimgwidth');
 
       var timer = null;
 
@@ -154,6 +175,38 @@
          texteditorUpdate(main, editorContent.body.innerHTML);
       }
 
+      buttonAnchor.addEventListener('click', function(e){
+         if (anchorInputContainer.style.visibility == 'visible') hideVisibility(anchorInputContainer);
+         else showVisibility(anchorInputContainer);
+         e.stopPropagation();
+
+         buttonAnchor.focus();
+      });
+
+      buttonInserLink.onclick = function() {
+         var val = anchorValue.value;
+
+         triggerExecCommand(editorContent, "CreateLink", val);
+         hideVisibility(anchorInputContainer);
+      }
+
+      buttonRemoveAnchor.addEventListener('click', function(e){
+         triggerExecCommand(editorContent, "unlink", '');
+      });
+
+      buttonImg.addEventListener('click', function(e){
+         if (imgInsertContainer.style.display == 'none') showDispaly(imgInsertContainer, 'block');
+         else hideDisplay(imgInsertContainer);
+      });
+
+      buttonInsertImg.onclick = function() {
+         var img = "<img src='" + imgValue.value + "' width='" + imgWidth.value + "' height='" + imgHeight.value + "'>";
+
+         triggerExecCommand(editorContent, "insertHTML", img);
+         hideDisplay(imgInsertContainer);
+
+      }
+
       for (var i = 0; i < buttonScript.length; i++) {
          buttonScript[i].addEventListener('click', function(){
             triggerExecCommand(editorContent, this.value, '');
@@ -162,7 +215,8 @@
       }
 
       buttonForeColor.addEventListener('click', function(e){
-         showVisibility(foreColor);
+         if (foreColor.style.visibility == 'visible') hideVisibility(foreColor);
+         else showVisibility(foreColor);
          e.stopPropagation();
 
          buttonForeColor.focus();
@@ -210,6 +264,18 @@
          triggerExecCommand(editorContent, 'outdent', '');
          texteditorUpdate(main, editorContent.body.innerHTML);
       }
+   }
+
+   aztexteditor.attachedCallback = function(){
+      var az = new azuploader({
+         button: 'azchoosepict' ,
+         baseURL: this.urluploader + '/js/azuploader' ,
+         modul: [
+            {method:'getFilesLocation', target: 'azimg-value'}
+         ]
+      });
+
+      az.on();
    }
 
    document.registerElement('az-texteditor', {

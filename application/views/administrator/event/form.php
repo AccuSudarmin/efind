@@ -34,7 +34,7 @@
                      Description
                   </td>
                   <td>
-                     <textarea is='az-texteditor' name="content" rows="8" cols="40"></textarea>
+                     <textarea is='az-texteditor' urlcomponent="http://localhost/eventfinder/public/js/azcomponent" name="content" rows="8" cols="40"></textarea>
                   </td>
                </tr>
 

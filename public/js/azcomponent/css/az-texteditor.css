@@ -173,6 +173,10 @@
 	border: solid 1px #bbb;
 }
 
+.text-editor:focus {
+	border-color: blue;
+}
+
 .tools a.selected , .tool-font:hover {
 	background-color: #F15D52;
 }
