@@ -235,6 +235,10 @@ section.main {
    color: red;
 }
 
+.pagination a:hover {
+   color: black;
+}
+
 .max-width{
    width: 90% !important;
 }
