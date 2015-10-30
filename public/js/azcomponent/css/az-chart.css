@@ -7,11 +7,16 @@ az-chart > bar > .graph-front {
    text-align: center;
    box-sizing: border-box;
    -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   -o-box-sizing: border-box;
    overflow: hidden;
    padding-top: 10px;
    color: white;
    font-size: 10px;
+   transition: 1s ;
    -webkit-transition: 1s;
+   -moz-transition: 1s ;
+   -o-transition: 1s ;
 }
 
 az-chart > bar > .graph-back {
