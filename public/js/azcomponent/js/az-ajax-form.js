@@ -5,6 +5,7 @@
       this.URLtarget = this.getAttribute("action") || null
       this.URLsuccess = this.getAttribute("success") || null;
       this.Method = this.getAttribute("method") || "POST";
+      this.CallbackType = this.getAttribute("callback-type") || 'dialog-box';
       this.loadingBox = null;
 
       this.getValPost = function () {
@@ -120,27 +121,29 @@
       }
 
       this.onsuccess = function ( response ){
-         var success = ( "success" in response) ? response.success : true
-            , delayTime = response.delayURL || 3000;
-
-         if ( this.URLsuccess && success) {
-            var url = this.URLsuccess;
-
-            setTimeout( function () {
-               window.location.href = url;
-            }, delayTime);
-         }
-
-         switch (response.type) {
+         switch (this.CallbackType) {
             case 'modal-box':
+               response = JSON.parse(response);
+               var success = ( "success" in response) ? response.success : true
+                  , delayTime = response.delayURL || 3000;
+
+               if ( this.URLsuccess && success) {
+                  var url = this.URLsuccess;
+
+                  setTimeout( function () {
+                     window.location.href = url;
+                  }, delayTime);
+               }
                createOverlay ( response.message , delayTime );
                break;
             case 'validation':
                break;
             case 'own-div':
+               response = JSON.parse(response);
                _( response.targetDiv ).insertAdjacentHTML( 'afterend', response.message );
                break;
             case 'own-div-clear':
+               response = JSON.parse(response);
                _( response.targetDiv ).innerHTML = response.message;
                break;
             default:

@@ -170,8 +170,7 @@ class Submission extends MY_Controller {
 	public function view($id) {
 		$submission = $this->msubmission->getById($id);
 
-		$callback = array("type" => "dialog-box");
-		$callback['message'] = '
+		echo '
 		<div class="article-container">
 			<div class="flex-img">
 				<img src="' . base_url('public/img/bola.jpg') . '">
@@ -207,6 +206,5 @@ class Submission extends MY_Controller {
 			</div>
 		</div>
 		';
-		echo json_encode($callback);
 	}
 }

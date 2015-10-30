@@ -8,6 +8,7 @@
 
       this.URLsuccess = this.getAttribute('success');
       this.URLtarget = this.getAttribute('action');
+      this.CallbackType = this.getAttribute('callback-type') || 'modal-box';
       this.loadingBox = null;
 
       var main = this;
@@ -177,24 +178,25 @@
       }
 
       this.onsuccess = function ( response ){
-         var success = ( "success" in response) ? response.success : true
-            , delayTime = response.delayURL || 3000;
-
-         if ( main.URLsuccess && success) {
-            var url = main.URLsuccess;
-
-            setTimeout( function () {
-               window.location.href = url;
-            }, delayTime);
-         }
-
-         switch (response.type) {
+         switch (this.CallbackType) {
             case 'modal-box':
+               response = JSON.parse(response);
+               var success = ( "success" in response) ? response.success : true
+                  , delayTime = response.delayURL || 3000;
+
+               if ( main.URLsuccess && success) {
+                  var url = main.URLsuccess;
+
+                  setTimeout( function () {
+                     window.location.href = url;
+                  }, delayTime);
+               }
                createOverlay ( response.message , delayTime );
                break;
             case 'validation':
                break;
             case 'own-div':
+               response = JSON.parse(response);
                _( response.targetDiv ).insertAdjacentHTML( 'afterend', response.message );
                break;
             default:
@@ -221,7 +223,7 @@
       this.activateSubmit();
       this.scan();
    }
-   
+
    document.registerElement('az-formorder', {
       prototype: azformorder ,
       extends: 'form'

@@ -5,6 +5,7 @@
       this.URLtarget = this.getAttribute("action") || null
       this.URLsuccess = this.getAttribute("success") || null;
       this.Method = this.getAttribute("method") || "POST";
+      this.CallbackType = this.getAttribute("callback-type") || 'dialog-box';
       this.loadingBox = null;
 
       this.getValPost = function () {
@@ -65,57 +66,58 @@
       }
 
       this.onsuccess = function ( response ){
-         var success = ( "success" in response) ? response.success : true
-            , delayTime = response.delayURL || 3000;
-
-         if ( this.URLsuccess && success) {
-            var url = this.URLsuccess;
-
-            setTimeout( function () {
-               window.location.href = url;
-            }, delayTime);
-         }
-
-         switch (response.type) {
+         switch (this.CallbackType) {
             case 'modal-box':
+               response = JSON.parse(response);
+               var success = ( "success" in response) ? response.success : true
+                  , delayTime = response.delayURL || 3000;
+
+               if ( this.URLsuccess && success) {
+                  var url = this.URLsuccess;
+
+                  setTimeout( function () {
+                     window.location.href = url;
+                  }, delayTime);
+               }
                createOverlay ( response.message , delayTime );
                break;
             case 'validation':
                break;
             case 'own-div':
+               response = JSON.parse(response);
                _( response.targetDiv ).insertAdjacentHTML( 'afterend', response.message );
                break;
             case 'dialog-box':
-            var dialogChild = ElementBuild({'tag' : 'div' , 'class' : 'hiccup-back-overlay-child'}, response.message),
-               dialog = ElementBuild({'tag' : 'div' , 'class' : 'hiccup-back-overlay'})
-               buttonClose = ElementBuild({'tag' : 'div' , 'class' : 'back-overlay-close-button'}, '<i class="fa fa-times"> </i>');
-
-               dialog.appendChild(buttonClose);
-               dialog.appendChild(dialogChild);
-
-               if (response.zindex) {
-                  dialog.style.zIndex = response.zindex;
-               }
-
-               dialog.addEventListener('click', function(){
-                  this.parentNode.removeChild( this );
-               });
-
-               buttonClose.addEventListener('click', function(e) {
-                  dialog.parentNode.removeChild(dialog);
-
-                  e.stopPropagation();
-               });
-
-               dialogChild.addEventListener('click', function(e){
-                  e.stopPropagation();
-               });
-
-               document.body.appendChild( dialog );
+               createDialogBox(response);
                break;
             default:
-               createOverlay( response );
+               createDialogBox(response);
          }
+      }
+
+      var createDialogBox = function ( msg ) {
+         var dialogChild = ElementBuild({'tag' : 'div' , 'class' : 'hiccup-back-overlay-child'}, msg),
+            dialog = ElementBuild({'tag' : 'div' , 'class' : 'hiccup-back-overlay'})
+            buttonClose = ElementBuild({'tag' : 'div' , 'class' : 'back-overlay-close-button'}, '<i class="fa fa-times"> </i>');
+
+         dialog.appendChild(buttonClose);
+         dialog.appendChild(dialogChild);
+
+         dialog.addEventListener('click', function(){
+            this.parentNode.removeChild( this );
+         });
+
+         buttonClose.addEventListener('click', function(e) {
+            dialog.parentNode.removeChild(dialog);
+
+            e.stopPropagation();
+         });
+
+         dialogChild.addEventListener('click', function(e){
+            e.stopPropagation();
+         });
+
+         document.body.appendChild( dialog );
       }
 
       this.onprogress = function ( evt ) {

@@ -23,13 +23,7 @@
                   break;
                case 4:
                   if (xmlhttp.status === 200) {
-                     try {
-                        var response = JSON.parse(xmlhttp.responseText);
-                        obj.onsuccess( response );
-                     } catch (e) {
-                        console.log(e);
-                        console.log(xmlhttp.responseText);
-                     }
+                     obj.onsuccess( xmlhttp.responseText );
                   } else if (xmlhttp.status === 404) {
                      console.log('server not found');
                   }

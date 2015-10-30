@@ -53,6 +53,7 @@
                         class='button-primary'
                         action='<?php echo site_url('admin/submission/view/' . $data->seId)  ?>'
                         method='click'
+                        callback-type = 'dialog-box'
                         title="View"/>
                         <i class="fa fa-eye"></i>
                      </button>
