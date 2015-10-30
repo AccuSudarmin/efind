@@ -36,6 +36,7 @@
 						method="post"
 						action="<?php echo site_url('/admin/login/doLogin'); ?>"
 						success="<?php echo site_url('/admin'); ?>"
+						callback-type="modal-box"
 						name="coba"
 						>
 						<p>

@@ -5,7 +5,7 @@
       this.URLtarget = this.getAttribute("action") || null
       this.URLsuccess = this.getAttribute("success") || null;
       this.Method = this.getAttribute("method") || "POST";
-      this.CallbackType = this.getAttribute("callback-type") || 'dialog-box';
+      this.CallbackType = this.getAttribute("callback-type") || 'modal-box';
       this.loadingBox = null;
 
       this.getValPost = function () {
