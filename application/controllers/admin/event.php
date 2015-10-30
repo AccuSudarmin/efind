@@ -21,17 +21,24 @@ class Event extends MY_Controller {
 		$offset = ($page - 1) * $limit;
 
 		if ($category) {
-			$event = $this->marticle->getByCategory($category);
+			$event = $this->marticle->getByCategory($category, $limit, $offset);
 			$activate = $category;
+			$config['suffix'] = '&category=' . $category;
+			$config['total_rows'] = $this->marticle->countByCategory($category);
 		} else {
 			$event = $this->marticle->getAll($limit, $offset);
 			$activate = '0';
+			$config['total_rows'] = $this->marticle->countAll();
 		}
 
 		//pagination setup
 		$config['base_url'] = site_url('admin/event') . "/";
 		$config['use_page_numbers'] = TRUE;
-		$config['total_rows'] = $this->marticle->countAll();
+		$config['page_query_string'] = TRUE;
+		$config['use_global_url_suffix'] = FALSE;
+		$config['query_string_segment'] = 'page';
+		$config['reuse_query_string'] = TRUE;
+		$config['uri_segment'] = 3;
 		$config['per_page'] = $limit;
 
 		$this->pagination->initialize($config);
@@ -53,7 +60,6 @@ class Event extends MY_Controller {
 	}
 
 	public function add() {
-
 		$this->load->view('administrator/head');
 		$this->load->view('administrator/header');
 		$this->load->view('administrator/sidebar' , array(

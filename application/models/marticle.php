@@ -29,6 +29,7 @@
          $this->db->where(array(
             'arStatus' => 1
          ));
+         $this->db->order_by('arId', 'desc');
          if ($limit > 0) $this->db->limit($limit, $offset);
 
          return $this->db->get()->result();;
@@ -76,7 +77,7 @@
          return $this->db->get()->row();
       }
 
-      public function getByCategory($idcategory) {
+      public function getByCategory($idcategory, $limit = 0, $offset = 0) {
          $this->db->select('*');
          $this->db->from('article');
          $this->db->join('ref_category', 'article.arCategory = ref_category.catId');
@@ -86,8 +87,13 @@
             'catId' => $idcategory ,
             'arStatus' => 1
          ));
+         if ($limit > 0) $this->db->limit($limit, $offset);
 
          return $this->db->get()->result();
+      }
+
+      public function countByCategory($category){
+         return $this->db->get_where('article', array('arCategory' => $category))->num_rows();
       }
 
       public function getByYearMonthAndCategory($year, $month, $idcategory) {
