@@ -13,16 +13,37 @@ class Submission extends MY_Controller {
 		$this->load->model('meventtag');
 	}
 
-	public function index() {
+	public function index($page = 1) {
+		$this->load->library('pagination');
+
       $category = $this->input->get('category');
 
+		$limit = 10;
+		$offset = ($page - 1) * $limit;
+
       if ($category) {
-         $submission = $this->msubmission->getByCategory($category);
+         $submission = $this->msubmission->getByCategory($category, $limit, $offset);
          $activate = $category;
+			$config['suffix'] = '&category=' . $category;
+			$config['total_rows'] = $this->msubmission->countByCategory($category);
       } else {
-         $submission = $this->msubmission->getAll();
+         $submission = $this->msubmission->getAll($limit, $offset);
          $activate = '0';
+			$config['total_rows'] = $this->marticle->countAll();
       }
+
+		//pagination setup
+		$config['base_url'] = site_url('admin/event') . "/";
+		$config['use_page_numbers'] = TRUE;
+		$config['page_query_string'] = TRUE;
+		$config['use_global_url_suffix'] = FALSE;
+		$config['query_string_segment'] = 'page';
+		$config['reuse_query_string'] = TRUE;
+		$config['uri_segment'] = 3;
+		$config['per_page'] = $limit;
+
+		$this->pagination->initialize($config);
+		$pagination = $this->pagination->create_links();
 
 		$this->load->view('administrator/head');
 		$this->load->view('administrator/header');

@@ -26,9 +26,6 @@
          $this->db->from('article');
          $this->db->join('ref_category', 'article.arCategory = ref_category.catId');
          $this->db->join('admin', 'article.arAuthor = admin.amId');
-         $this->db->where(array(
-            'arStatus' => 1
-         ));
          $this->db->order_by('arId', 'desc');
          if ($limit > 0) $this->db->limit($limit, $offset);
 
