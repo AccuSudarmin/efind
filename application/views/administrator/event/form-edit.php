@@ -34,7 +34,7 @@
                      Description
                   </td>
                   <td>
-                     <textarea is='az-texteditor' name="content">
+                     <textarea is='az-texteditor' urlcomponent="http://localhost/eventfinder/public/js/azcomponent" name="content">
                         <?php echo htmlspecialchars_decode($event->arContent); ?>
                      </textarea>
                   </td>
