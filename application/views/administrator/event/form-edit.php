@@ -16,6 +16,7 @@
          <form is='az-form'
             action = "<?php echo $urlaction . "/" . $event->arId; ?>"
             success = "<?php echo $urlsuccess; ?>"
+            callback-type = "modal-box"
             method = "post"
             >
             <table class="table-form">

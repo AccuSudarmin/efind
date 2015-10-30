@@ -29,6 +29,7 @@
          is="az-form"
          action = "<?php echo $urltarget; ?>"
          success = "<?php echo $urlsuccess; ?>"
+         callback-type = "modal-box"
          method = "post"
          id='formdelete'
          >
