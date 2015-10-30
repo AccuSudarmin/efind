@@ -170,41 +170,8 @@ class Submission extends MY_Controller {
 	public function view($id) {
 		$submission = $this->msubmission->getById($id);
 
-		echo '
-		<div class="article-container">
-			<div class="flex-img">
-				<img src="' . base_url('public/img/bola.jpg') . '">
-			</div>
-			<div class="fill-article main-width">
-				<article>
-					<h1> ' . $submission->seTitle . ' </h1>
-					<img src="">
-					' . $submission->seContent . '
-				</article>
-				<aside>
-					<ul>
-						<li> From <i class="tanggal"> 23 October 2015 </i> to <i class="tanggal">24 October 2015</i> </li>
-						<li> <i class="fa fa-map-marker"></i>Rolling Stone Cafe, Jakarta</li>
-	<li><div id="map" is="map-component" maplat="-6.2769780775348245" maplng="106.82005374113942" mapzoom="17"></div></li>
-						<li> <strong> Ticket Price : Free </strong> </li>
-						<li> Contact : <br>
-							Wita Wibisono 0818791521
-						</li>
-						<li>
-							Twitter : <a href="#"> @trcmanagement </a> <br>
-							Facebook : <a href="#"> @trcmanagement </a> <br>
-							Line : <a href="#"> @trcmanagement </a> <br>
-							Instagram : <a href="#"> @trcmanagement </a> <br>
-							Path : <a href="#"> @trcmanagement </a>
-						</li>
-						<li class="barcode">
-							<img src="https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=http://Evenfinder.co.id&amp;choe=UTF-8" title="http://eventfinder.co.id">
-							<p> scan me </p>
-						</li>
-					</ul>
-				</aside>
-			</div>
-		</div>
-		';
+		$this->load->view('administrator/submission/view', array(
+			'submission' => $submission
+		))
 	}
 }
