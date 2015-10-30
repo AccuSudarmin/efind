@@ -58,9 +58,7 @@
       <li class="<?php echo $slider;?>">
          <a href="<?php echo site_url('/admin/slider') ?>"> <i class="fa fa-object-ungroup"></i>&nbsp;&nbsp; Slider</a>
       </li>
-      <li class="<?php echo $featuredimage;?>">
-         <a href="<?php echo site_url('/admin/featuredimage') ?>"> <i class="fa fa-object-ungroup"></i>&nbsp;&nbsp; Featured Image</a>
-      </li>
+      
       <li class="<?php echo $setting;?>">
          <a href="<?php echo site_url('/admin/setting') ?>"> <i class="fa fa-cog"></i>&nbsp;&nbsp; Setting</a>
       </li>

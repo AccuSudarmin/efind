@@ -1,70 +1,120 @@
+.article-container {
+   position: relative;
+   background: #fff;
+   min-width: 90%;
+   overflow: hidden;
+}
+
+.flex-img {
+   background-color: black;
+   width: 100%;
+   height: 500px;
+   position: absolute;
+   overflow: hidden;
+}
+
+.flex-img img {
+   opacity: 0.5;
+-webkit-filter: grayscale(100%);
+width: 100%;
+}
+
 .fill-article {
    background: #fff;
-   position: relative;
-   box-sizing: border-box;
-   border-top-left-radius: 5px;
-   border-top-right-radius: 5px;
-   width: 1000px;
-   text-align: left;
+    position: relative;
+    margin-top: 100px;
+    box-sizing: border-box;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: hidden;
 }
 
-.fill-article > article {
+.main-width {
+   max-width: 70%;
+margin-left: auto;
+margin-right: auto;
+}
+
+.fill-article article {
    width: 60%;
-   padding: 10px 20px 40px 20px;
-   box-sizing: border-box;
+padding: 20px 20px 40px 20px;
+float: left;
+overflow: hidden;
 }
 
-.fill-article > article h1 {
-   font-size: 200%;
-   font-weight: 700;
-   line-height: 1;
-   text-transform: uppercase;
-   margin-bottom: 15px;
-}
-
-.fill-article > article img {
-   width: 100%;
-   height: auto;
-   text-align: center;
+.fill-article img {
+       padding-bottom: 10px;
+       width: 100%;
 }
 
 .fill-article aside {
    width: 40%;
-   padding: 10px;
-   background: #2F3541;
-   color: #bebebe;
-   top: 0;
-   position: absolute;
-   right: 0;
-   box-sizing: border-box;
-   bottom: 0;
+padding: 10px;
+background: #2F3541;
+color: #bebebe;
+top: 0;
+bottom: 0;
+position: absolute;
+right: 0;
+overflow: hidden;
 }
 
 .fill-article aside ul {
+   overflow: hidden;
    list-style: none;
-   padding: 0;
+   overflow: hidden;
 }
 
 .fill-article aside ul li {
    text-align: justify;
-   margin-top: 10px;
-   border-bottom: 1px solid #454D5D;
-   padding-bottom: 5px;
-   width: 100%;
+margin-top: 10px;
+border-bottom: 1px solid #454D5D;
+padding-bottom: 5px;
+width: 100%;
+overflow: hidden;
 }
 
-.fill-article aside ul li .tanggal {
+.fill-article .tanggal {
    font-weight: 700;
-   color: #fff;
-   font-size: 110%;
+color: #fff;
+font-size: 110%;
+overflow: hidden;
 }
 
-.fill-article aside ul li.barcode {
+.hiccup-back-overlay-child{
+   width: 80%;
+
+
+}
+
+.article-container *{
+   box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   -o-box-sizing: border-box;
+}
+
+.article-container div, .article-container ul, .article-container nav, .article-container aside{
+   overflow: hidden;
+   box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   -o-box-sizing: border-box;
+}
+
+
+
+#map {
+   width: 405px;
+height: 205px;
+}
+
+li.barcode {
    text-align: center;
-   display: inline-block;
-   vertical-align: middle;
+display: inline-block;
+vertical-align: middle;
 }
 
-.fill-article aside ul li.barcode img {
-   width: 100px;
+.barcode img {
+       width: 100px;
 }

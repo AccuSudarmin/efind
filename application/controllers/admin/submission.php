@@ -171,34 +171,42 @@ class Submission extends MY_Controller {
 		$submission = $this->msubmission->getById($id);
 
 		$callback = array("type" => "dialog-box");
-		$callback['message'] = "
-			<div class='fill-article'>
+		$callback['message'] = '
+		<div class="article-container">
+			<div class="flex-img">
+				<img src="' . base_url('public/img/bola.jpg') . '">
+			</div>
+			<div class="fill-article main-width">
 				<article>
-					<h1> Lorem ipsum dolor sit amet, consectetur adipisicing elit. </h1>
-					<img src='http://localhost/eventfinder/public/img/bola.jpg'>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-					</article>
+					<h1> ' . $submission->seTitle . ' </h1>
+					<img src="">
+					' . $submission->seContent . '
+				</article>
 				<aside>
 					<ul>
-						<li> From <i class='tanggal'>28th September</i> to <i class='tanggal'>29th September</i> </li>
-						<li> <i class='fa fa-map-marker'></i> Gedung Mulo, Makassar  </li>
+						<li> From <i class="tanggal"> 23 October 2015 </i> to <i class="tanggal">24 October 2015</i> </li>
+						<li> <i class="fa fa-map-marker"></i>Rolling Stone Cafe, Jakarta</li>
+	<li><div id="map" is="map-component" maplat="-6.2769780775348245" maplng="106.82005374113942" mapzoom="17"></div></li>
 						<li> <strong> Ticket Price : Free </strong> </li>
-						<li>
-							Contact : <br>
-							Siamang <br>
-							Jl. Sianu Siapa <br>
-							Makassar
+						<li> Contact : <br>
+							Wita Wibisono 0818791521
 						</li>
 						<li>
-							Twitter : <a href='#'> @sianu </a> <br>
-							Facebook : <a href='#'> Sianu </a> <br>
-							Line : <a href='#'> @sianu </a> <br>
+							Twitter : <a href="#"> @trcmanagement </a> <br>
+							Facebook : <a href="#"> @trcmanagement </a> <br>
+							Line : <a href="#"> @trcmanagement </a> <br>
+							Instagram : <a href="#"> @trcmanagement </a> <br>
+							Path : <a href="#"> @trcmanagement </a>
+						</li>
+						<li class="barcode">
+							<img src="https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=http://Evenfinder.co.id&amp;choe=UTF-8" title="http://eventfinder.co.id">
+							<p> scan me </p>
 						</li>
 					</ul>
 				</aside>
 			</div>
-		";
+		</div>
+		';
 		echo json_encode($callback);
 	}
 }

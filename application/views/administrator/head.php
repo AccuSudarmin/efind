@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="<?php echo base_url('public/css/admin-style.css'); ?>" />
 	<link rel="stylesheet"  media="(max-width: 460px)" href="<?php echo base_url('public/css/admin-style460.css'); ?>" />
 	<link rel="stylesheet" href="<?php echo base_url('public/css/font-awesome.css'); ?>" />
+	<link rel="stylesheet" href="<?php echo base_url('public/css/admin-modal.css'); ?>" />
 
 	<script src="<?php echo base_url('public/js/azcomponent/webcomponentsjs/webcomponents.js'); ?>"></script>
 	<link rel="import" href="<?php echo base_url('public/js/azcomponent/az-ajax.html'); ?>">
