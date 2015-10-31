@@ -17,7 +17,7 @@
             }
          }
 
-         xmlhttp.onprogress = function (evt) {
+         xmlhttp.upload.onprogress = function (evt) {
             var percentComplete = (evt.loaded / evt.total) * 100;
             obj.onprogress( percentComplete );
          }
@@ -41,7 +41,7 @@
             }
          }
 
-         xmlhttp.onprogress = function (evt) {
+         xmlhttp.upload.onprogress = function (evt) {
             var percentComplete = (evt.loaded / evt.total) * 100;
             obj.onprogress(percentComplete);
          }
@@ -78,6 +78,9 @@
          f.navigation = clone.getElementById('aznavigation');
          f.filesElm = clone.getElementById('azfiles');
          f.formUpload = clone.getElementById('azformupload');
+         f.progressBar = clone.getElementById('azprogress-bar');
+         f.progressValue = clone.getElementById('azprogress-value');
+         f.uploadStart = false;
          document.body.appendChild(clone);
 
          buttonClose.onclick = function() {
@@ -112,7 +115,10 @@
       }
 
       f.onprogress = function(e){
+         if (f.uploadStart) {
 
+            f.progressValue.style.width = e + '%';
+         }
       }
 
       f.onsuccess = function( response ){
@@ -128,10 +134,18 @@
                f.loadfolder(response.folder);
                break;
          }
+
+         if (f.uploadStart) {
+            f.uploadStart = false;
+            f.progressBar.style.display = 'none';
+         }
       }
 
       f.uploadFiles = function(action){
          var formData = new FormData();
+
+         f.uploadStart = true;
+         f.progressBar.style.display = 'block';
 
          for(var i = 0; i < f.filesElm.files.length; i++){
             formData.append('files[]' , f.filesElm.files[i]);
