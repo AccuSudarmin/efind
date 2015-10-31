@@ -27,9 +27,9 @@
                   $data['loc'] =  $RELATIVE_PATH . "/". $entry;
                   $data['type'] = 'image';
 
-               } elseif (is_dir($ABSOLUTE_PATH . "\\" . $entry)) {
+               } elseif (is_dir($ABSOLUTE_PATH . "/" . $entry)) {
 
-                  $data['loc'] = "ABSOLUTE_PATH=" . $ABSOLUTE_PATH . "\\" . $entry . "&RELATIVE_PATH=" . $RELATIVE_PATH . "/" . $entry;
+                  $data['loc'] = "ABSOLUTE_PATH=" . $ABSOLUTE_PATH . "/" . $entry . "&RELATIVE_PATH=" . $RELATIVE_PATH . "/" . $entry;
                   $data['type'] = 'folder';
 
                } else {
@@ -53,7 +53,7 @@
          $tmpFilePath = $_FILES['files']['tmp_name'][$i];
 
          if ($tmpFilePath != ""){
-            $location = rtrim($_GET['ABSOLUTE_PATH'], '\\') . '\\';
+            $location = rtrim($_GET['ABSOLUTE_PATH'], '/') . '/';
 
             $newFilePath = $location . $_FILES['files']['name'][$i];
 

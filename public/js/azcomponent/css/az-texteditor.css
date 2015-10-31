@@ -180,3 +180,32 @@
 .tools a.selected , .tool-font:hover {
 	background-color: #F15D52;
 }
+
+.overlay-aztexteditor {
+	position: absolute;
+	text-align: center;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.4);
+}
+
+.overlay-aztexteditor::before {
+	height: 100%;
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.overlay-aztexteditor > div {
+	vertical-align: middle;
+	background: #fff;
+	padding: 10px;
+	border-radius: 5px;
+	text-align: left;
+}
+
+.editor {
+	position: relative;
+}

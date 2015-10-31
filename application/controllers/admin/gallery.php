@@ -14,7 +14,7 @@ class Gallery extends MY_Controller {
 		if ($handle = opendir(ABSOLUTE_PATH_GALLERY)) {
 
 			while (false !== ($entry = readdir($handle))) {
-				$ext = pathinfo($entry, PATHINFO_EXTENSION);
+				$ext = pathinfo($entry, strtolower(PATHINFO_EXTENSION));
 				if ($ext == 'jpg' || $ext == 'png' || $ext == "gif" || $ext == "jpeg") {
 
 					$data = new stdClass();

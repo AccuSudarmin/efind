@@ -15,11 +15,11 @@
    }
 
    function showDispaly (elm, display){
-      elm.style.display = display;
+      elm.style.display=display;
    }
 
    function hideDisplay (elm) {
-      elm.style.display = 'none';
+      elm.style.display='none';
    }
 
    function _(node, id){
@@ -87,8 +87,10 @@
          , imgValue = _(clone, 'azimg-value')
          , buttonResizeImg = _(clone, 'azimg-resize')
          , imgHeight = _(clone, 'azimgheight')
-         , imgWidth = _(clone, 'azimgwidth');
+         , imgWidth = _(clone, 'azimgwidth')
+         , overlay = clone.querySelector('.overlay-aztexteditor');
 
+         console.log(overlay);
       var timer = null;
 
       this.style.display = 'none';
@@ -175,19 +177,30 @@
          texteditorUpdate(main, editorContent.body.innerHTML);
       }
 
-      buttonAnchor.addEventListener('click', function(e){
-         if (anchorInputContainer.style.visibility == 'visible') hideVisibility(anchorInputContainer);
-         else showVisibility(anchorInputContainer);
-         e.stopPropagation();
-
-         buttonAnchor.focus();
+      overlay.addEventListener('click', function(e){
+         hideDisplay(overlay);
+         hideDisplay(anchorInputContainer);
+         hideDisplay(imgInsertContainer);
       });
+
+      buttonAnchor.addEventListener('click', function(e){
+         if (anchorInputContainer.style.display == 'none') showDispaly(anchorInputContainer, 'inline-block');
+         else hideDisplay(anchorInputContainer);
+
+         if (overlay.style.display == 'none') showDispaly(overlay, 'block');
+         else hideDisplay(overlay);
+         e.stopPropagation();
+      });
+
+      anchorInputContainer.addEventListener('click', function(e) {e.stopPropagation()});
+      imgInsertContainer.addEventListener('click', function(e) {e.stopPropagation()});
 
       buttonInserLink.onclick = function() {
          var val = anchorValue.value;
 
          triggerExecCommand(editorContent, "CreateLink", val);
-         hideVisibility(anchorInputContainer);
+         hideDisplay(anchorInputContainer);
+         hideDisplay(overlay);
       }
 
       buttonRemoveAnchor.addEventListener('click', function(e){
@@ -195,8 +208,11 @@
       });
 
       buttonImg.addEventListener('click', function(e){
-         if (imgInsertContainer.style.display == 'none') showDispaly(imgInsertContainer, 'block');
+         if (imgInsertContainer.style.display == 'none') showDispaly(imgInsertContainer, 'inline-block');
          else hideDisplay(imgInsertContainer);
+
+         if (overlay.style.display == 'none') showDispaly(overlay, 'block');
+         else hideDisplay(overlay);
       });
 
       buttonInsertImg.onclick = function() {
@@ -204,7 +220,7 @@
 
          triggerExecCommand(editorContent, "insertHTML", img);
          hideDisplay(imgInsertContainer);
-
+         hideDisplay(overlay);
       }
 
       for (var i = 0; i < buttonScript.length; i++) {
