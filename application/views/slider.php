@@ -4,21 +4,25 @@
 
    <div class="ninja-wrap">
       <section class="slider-cont">
-        <?php foreach($slider as $data):?>
-
-         <div class="slide" style="background: url('<?php echo $data->slPict; ?>') no-repeat; background-size: cover;
-         background-position: 50% 50%;     ">
-           <div class="container">
-             <section class="row main-width">
-               <section class="slide-copy">
-                  <article>
-                 <h1><?php echo $data->slTitle ;?></h1>
-                 <p><?php echo $data->slDesc;?> </p>
+         <?php foreach($slider as $data):?>
+            <?php if(!empty($data->slURL)): ?>
+            <a href="<?php echo $data->slURL; ?>" target="_blank">
+            <?php endif; ?>
+               <div class="slide" style="background: url('<?php echo $data->slPict; ?>') no-repeat; background-size: cover;
+               background-position: 50% 50%;     ">
+                 <div class="container">
+                   <section class="row main-width">
+                     <section class="slide-copy">
+                        <article>
+                       <h1><?php echo $data->slTitle ;?></h1>
+                       <p><?php echo $data->slDesc;?> </p>
+                       </section>
                  </section>
-           </section>
-           </div>
-         </div>
-
+                 </div>
+               </div>
+            <?php if(!empty($data->slURL)): ?>
+            </a>
+            <?php endif; ?>
        <?php endforeach; ?>
 
       </section>

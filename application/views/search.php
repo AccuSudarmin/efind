@@ -10,83 +10,30 @@
       </div>
 
       <div class="result-bar">
+         <?php if (!empty($event)): ?>
          <div class="div-head">
             <h3> Search Result </h3>
-            <p> Found 20 Results for "Sianu" </p>
+            <p> Found <?php echo count($event); ?> Results for "<?php echo $searchkeyword; ?>" </p>
          </div>
+         <?php endif; ?>
 
-
+         <?php foreach ($event as $data): ?>
          <div class="div-box">
+            <h5> <?php echo $data->catName; ?> </h5><br>
+            <h2> <?php echo $data->arTitle; ?> </h2>
 
-            <h5> Category </h5><br>
-            <h2> Judul Artikel </h2>
-
-
+            <?php if (!empty($data->arPict)): ?>
             <div class="div-img">
-               <img src="<?php echo base_url('public/img/slider/a.jpg');?>">
+               <img src="<?php echo $data->arPict;?>">
             </div>
+            <?php endif; ?>
 
             <div class="div-info">
-               <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-               </p>
-
-               <a href="#" class="read-more"> Read More </a>
+               <?php echo $data->arMetaDesc; ?>
+               <a href="<?php echo site_url(strtolower($data->catName) .'/'. $data->arURL); ?>" class="read-more"> Read More </a>
             </div>
          </div>
-
-         <div class="div-box">
-
-            <h5> Category </h5><br>
-            <h2> Judul Artikel </h2>
-
-
-            <div class="div-img">
-               <img src="<?php echo base_url('public/img/slider/a.jpg');?>">
-            </div>
-
-            <div class="div-info">
-               <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-               </p>
-
-               <a href="#" class="read-more"> Read More </a>
-            </div>
-         </div>
-
-         <div class="div-box">
-
-            <h5> Category </h5><br>
-            <h2> Judul Artikel </h2>
-
-
-            <div class="div-img">
-               <img src="<?php echo base_url('public/img/slider/a.jpg');?>">
-            </div>
-
-            <div class="div-info">
-               <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-               </p>
-
-               <a href="#" class="read-more"> Read More </a>
-            </div>
-         </div>
-
-         <div class="div-box">
-
-            <h5> Category </h5><br>
-            <h2> Judul Artikel </h2>
-
-
-            <div class="div-img">
-               <img src="<?php echo base_url('public/img/slider/a.jpg');?>">
-            </div>
-
-            <div class="div-info">
-               <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-               </p>
-
-               <a href="#" class="read-more"> Read More </a>
-            </div>
-         </div>
+         <?php endforeach; ?>
    </div>
 
    <div class="aside-bar">

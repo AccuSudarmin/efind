@@ -29,7 +29,7 @@
          $this->db->order_by('arId', 'desc');
          if ($limit > 0) $this->db->limit($limit, $offset);
 
-         return $this->db->get()->result();;
+         return $this->db->get()->result();
       }
 
       public function countAll() {
@@ -129,6 +129,31 @@
          ");
 
          return $query->result();
+      }
+
+      public function search($keyword){
+         $keyword = explode(' ',$keyword);
+
+         $this->db->select('*');
+         $this->db->from('article');
+         $this->db->join('ref_category', 'article.arCategory = ref_category.catId');
+         $this->db->join('ref_map', 'ref_map.mapArticleId = article.arId');
+         $this->db->join('ref_social_media', 'ref_social_media.smArticleId = article.arId');
+         $this->db->join('admin', 'article.arAuthor = admin.amId');
+         $this->db->where(array(
+            'arStatus' => '1'
+         ));
+
+         $i = 0;
+         foreach ($keyword as $val) {
+            if ($i == 0) $this->db->like('arTitle', $val);
+            else $this->db->or_like('arTitle',$val);
+
+            $this->db->or_like('catName',$val);
+         }
+         $this->db->order_by('arDateStart', 'desc');
+
+         return $this->db->get()->result();
       }
 
    }

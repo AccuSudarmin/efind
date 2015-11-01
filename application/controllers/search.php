@@ -12,10 +12,12 @@
 
       public function index() {
          $webprofile = $this->mwebprofile->getAll();
-         $searchkeyword = (!empty($this->input->get('search')) ? $this->input->get('search') : '';
+         $searchkeyword = (!empty($this->input->get('search'))) ? $this->input->get('search') : '';
 
          if (!empty($searchkeyword)) {
             $event = $this->marticle->search($searchkeyword);
+         } else {
+            $event = array();
          }
 
          $this->load->view('head' ,array(
@@ -25,7 +27,8 @@
 
          $this->load->view('menu');
          $this->load->view('search', array(
-            'event' => $event
+            'event' => $event ,
+            'searchkeyword' => $searchkeyword
          ));
          $this->load->view('footer-calender');
       }
