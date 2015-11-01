@@ -149,6 +149,7 @@
                      Map
                   </td>
                   <td>
+                     <input id="pac-input" class="input-data" type="text" placeholder="Enter a location">
                      <div id="map"></div> <br>
                      <input type="text" class="input-data" name="lng" id="lng" readonly="true">
                      <input type="text" class="input-data" name="lat" id="lat" readonly="true">
@@ -195,13 +196,12 @@
    </div>
 </section>
 
-<script src="<?php echo base_url('public/js/azuploader/azuploader.js') ?>" charset="utf-8"></script>
 <script type="text/javascript">
    var az = new azuploader({
       button: 'browsepicture' ,
       baseURL: 'http://localhost/eventfinder/public/js/azuploader' ,
       modul: [
-         {method:'getName', target: 'picture'}
+         {method:'getFilesLocation', target: 'picture'}
       ]
    });
 
@@ -209,9 +209,12 @@
 
    var map;
    var marker = null;
+   var infowindow;
+   var autocomplete;
    var elmLat = document.getElementById("lat")
       , elmLng = document.getElementById("lng")
       , elmZoom = document.getElementById("mapzoom");
+   var input = document.getElementById('pac-input');
 
    function initMap() {
       var haightAshbury = {lat: -5.135069401600222, lng: 119.41178306937218};
@@ -219,8 +222,14 @@
       map = new google.maps.Map(document.getElementById('map'), {
          zoom: 4,
          center: haightAshbury,
-         mapTypeId: google.maps.MapTypeId.TERRAIN
+         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
+
+      autocomplete = new google.maps.places.Autocomplete(input);
+      autocomplete.bindTo('bounds', map);
+      autocomplete.setTypes([]);
+
+      infowindow = new google.maps.InfoWindow();
 
       map.addListener('click', function(event) {
          addMarker(event.latLng);
@@ -228,6 +237,48 @@
 
       map.addListener('zoom_changed', function() {
          elmZoom.value = map.getZoom();
+      });
+
+      autocomplete.addListener('place_changed', function() {
+         infowindow.close();
+         marker.setVisible(false);
+         var place = autocomplete.getPlace();
+         if (!place.geometry) {
+            window.alert("Autocomplete's returned place contains no geometry");
+            return;
+         }
+
+         // If the place has a geometry, then present it on a map.
+         if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+         } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);  // Why 17? Because it looks good.
+         }
+         marker.setIcon(/** @type {google.maps.Icon} */({
+            url: place.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(35, 35)
+         }));
+         marker.setPosition(place.geometry.location);
+         marker.setVisible(true);
+
+         var address = '';
+         if (place.address_components) {
+            address = [
+               (place.address_components[0] && place.address_components[0].short_name || ''),
+               (place.address_components[1] && place.address_components[1].short_name || ''),
+               (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+         }
+
+         infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+         infowindow.open(map, marker);
+
+         elmLat.value = place.geometry.location.lat();
+         elmLng.value = place.geometry.location.lng();
       });
 
       addMarker(haightAshbury);
@@ -249,4 +300,4 @@
 
 </script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG40TbA050SuXOcL0ur3-ySuQNb84O-no&signed_in=true&callback=initMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG40TbA050SuXOcL0ur3-ySuQNb84O-no&signed_in=true&libraries=places&callback=initMap"></script>

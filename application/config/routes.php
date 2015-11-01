@@ -55,3 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'admin/dashboard';
 $route['music/(:any)'] = 'music/view/$1';
 $route['music/showbydate'] = 'music/showbydate';
+$route['exhibition/(:any)'] = 'exhibition/view/$1';
+$route['exhibition/showbydate'] = 'exhibition/showbydate';
+$route['sport/(:any)'] = 'sport/view/$1';
+$route['sport/showbydate'] = 'sport/showbydate';

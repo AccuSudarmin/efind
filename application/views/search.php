@@ -4,7 +4,9 @@
    <div class="search-submission">
       <div class="search-button">
          <h3> Search Event</h3>
-         <input type="text"> <i class="fa fa-search"> </i>
+         <form action="" method="get">
+            <input type="text" name="search" value="<?php echo $searchkeyword; ?>"> <i class="fa fa-search"> </i>
+         </form>
       </div>
 
       <div class="result-bar">

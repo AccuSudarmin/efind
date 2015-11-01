@@ -90,7 +90,6 @@
          , imgWidth = _(clone, 'azimgwidth')
          , overlay = clone.querySelector('.overlay-aztexteditor');
 
-         console.log(overlay);
       var timer = null;
 
       this.style.display = 'none';

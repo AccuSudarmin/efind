@@ -1,6 +1,7 @@
 <div class="calendar-container">
    <form is='az-form'
       action = "<?php echo $urlaction; ?>"
+      callback-type = "own-div-clear"
       method = "post">
       <select name ="month">
          <?php
@@ -54,20 +55,16 @@
                   </article>
                </div>
 
-               <?php
-                  if (count($value) > 0):
-                     foreach ($value as $data):
-               ?>
-                  <?php if (!empty($data->arPict)): ?>
-                     <calendar-slider>
-                        <img src="<?php echo $data->arPict; ?>">
-                     <calendar-slider>
-                  <?php endif; ?>
-               <?php
-                     endforeach;
-                  else:
-               ?>
-               <img src="<?php echo base_url('public/img/music5.jpg');?>">
+               <?php if (count($value) > 0): ?>
+                  <calendar-slider>
+                     <?php foreach ($value as $data): ?>
+                        <?php if (!empty($data->arPict)): ?>
+                           <img src="<?php echo $data->arPict; ?>">
+                        <?php endif; ?>
+                     <?php endforeach; ?>
+                  </calendar-slider>
+               <?php else: ?>
+                  <img src="<?php echo base_url('public/img/music5.jpg');?>">
                <?php endif; ?>
             </li>
 

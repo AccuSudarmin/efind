@@ -7,18 +7,26 @@
          parent::__construct();
 
          $this->load->model('mwebprofile');
+         $this->load->model('marticle');
       }
 
       public function index() {
          $webprofile = $this->mwebprofile->getAll();
+         $searchkeyword = (!empty($this->input->get('search')) ? $this->input->get('search') : '';
+
+         if (!empty($searchkeyword)) {
+            $event = $this->marticle->search($searchkeyword);
+         }
 
          $this->load->view('head' ,array(
             'webtitle' => $webprofile->webTitle ,
             'webdesc' => $webprofile->webDesc
          ));
-         
+
          $this->load->view('menu');
-         $this->load->view('search');
+         $this->load->view('search', array(
+            'event' => $event
+         ));
          $this->load->view('footer-calender');
       }
    }

@@ -92,7 +92,7 @@ class Music extends CI_Controller{
             $message .= "  <ol>
                            <a is='az-anchorajax'
                               href = '" . $urlview . "/" . $data->arURL . "'
-                              action='" . site_url('music/show/' . $data->arId) . "'
+                              action='" . site_url('music/show/' . $data->arURL) . "'
                               method='click'
                            > " . $data->arTitle . " </a>
                         </ol>
