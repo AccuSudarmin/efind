@@ -21,6 +21,8 @@
             $event = array();
          }
 
+         $popularEvent = $this->marticle->search($searchkeyword);
+
          $this->load->view('head' ,array(
             'webtitle' => $webprofile->webTitle ,
             'webdesc' => $webprofile->webDesc
