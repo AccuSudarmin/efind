@@ -51,6 +51,9 @@ class Exhibition extends CI_Controller{
       $this->load->view('footer-calender');
 
       $visitor = $this->mvisitor->increaseVisitorToday();
+      
+      $date = date('Y-m-d');
+      $this->mhit->increaseHit($date, $event->arId);
 	}
 
    public function show($url) {
@@ -59,6 +62,9 @@ class Exhibition extends CI_Controller{
 
       $dateStart = date_format(date_create_from_format("Y-m-j" , $event->arDateStart), 'd F Y');
       $dateEnd = date_format(date_create_from_format("Y-m-j" , $event->arDateEnd), 'd F Y');
+
+      $date = date('Y-m-d');
+      $this->mhit->increaseHit($date, $event->arId);
 
       $this->load->view('article-container', array(
          'event' => $event ,
