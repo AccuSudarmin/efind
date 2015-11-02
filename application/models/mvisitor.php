@@ -9,5 +9,19 @@
          return $result;
       }
 
+      public function increaseVisitorToday(){
+         $date = date('Y-m-d');
+
+         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+             $ip = $_SERVER['HTTP_CLIENT_IP'];
+         } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+             $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+         } else {
+             $ip = $_SERVER['REMOTE_ADDR'];
+         }
+         
+         $result = $this->db->query("INSERT IGNORE INTO visitor_today VALUES('" . $ip . "','" . $date . "')");
+      }
+
    }
 ?>

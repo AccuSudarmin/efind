@@ -8,6 +8,7 @@
 
          $this->load->model('mslider');
          $this->load->model('mwebprofile');
+         $this->load->model('mvisitor');
       }
 
       public function index() {
@@ -22,6 +23,8 @@
          $this->load->view('home', array(
             'slider' => $slider,
          ));
+
+         $visitor = $this->mvisitor->increaseVisitorToday();
       }
    }
 ?>

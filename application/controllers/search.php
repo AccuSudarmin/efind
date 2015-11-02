@@ -8,6 +8,7 @@
 
          $this->load->model('mwebprofile');
          $this->load->model('marticle');
+         $this->load->model('mvisitor');
       }
 
       public function index() {
@@ -31,6 +32,7 @@
             'searchkeyword' => $searchkeyword
          ));
          $this->load->view('footer-calender');
+         $visitor = $this->mvisitor->increaseVisitorToday();
       }
    }
 ?>

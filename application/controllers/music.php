@@ -7,6 +7,7 @@ class Music extends CI_Controller{
 
       $this->load->model('marticle');
       $this->load->model('mwebprofile');
+      $this->load->model('mvisitor');
    }
 
    public function index() {
@@ -29,6 +30,7 @@ class Music extends CI_Controller{
          'year' => $year
       ));
       $this->load->view('footer-calender');
+      $visitor = $this->mvisitor->increaseVisitorToday();
 	}
 
    public function view($url) {
@@ -47,6 +49,7 @@ class Music extends CI_Controller{
          'relatedEvent' => $relatedEvent
       ));
       $this->load->view('footer-calender');
+      $visitor = $this->mvisitor->increaseVisitorToday();
 	}
 
    public function show($url) {

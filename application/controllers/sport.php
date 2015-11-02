@@ -7,6 +7,7 @@ class Sport extends CI_Controller{
 
       $this->load->model('marticle');
       $this->load->model('mwebprofile');
+      $this->load->model('mvisitor');
    }
 
    public function index() {
@@ -29,6 +30,7 @@ class Sport extends CI_Controller{
          'year' => $year
       ));
       $this->load->view('footer-calender');
+      $visitor = $this->mvisitor->increaseVisitorToday();
 	}
 
    public function view($url) {
@@ -47,6 +49,7 @@ class Sport extends CI_Controller{
          'relatedEvent' => $relatedEvent
       ));
       $this->load->view('footer-calender');
+      $visitor = $this->mvisitor->increaseVisitorToday();
 	}
 
    public function show($url) {
@@ -56,73 +59,10 @@ class Sport extends CI_Controller{
       $dateStart = date_format(date_create_from_format("Y-m-j" , $event->arDateStart), 'd F Y');
       $dateEnd = date_format(date_create_from_format("Y-m-j" , $event->arDateEnd), 'd F Y');
 
-      $callback = array("type" => "dialog-box");
-		$message = '
-         <div class="article-container">
-            <div class="flex-img">
-               <img src=' . base_url('public/img/bola.jpg') . '>
-            </div>
-            <div class="fill-article main-width">
-               <article>
-                  <h1> ' . $event->arTitle . ' </h1>
-                  <img src=' . $event->arPict . '>
-                  ' . $event->arContent;
-
-      $message .= "
-                  <div class='related-search'>
-                     <h2> RELATED POSTS </h2> ";
-
-      foreach ($relatedEvent as $datarelated){
-
-         $message .= "
-                  <div class='related-box'>
-                     <h5> <a href='" . site_url('/' . strtolower($datarelated->catName) . '/' . $datarelated->arURL) . "' target='_blank'> " . $datarelated->arTitle . "</a> </h5>
-                     ";
-
-         if (!empty($datarelated->arPict)) $message .= "<img src='" . $datarelated->arPict . "'>";
-
-         $message .= "</div>";
-      }
-
-      $message .=  "</div>";
-
-      $message .= '
-               </article>
-               <aside>
-                  <ul>
-                     <li> From <i class="tanggal"> ' . $dateStart . ' </i> to <i class="tanggal">' . $dateEnd . '</i> </li>
-                     <li> <i class="fa fa-map-marker"></i>' . $event->arEventLocation . '</li>
-      ';
-
-      if (!empty($event->mapLongitude) && !empty($event->mapLatitude)) {
-         $message .= "<li><div id='map' is='map-component' mapLat='" . $event->mapLatitude;
-         $message .= "' mapLng='" . $event->mapLongitude . "' mapZoom = '" . $event->mapZoom . "'></div></li>";
-      }
-
-      $message .= '
-                     <li> <strong> Ticket Price : Free </strong> </li>
-                     <li> Contact : <br>
-                        ' . $event->arContact . '
-                     </li>
-                     <li>
-                        Twitter : <a href="#"> ' . $event->smTwitter . ' </a> <br>
-                        Facebook : <a href="#"> ' . $event->smFacebook . ' </a> <br>
-                        Line : <a href="#"> ' . $event->smLine . ' </a> <br>
-                        Instagram : <a href="#"> ' . $event->smInstagram . ' </a> <br>
-                        Path : <a href="#"> ' . $event->smPath . ' </a>
-                     </li>
-                     <li class="barcode">
-                        <img src="' . $event->arBarcode . '" title="' . $event->arURLWebsite . '">
-                        <p> scan me </p>
-                     </li>
-                  </ul>
-               </aside>
-            </div>
-         </div>
-      ';
-
-      $callback['message'] = $message;
-      echo json_encode($callback);
+      $this->load->view('article-container', array(
+         'event' => $event ,
+         'relatedEvent' => $relatedEvent
+      ));
    }
 
    public function showbydate() {

@@ -9,7 +9,7 @@
             <a href="<?php echo $data->slURL; ?>" target="_blank">
             <?php endif; ?>
                <div class="slide" style="background: url('<?php echo $data->slPict; ?>') no-repeat; background-size: cover;
-               background-position: 50% 50%;     ">
+               background-position: 50% 50%;">
                  <div class="container">
                    <section class="row main-width">
                      <section class="slide-copy">
