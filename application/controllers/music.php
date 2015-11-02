@@ -21,15 +21,18 @@ class Music extends CI_Controller{
          'webtitle' => $webprofile->webTitle ,
          'webdesc' => $webprofile->webDesc
       ));
+
       $this->load->view('body-calender-open');
       $this->load->view('menu');
 		$this->load->view('calender' , array(
          'urlaction' => site_url('music/showbydate') ,
          'urlview' => site_url('music') ,
+         'urlshow' => site_url('music/show') ,
          'event' => $event ,
          'month' => $month ,
          'year' => $year
       ));
+
       $this->load->view('footer-calender');
       $visitor = $this->mvisitor->increaseVisitorToday();
 	}
@@ -43,12 +46,14 @@ class Music extends CI_Controller{
          'webtitle' => $webprofile->webTitle ,
          'webdesc' => $webprofile->webDesc
       ));
+
       $this->load->view('body-calender-open');
       $this->load->view('menu');
       $this->load->view('article-container', array(
          'event' => $event ,
          'relatedEvent' => $relatedEvent
       ));
+      
       $this->load->view('footer-calender');
 
       $this->mvisitor->increaseVisitorToday();

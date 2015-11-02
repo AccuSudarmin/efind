@@ -8,6 +8,7 @@ class Sport extends CI_Controller{
       $this->load->model('marticle');
       $this->load->model('mwebprofile');
       $this->load->model('mvisitor');
+      $this->load->model('mhit');
    }
 
    public function index() {
@@ -20,15 +21,18 @@ class Sport extends CI_Controller{
          'webtitle' => $webprofile->webTitle ,
          'webdesc' => $webprofile->webDesc
       ));
+
       $this->load->view('body-calender-open');
       $this->load->view('menu');
 		$this->load->view('calender' , array(
-         'urlaction' => site_url('music/showbydate') ,
-         'urlview' => site_url('music') ,
+         'urlaction' => site_url('sport/showbydate') ,
+         'urlview' => site_url('sport') ,
+         'urlshow' => site_url('sport/show') ,
          'event' => $event ,
          'month' => $month ,
          'year' => $year
       ));
+
       $this->load->view('footer-calender');
       $visitor = $this->mvisitor->increaseVisitorToday();
 	}
@@ -42,15 +46,17 @@ class Sport extends CI_Controller{
          'webtitle' => $webprofile->webTitle ,
          'webdesc' => $webprofile->webDesc
       ));
+
       $this->load->view('body-calender-open');
       $this->load->view('menu');
       $this->load->view('article-container', array(
          'event' => $event ,
          'relatedEvent' => $relatedEvent
       ));
+      
       $this->load->view('footer-calender');
       $visitor = $this->mvisitor->increaseVisitorToday();
-      
+
       $date = date('Y-m-d');
       $this->mhit->increaseHit($date, $event->arId);
 	}
