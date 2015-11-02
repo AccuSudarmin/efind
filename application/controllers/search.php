@@ -21,7 +21,7 @@
             $event = array();
          }
 
-         $popularEvent = $this->marticle->search($searchkeyword);
+         $popularEvent = $this->marticle->getPopular();
 
          $this->load->view('head' ,array(
             'webtitle' => $webprofile->webTitle ,
@@ -31,6 +31,7 @@
          $this->load->view('menu');
          $this->load->view('search', array(
             'event' => $event ,
+            'popularEvent' => $popularEvent ,
             'searchkeyword' => $searchkeyword
          ));
          $this->load->view('footer-calender');

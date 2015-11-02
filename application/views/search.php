@@ -39,29 +39,13 @@
    <div class="aside-bar">
       <h2> POPULAR EVENTS </h2>
 
+      <?php foreach ($popularEvent as $data): ?>
       <div class="aside-box">
-         <h5> Category </h5><br>
-         <h2> Judul Artikel </h2>
-         <a href="#"> <img src="<?php echo base_url('public/img/slider/a.jpg');?>"> </a>
+         <h5> <?php echo $data->catName; ?> </h5><br>
+         <h2> <a href="<?php echo site_url($data->catName . '/' . $data->arURL); ?>"> <?php echo $data->arTitle; ?> </a> </h2>
+         <a href="<?php echo site_url($data->catName . '/' . $data->arURL); ?>"> <img src="<?php echo $data->arPict; ?>"> </a>
       </div>
-
-      <div class="aside-box">
-         <h5> Category </h5><br>
-         <h2> Judul Artikel </h2>
-         <a href="#"> <img src="<?php echo base_url('public/img/slider/a.jpg');?>"> </a>
-      </div>
-
-      <div class="aside-box">
-         <h5> Category </h5><br>
-         <h2> Judul Artikel </h2>
-         <a href="#"> <img src="<?php echo base_url('public/img/slider/a.jpg');?>"> </a>
-      </div>
-
-      <div class="aside-box">
-         <h5> Category </h5><br>
-         <h2> Judul Artikel </h2>
-         <a href="#"> <img src="<?php echo base_url('public/img/slider/a.jpg');?>"> </a>
-      </div>
+      <?php endforeach; ?>
 
    </div>
 

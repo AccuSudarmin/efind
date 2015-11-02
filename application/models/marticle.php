@@ -159,7 +159,7 @@
       public function getPopular(){
          $dateNow = date('Y-m-d');
          $query = $this->db->query("
-            SELECT article.arId, article.arTitle, ref_category.catName, article.arPict, SUM(hit_article.haTotal) AS TotalHit
+            SELECT article.arId, article.arTitle, article.arURL, ref_category.catName, article.arPict, SUM(hit_article.haTotal) AS TotalHit
             FROM hit_article INNER JOIN article ON article.arId = hit_article.haArticleId INNER JOIN ref_category ON ref_category.catId = article.arCategory
             WHERE article.arDateStart >= '" . $dateNow . "'
             GROUP BY hit_article.haArticleId
