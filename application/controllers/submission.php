@@ -28,7 +28,6 @@
    		$dateend = $this->input->post('dateend');
    		$contact = $this->input->post('contact');
    		$eventlocation = $this->input->post('eventloc');
-   		$pict = $this->input->post('picture');
    		$ticket = nl2br($this->input->post('ticket'));
    		$urlwebsite = $this->input->post('urlwebsite');
          $contactadmin = $this->input->post('contactadmin');
@@ -43,7 +42,20 @@
 
    		$this->db->trans_begin();
 
-   		$result = $this->msubmission->add( array(
+         if (!empty($_FILES['picture']['name'])) {
+            $config = array();
+
+            $config['upload_path'] = './public/userfiles/image';
+            $config['allowed_types'] = 'jpg|png|JPG|PNG|jpeg|gif';
+
+            $this->upload->initialize($config);
+            if($this->upload->do_upload('picture')){
+               $uploadresult = $this->upload->data();
+               $pict = $uploadresult['file_name'];
+            }
+         }
+
+         $result = $this->msubmission->add( array(
    			'seTitle' => $title ,
    			'seContent' => $content ,
    			'seDateStart' => $datestart ,
@@ -62,16 +74,6 @@
    			'sePath' => $path ,
             'seInstagram' => $instagram
    		));
-
-         if ($result && !empty($_FILES['picture']['name'])) {
-            $config = array();
-
-            $config['upload_path'] = './public/userfiles/image';
-            $config['allowed_types'] = 'jpg|png|JPG|PNG|jpeg|gif';
-
-            $this->upload->initialize($config);
-            $this->upload->do_upload('picture');
-         }
 
          $callback = array("type" => "modal-box");
 
