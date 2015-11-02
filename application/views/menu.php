@@ -8,7 +8,13 @@
       <li><a href="<?php echo site_url('sport');?>"><i class="fa fa-futbol-o"> </i> Sport Events</a> </li>
       <li class="mobile-sc"> <i class="fa fa-search rights mobile-search"> </i><div class='searchbar rights mobile-search'><input type="text"> </div>
       </li>
-      <li class="social-icon"> <a href="#"><i class="fa fa-youtube"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-facebook"></i></a></li>
+      <li class="social-icon">
+         <?php
+            if (!empty($webprofile->webInstagram)) echo "<a href='https://www.instagram.com/" . $webprofile->webInstagram . "'><i class='fa fa-instagram'></i></a>";
+            if (!empty($webprofile->webTwitter)) echo "<a href='https://twitter.com/" . $webprofile->webTwitter . "'><i class='fa fa-twitter'></i></a>";
+            if (!empty($webprofile->webFacebook)) echo "<a href='https://facebook.com/" . $webprofile->webFacebook . "'><i class='fa fa-facebook'></i></a>";
+         ?>
+      </li>
    </ul>
 </nav>
 
@@ -30,9 +36,11 @@
                <li> <a href="#"><i class="fa fa-search"> </i></a><div class='searchbar'><input type="text"> </div>
                </li>
 
-               <li> <i class="fa fa-twitter"></i></li>
-               <li> <i class="fa fa-facebook"></i></li>
-               <li> <i class="fa fa-youtube"></i></li>
+               <?php
+                  if (!empty($webprofile->webInstagram)) echo "<li><a href='https://www.instagram.com/" . $webprofile->webInstagram . "'><i class='fa fa-instagram'></i></a></li>";
+                  if (!empty($webprofile->webTwitter)) echo "<li><a href='https://twitter.com/" . $webprofile->webTwitter . "'><i class='fa fa-twitter'></i></a></li>";
+                  if (!empty($webprofile->webFacebook)) echo "<li><a href='https://facebook.com/" . $webprofile->webFacebook . "'><i class='fa fa-facebook'></i></a></li>";
+               ?>
 
             </ul>
          </div>

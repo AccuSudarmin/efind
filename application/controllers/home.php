@@ -21,7 +21,8 @@
          ));
 
          $this->load->view('home', array(
-            'slider' => $slider,
+            'webprofile' => $webprofile ,
+            'slider' => $slider
          ));
 
          $visitor = $this->mvisitor->increaseVisitorToday();
