@@ -19,8 +19,26 @@
          } else {
              $ip = $_SERVER['REMOTE_ADDR'];
          }
-         
-         $result = $this->db->query("INSERT IGNORE INTO visitor_today VALUES('" . $ip . "','" . $date . "')");
+
+         // $result = $this->db->query("INSERT IGNORE INTO visitor_today VALUES('" . $ip . "','" . $date . "')");
+         $result = $this->db->query("
+            INSERT INTO visitor_today (vtdIp, vtdDate)
+            SELECT * FROM (SELECT '" . $ip . "', '" . $date . "') AS tmp
+            WHERE NOT EXISTS (
+            SELECT name FROM visitor_today WHERE vtdIp = '" . $ip . "' AND vtdDate = '" . $date . "'
+            ) LIMIT 1
+            ");
+      }
+
+      public function joiningVisitor($startDate, $endDate) {
+         $result = $this->db->query("
+            INSERT INTO visitor_total(vtDate, vtTotal)
+            SELECT vtdDate, COUNT(*) AS total
+            FROM visitor_today
+            WHERE vtdDate >= '" . $startDate . "' AND vtdDate <= '" . $endDate . "'
+            GROUP BY vtdDate
+            ON DUPLICATE KEY UPDATE vtTotal=vtTotal+1
+            ");
       }
 
    }
