@@ -8,10 +8,19 @@
    <div class="flex-img">
       <img src="<?php echo base_url('public/img/bola.jpg');?>">
    </div>
+
    <div class="fill-article main-width">
       <article>
          <h1> <?php echo $event->arTitle; ?> </h1>
          <img src="<?php echo $event->arPict; ?>">
+
+         <div class="share-button">
+            <ul>
+               <li class="fesbuk"> <i class="fa fa-facebook"> </i> <span> Share </share> </li>
+               <li class="twider"> <i class="fa fa-twitter"> </i> <span> Share </share> </li>
+            </ul>
+        </div>
+
          <?php echo $event->arContent; ?>
 
          <?php $this->load->view('related-search');?>
@@ -54,7 +63,10 @@
                <img src="<?php echo $event->arBarcode; ?>" title="<?php echo $event->arURLWebsite; ?>" />
                <p> scan me </p>
             </li>
+
          </ul>
+
+
       </aside>
    </div>
 </div>

@@ -949,7 +949,6 @@ footer{
          right: 0;
 
          li{
-            text-align: justify;
             margin-top: 10px;
             border-bottom: 1px solid #454D5D;
             padding-bottom: 5px;
@@ -967,6 +966,45 @@ footer{
          }
       }
    }
+}
+
+.share-button{
+   li{
+      float: left;
+      margin: 10px 10px 10px 0px;
+      color: #fff;
+      font-weight: 700;
+
+      i{
+         padding: 10px;
+         border-right: 1px solid #bebebe;
+      }
+
+      span{
+         padding: 10px;
+      }
+   }
+
+   .fesbuk{
+      background: #3b5998;
+
+      &:hover{
+         background: #1E3565;
+      }
+   }
+
+   .twider{
+      background: #4099FF;
+
+      &:hover{
+         background: #1D589B;
+      }
+   }
+}
+
+.active-menu{
+   color: $mainred;
+   font-weight: 700;
 }
 
 
