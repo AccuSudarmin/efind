@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2015 at 08:22 AM
+-- Generation Time: Nov 03, 2015 at 08:35 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -347,20 +347,18 @@ INSERT INTO `submission_event` (`seId`, `seTitle`, `seContent`, `seDateStart`, `
 --
 
 CREATE TABLE IF NOT EXISTS `visitor_today` (
+  `ctdId` int(11) NOT NULL AUTO_INCREMENT,
   `vtdIp` varchar(50) NOT NULL,
-  `vtdDate` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `vtdDate` varchar(10) NOT NULL,
+  PRIMARY KEY (`ctdId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `visitor_today`
 --
 
-INSERT INTO `visitor_today` (`vtdIp`, `vtdDate`) VALUES
-('::1', '2015-11-02'),
-('::1', '2015-11-03'),
-('128.8.8.8', '2015-11-04'),
-('128.8.8.7', '2015-11-04'),
-('128.8.8.7', '2015-11-03');
+INSERT INTO `visitor_today` (`ctdId`, `vtdIp`, `vtdDate`) VALUES
+(5, '128.8.8.7', '2015-11-03');
 
 -- --------------------------------------------------------
 
@@ -380,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `visitor_total` (
 
 INSERT INTO `visitor_total` (`vtDate`, `vtTotal`) VALUES
 ('2015-11-02', 1),
-('2015-11-03', 2),
+('2015-11-03', 3),
 ('2015-11-04', 2);
 
 -- --------------------------------------------------------

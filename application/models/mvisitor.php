@@ -31,7 +31,9 @@
       }
 
       public function joiningVisitor($startDate, $endDate) {
-         $result = $this->db->query("
+         $this->db->trans_begin();
+
+         $this->db->query("
             INSERT INTO visitor_total(vtDate, vtTotal)
             SELECT vtdDate, COUNT(*) AS total
             FROM visitor_today
@@ -39,6 +41,19 @@
             GROUP BY vtdDate
             ON DUPLICATE KEY UPDATE vtTotal=vtTotal+1
             ");
+
+         $this->db->query("
+            DELETE INTO visitor_total
+            WHERE vtdDate >= '" . $startDate . "' AND vtdDate <= '" . $endDate . "'
+            ");
+
+         if ( !$this->db->trans_status() ) {
+            $this->db->trans_rollback();
+            return false;
+         } else {
+            $this->db->trans_commit();
+            return true;
+         }
       }
 
    }
