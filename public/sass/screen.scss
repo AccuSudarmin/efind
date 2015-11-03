@@ -193,9 +193,13 @@ header.navigation{
       float: right;
       right: 0;
       left: auto;
-      z-index: 200;
+      z-index: 500;
       height: 40px;
+      background: #fff;
 
+      &:hover{
+         color: #000;
+      }
 
       i{
         color: $mainred;
@@ -373,6 +377,19 @@ section.slide-wrapper{
                 color: $mainred;
 
                       }
+
+            a{
+               color: $mainred;
+               font-weight: 700;
+               text-decoration: none;
+
+               &:hover{
+                  color: white;
+               }
+            }
+
+
+
             p{
                color: #fff;
                text-align: justify;
@@ -816,7 +833,7 @@ footer{
                .isi-calender img{
                   display: none;
                }
-               
+
                img{
 
                   width:100%;
