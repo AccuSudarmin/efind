@@ -25,7 +25,7 @@
             INSERT INTO visitor_today (vtdIp, vtdDate)
             SELECT * FROM (SELECT '" . $ip . "', '" . $date . "') AS tmp
             WHERE NOT EXISTS (
-            SELECT name FROM visitor_today WHERE vtdIp = '" . $ip . "' AND vtdDate = '" . $date . "'
+            SELECT vtdIp, vtdDate FROM visitor_today WHERE vtdIp = '" . $ip . "' AND vtdDate = '" . $date . "'
             ) LIMIT 1
             ");
       }
