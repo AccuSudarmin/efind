@@ -53,7 +53,7 @@ class Exhibition extends CI_Controller{
          'event' => $event ,
          'relatedEvent' => $relatedEvent
       ));
-      
+
       $this->load->view('footer-calender');
 
       $visitor = $this->mvisitor->increaseVisitorToday();

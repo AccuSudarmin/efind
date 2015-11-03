@@ -63,6 +63,7 @@
    display: inline-block;
    max-height: 90%;
    max-width: 90%;
+   text-align: left;
    overflow-y: scroll !important;
    overflow-x: hidden !important;
 }
