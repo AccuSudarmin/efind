@@ -921,8 +921,11 @@ footer{
          }
 
          p{
-            text-align: justify;
             margin-bottom: 5px;
+         }
+
+         li, ul{
+            list-style: inherit !important;
          }
 
 
