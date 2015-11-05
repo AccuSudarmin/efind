@@ -11,16 +11,29 @@ class Dashboard extends CI_Controller {
       } else {
          $userdata = $this->session->userdata('admin_eventfinder');
       }
+
+		$this->load->model('mvisitor');
 	}
 
 	public function index() {
+		$this->mvisitor->joiningAll();
+
+		$today = date('Y-m-d');
+		$dayNow = date('j') + 8;
+		$dayNow = (strlen($dayNow) > 1) ? '0' . $dayNow : $dayNow;
+
+		$tillDay = date('Y-m-') . $dayNow;
+
+		$visitor = $this->mvisitor->getByDate($today, $tillDay);
 
 		$this->load->view('administrator/head');
 		$this->load->view('administrator/header');
 		$this->load->view('administrator/sidebar', array(
 			'activate' => "dashboard"
 		));
-		$this->load->view('administrator/statistic');
+		$this->load->view('administrator/statistic', array(
+			'visitor' => $visitor
+		));
 		$this->load->view('administrator/footer');
 
 	}

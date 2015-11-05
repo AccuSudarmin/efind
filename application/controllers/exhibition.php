@@ -42,9 +42,12 @@ class Exhibition extends CI_Controller{
       $relatedEvent = $this->marticle->getRelatedByTag($event->arId);
       $webprofile = $this->mwebprofile->getAll();
 
-      $this->load->view('head' ,array(
+      $this->load->view('head-event-view' ,array(
          'webtitle' => $event->arTitle ,
-         'webdesc' => $event->arMetaDesc
+         'webdesc' => $event->arMetaDesc,
+         'metaURL' => site_url('music/' . $event->arURL) ,
+         'metaDesc' => $event->arMetaDesc ,
+         'metaImage' => $event->arPict
       ));
 
       $this->load->view('body-calender-open');

@@ -3,12 +3,6 @@
 
    class Mvisitor extends CI_Model {
 
-      public function getByDate($date) {
-         $result = $this->db->get_where('visitor_total' , array('vtDate' => $date))->row();
-
-         return $result;
-      }
-
       public function increaseVisitorToday(){
          $date = date('Y-m-d');
 
@@ -30,22 +24,20 @@
             ");
       }
 
-      public function joiningVisitor($startDate, $endDate) {
+      public function joiningAll() {
+         $today = date('Y-m-d');
          $this->db->trans_begin();
 
          $this->db->query("
             INSERT INTO visitor_total(vtDate, vtTotal)
             SELECT vtdDate, COUNT(*) AS total
             FROM visitor_today
-            WHERE vtdDate >= '" . $startDate . "' AND vtdDate <= '" . $endDate . "'
+            WHERE vtdDate != '" . $today . "'
             GROUP BY vtdDate
             ON DUPLICATE KEY UPDATE vtTotal=vtTotal+1
             ");
 
-         $this->db->query("
-            DELETE INTO visitor_total
-            WHERE vtdDate >= '" . $startDate . "' AND vtdDate <= '" . $endDate . "'
-            ");
+         $this->db->query("DELETE FROM visitor_total WHERE vtDate != '" . $today . "'");
 
          if ( !$this->db->trans_status() ) {
             $this->db->trans_rollback();
@@ -53,6 +45,36 @@
          } else {
             $this->db->trans_commit();
             return true;
+         }
+      }
+
+      public function getByDate($start = null, $end = null) {
+         $this->db->trans_begin();
+
+         if ($start != null && $end != null) {
+            $query = $this->db->query("
+               SELECT vtDate, vtTotal
+               FROM visitor_total
+               WHERE vtDate >= '" . $start . "' AND vtDate <= '" . $end . "'
+               ");
+
+            $result = $query->result();
+         } else {
+            $query = $this->db->query("
+               SELECT vtdDate, COUNT(*) AS total
+               FROM visitor_today
+               WHERE vtdDate = '" . $start . "'
+               GROUP BY vtdDate
+               ");
+            $result = $query->row();
+         }
+
+         if ( !$this->db->trans_status() ) {
+            $this->db->trans_rollback();
+            return false;
+         } else {
+            $this->db->trans_commit();
+            return $result;
          }
       }
 

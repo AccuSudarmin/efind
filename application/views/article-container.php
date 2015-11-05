@@ -16,8 +16,12 @@
 
          <div class="share-button">
             <ul>
-               <li class="fesbuk"> <i class="fa fa-facebook"> </i> <span> Share </share> </li>
-               <li class="twider"> <i class="fa fa-twitter"> </i> <span> Share </share> </li>
+               <a onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php echo site_url(strtolower($event->catName) . '/' . $event->arURL); ?>', '_blank', 'width=600, height=400'); return false">
+                  <li class="fesbuk"> <i class="fa fa-facebook"> </i> <span> Share </share> </li>
+               </a>
+               <a onclick="window.open('https://twitter.com/intent/tweet?text=<?php echo $event->arMetaDesc; ?>&url=<?php echo site_url(strtolower($event->catName) . '/' . $event->arURL); ?>', '_blank', 'width=600, height=400'); return false;">
+                  <li class="twider"> <i class="fa fa-twitter"> </i> <span> Share </share> </li>
+               </a>
             </ul>
         </div>
 

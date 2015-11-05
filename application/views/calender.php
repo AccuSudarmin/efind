@@ -55,17 +55,19 @@
                   </article>
                </div>
 
-               <?php if (count($value) > 0): ?>
-                  <calendar-slider>
-                     <?php foreach ($value as $data): ?>
-                        <?php if (!empty($data->arPict)): ?>
-                           <img src="<?php echo $data->arPict; ?>">
-                        <?php endif; ?>
-                     <?php endforeach; ?>
-                  </calendar-slider>
-               <?php else: ?>
-                  <img src="<?php echo base_url('public/img/music5.jpg');?>">
-               <?php endif; ?>
+               <?php
+                  if (count($value) > 0) {
+                     echo '<calendar-slider>';
+
+                     foreach ($value as $data) {
+                        if (!empty($data->arPict)) echo "<img src='" . $data->arPict ."'>";
+                     }
+
+                     echo '</calendar-slider>';
+                  } else {
+                     echo "<img src='" . base_url('public/img/no-content/' . $i . '.jpg') . "'>";
+                  }
+               ?>
             </li>
 
       <?php if ($i >= 4): $i=0; ?>
