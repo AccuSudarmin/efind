@@ -57,10 +57,10 @@
  <div class="main-width">
     <ul>
       <li> <h2> "FIND AND PROMOTE YOUR EVENT" </h2>
-            <p> Your one and true guide to upcoming events, concerts, exhibitions, parties & more! Find out best events, activities and things to do in town. </p>
+            <p> <?php echo nl2br($webprofile->webDesc); ?> </p>
       </li>
       <li>  <h3> Contact Info </h3>
-            <p> If you want to find out more, or how to join us, please contact us at: Jl. Prof. Dr. Satrio Jakarta 12950. <br> Phone : +62 21 7654322 <br> Fax : +62 21 7654321 <br> E-mail :info@eventfinder.co.id </p>
+            <p> <?php echo nl2br($webprofile->webContact); ?> </p>
       </li>
 
       <li class="maps">

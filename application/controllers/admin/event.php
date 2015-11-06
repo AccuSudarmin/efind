@@ -84,7 +84,7 @@ class Event extends MY_Controller {
 		$url = preg_replace("( |,|\\|\"|\'|\/)", '-', $title);
 		$url = str_replace('&', '', $url);
 		$author = $this->userdata['id'];
-		$ticket = nl2br($this->input->post('ticket'));
+		$ticket = $this->input->post('ticket');
 		$barcode = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" . $this->input->post('urlwebsite') . "&choe=UTF-8";
 		$urlwebsite = $this->input->post('urlwebsite');
 		$category = $this->input->post('category');
@@ -221,7 +221,7 @@ class Event extends MY_Controller {
 		$url = str_replace('&', '', $url);
 		$author = $this->userdata['id'];
 		$eventlocation = $this->input->post('eventloc');
-		$ticket = nl2br($this->input->post('ticket'));
+		$ticket = $this->input->post('ticket');
 		$barcode = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" . $this->input->post('urlwebsite') . "&choe=UTF-8";
 		$urlwebsite = $this->input->post('urlwebsite');
 		$category = $this->input->post('category');

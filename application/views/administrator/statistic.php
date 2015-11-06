@@ -12,7 +12,7 @@
          <div class="title-container">Visitor</div>
          <div class="graph-head">
             <div class="week-graph">
-               <span> <a id="start">06 Aug 2015</a> - <a id="end">12 Aug 2015</a> </span>
+               <span> <a id="start"><?php echo $dateStart; ?></a> - <a id="end"><?php echo $dateEnd; ?></a> </span>
                <span class="float-right">
                   <a onclick="requestGraph(&quot;1438737991&quot;)" id="prevGraph">Prev</a> | <a onclick="requestGraph(&quot;1439947591&quot;)" id="nextGraph">Next</a>
                </span>
@@ -20,15 +20,9 @@
          </div>
 
          <az-chart column>
-            <bar value="20">Sun</bar>
-            <bar value="40">Mon</bar>
-            <bar value="20">Tue</bar>
-            <bar value="80">Wed</bar>
-            <bar value="70">Thu</bar>
-            <bar value="20">Fri</bar>
-            <bar value="100">Sat</bar>
-            <bar value="20">Sun</bar>
-            <bar value="40">Mon</bar>
+            <?php foreach($visitor as $data): ?>
+            <bar height="<?php echo $data->barHeight ?>" value="<?php echo $data->value; ?>" _id="<?php echo $data->id; ?>"><?php echo $data->day; ?></bar>
+            <?php endforeach; ?>
          </az-chart>
       </div>
 

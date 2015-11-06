@@ -23,7 +23,9 @@ class Exhibition extends CI_Controller{
       ));
 
       $this->load->view('body-calender-open');
-      $this->load->view('menu');
+      $this->load->view('menu' , array(
+         'webprofile' => $webprofile
+      ));
 		$this->load->view('calender' , array(
          'urlaction' => site_url('exhibition/showbydate') ,
          'urlview' => site_url('exhibition') ,
@@ -45,13 +47,15 @@ class Exhibition extends CI_Controller{
       $this->load->view('head-event-view' ,array(
          'webtitle' => $event->arTitle ,
          'webdesc' => $event->arMetaDesc,
-         'metaURL' => site_url('music/' . $event->arURL) ,
+         'metaURL' => site_url('exhibition/' . $event->arURL) ,
          'metaDesc' => $event->arMetaDesc ,
          'metaImage' => $event->arPict
       ));
 
       $this->load->view('body-calender-open');
-      $this->load->view('menu');
+      $this->load->view('menu' , array(
+         'webprofile' => $webprofile
+      ));
       $this->load->view('article-container', array(
          'event' => $event ,
          'relatedEvent' => $relatedEvent
@@ -87,7 +91,7 @@ class Exhibition extends CI_Controller{
       $event = $this->marticle->getByYearMonthAndCategory($year, $month, 2);
 
       $message = "";
-      $urlview = site_url('music');
+      $urlview = site_url('exhibition');
 
       $i = 1;
 
@@ -111,7 +115,7 @@ class Exhibition extends CI_Controller{
             $message .= "  <ol>
                            <a is='az-anchorajax'
                               href = '" . $urlview . "/" . $data->arURL . "'
-                              action='" . site_url('music/show/' . $data->arId) . "'
+                              action='" . site_url('exhibition/show/' . $data->arURL) . "'
                               method='click'
                            > " . $data->arTitle . " </a>
                         </ol>
@@ -127,7 +131,7 @@ class Exhibition extends CI_Controller{
                }
             }
          }  else {
-            $message .= "<img src='" . base_url('public/img/music5.jpg') . "'>";
+            $message .= "<img src='" . base_url('public/img/no-content/' . $i . '.jpg') . "'>";
          }
 
          $message .= "</li>";

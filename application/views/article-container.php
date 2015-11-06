@@ -19,7 +19,7 @@
                <a onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php echo site_url(strtolower($event->catName) . '/' . $event->arURL); ?>', '_blank', 'width=600, height=400'); return false">
                   <li class="fesbuk"> <i class="fa fa-facebook"> </i> <span> Share </share> </li>
                </a>
-               <a onclick="window.open('https://twitter.com/intent/tweet?text=<?php echo $event->arMetaDesc; ?>&url=<?php echo site_url(strtolower($event->catName) . '/' . $event->arURL); ?>', '_blank', 'width=600, height=400'); return false;">
+               <a onclick="window.open('https://twitter.com/intent/tweet?text=<?php echo $event->arTitle; ?>&url=<?php echo site_url(strtolower($event->catName) . '/' . $event->arURL); ?>', '_blank', 'width=600, height=400'); return false;">
                   <li class="twider"> <i class="fa fa-twitter"> </i> <span> Share </share> </li>
                </a>
             </ul>
@@ -50,11 +50,11 @@
             </i>
             </li>
             <li>
-               <strong> Ticket Price :</strong> <br> <?php echo $event->arTicketPrice; ?>
+               <strong> Ticket Price :</strong> <br> <?php echo nl2br($event->arTicketPrice); ?>
             </li>
             <li>
                <strong> Contact :</strong> <br>
-               <?php echo $event->arContact; ?>
+               <?php echo nl2br($event->arContact); ?>
             </li>
             <li>
                Twitter : <a href="https://instagram.com/" target="_blank"> <?php echo $event->smTwitter; ?> </a> <br>

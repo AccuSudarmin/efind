@@ -27,7 +27,6 @@
       public function joiningAll() {
          $today = date('Y-m-d');
          $this->db->trans_begin();
-
          $this->db->query("
             INSERT INTO visitor_total(vtDate, vtTotal)
             SELECT vtdDate, COUNT(*) AS total
@@ -37,7 +36,7 @@
             ON DUPLICATE KEY UPDATE vtTotal=vtTotal+1
             ");
 
-         $this->db->query("DELETE FROM visitor_total WHERE vtDate != '" . $today . "'");
+         $this->db->query("DELETE FROM visitor_today WHERE vtdDate != '" . $today . "'");
 
          if ( !$this->db->trans_status() ) {
             $this->db->trans_rollback();
@@ -56,6 +55,7 @@
                SELECT vtDate, vtTotal
                FROM visitor_total
                WHERE vtDate >= '" . $start . "' AND vtDate <= '" . $end . "'
+               ORDER BY vtDate ASC
                ");
 
             $result = $query->result();

@@ -31,8 +31,7 @@
          $title = $this->input->post('title');
          $desc = $this->input->post('desc');
          $about = $this->input->post('about');
-         $email = $this->input->post('email');
-         $phone = $this->input->post('phone');
+         $contact = $this->input->post('contact');
          $twitter = $this->input->post('twitter');
          $facebook = $this->input->post('facebook');
          $line = $this->input->post('line');
@@ -43,8 +42,7 @@
             'webTitle' => $title ,
             'webDesc' => $desc ,
             'webAbout' => $about ,
-            'webEmail' => $email ,
-            'webPhone' => $phone ,
+            'webContact' => $contact ,
             'webTwitter' => $twitter ,
             'webFacebook' => $facebook ,
             'webLine' => $line ,

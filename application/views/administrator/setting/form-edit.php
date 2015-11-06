@@ -51,8 +51,7 @@
                      Contact
                   </td>
                   <td>
-                     <input type="mail" class="input-data" name="email" placeholder="Email" value="<?php echo $webprofile->webEmail; ?>">
-                     <input type="phone" class="input-data" name="phone" placeholder="Phone Number" value="<?php echo $webprofile->webPhone; ?>">
+                     <textarea name="contact" rows="8" cols="40"><?php echo $webprofile->webContact; ?></textarea>
                   </td>
                </tr>
 

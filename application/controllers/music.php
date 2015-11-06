@@ -23,7 +23,9 @@ class Music extends CI_Controller{
       ));
 
       $this->load->view('body-calender-open');
-      $this->load->view('menu');
+      $this->load->view('menu' , array(
+         'webprofile' => $webprofile
+      ));
 		$this->load->view('calender' , array(
          'urlaction' => site_url('music/showbydate') ,
          'urlview' => site_url('music') ,
@@ -51,7 +53,9 @@ class Music extends CI_Controller{
       ));
 
       $this->load->view('body-calender-open');
-      $this->load->view('menu');
+      $this->load->view('menu' , array(
+         'webprofile' => $webprofile
+      ));
       $this->load->view('article-container', array(
          'event' => $event ,
          'relatedEvent' => $relatedEvent
@@ -127,7 +131,7 @@ class Music extends CI_Controller{
                }
             }
          }  else {
-            $message .= "<img src='" . base_url('public/img/music5.jpg') . "'>";
+            $message .= "<img src='" . base_url('public/img/no-content/' . $i . '.jpg') . "'>";
          }
 
          $message .= "</li>";

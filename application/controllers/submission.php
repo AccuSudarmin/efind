@@ -28,7 +28,7 @@
    		$dateend = $this->input->post('dateend');
    		$contact = $this->input->post('contact');
    		$eventlocation = $this->input->post('eventloc');
-   		$ticket = nl2br($this->input->post('ticket'));
+   		$ticket = $this->input->post('ticket');
    		$urlwebsite = $this->input->post('urlwebsite');
          $contactadmin = $this->input->post('contactadmin');
    		$datepost = date("Y-m-j");
