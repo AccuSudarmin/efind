@@ -74,30 +74,102 @@ class Dashboard extends CI_Controller {
 		$dayEnd = date('Y-m-d');
 
 		$dateTime = new DateTime($dayEnd);
-		$dateTime->modify('-8 day');
+		$dateEnd = $dateTime->format( 'd M Y' );
+
+		$dateTime->modify('-9 day');
 		$dayStart = $dateTime->format( 'Y-m-d' );
+		$dateStart = $dateTime->format( 'd M Y' );
 
 		$visitor = $this->visitorGraph($dayStart, $dayEnd);
 
-		$dateStart = $dateTime->format( 'd M Y' );
-		$dateTime->modify('+8 day');
-		$dateEnd = $dateTime->format( 'd M Y' );
+		$dateTime->modify('+10 day');
+		$nextVisitor = strtotime($dateTime->format( 'j F Y' ));
+
+		$dateTime->modify('-21 day');
+		$prevVisitor = strtotime($dateTime->format( 'j F Y' ));
 
 		$this->load->view('administrator/head');
 		$this->load->view('administrator/header');
 		$this->load->view('administrator/sidebar', array(
 			'activate' => "dashboard"
 		));
+
 		$this->load->view('administrator/statistic', array(
 			'visitor' => $visitor ,
 			'dateStart' => $dateStart ,
-			'dateEnd' => $dateEnd
+			'dateEnd' => $dateEnd ,
+			'nextVisitor' => $nextVisitor ,
+			'prevVisitor' => $prevVisitor
 		));
+
 		$this->load->view('administrator/footer');
 
 	}
 
-	public function requestGraph() {
+	public function visitor($date) {
+		$this->mvisitor->joiningAll();
 
+		$dayStart = date('Y-m-d', $date);
+
+		$dateTime = new DateTime($dayStart);
+		$dateStart = $dateTime->format( 'd M Y' );
+
+		$dateTime->modify('+9 day');
+		$dayEnd = $dateTime->format( 'Y-m-d' );
+		$dateEnd = $dateTime->format( 'd M Y' );
+
+		$visitor = $this->visitorGraph($dayStart, $dayEnd);
+
+		$dateTime->modify('+1 day');
+		$nextVisitor = strtotime($dateTime->format( 'j F Y' ));
+
+		$dateTime->modify('-20 day');
+		$prevVisitor = strtotime($dateTime->format( 'j F Y' ));
+
+		$result = array();
+
+		$visitorArray = array();
+
+		$i = 0;
+		foreach($visitor as $data){
+			array_push($visitorArray, array('changes' => 'attribute', 'target' => 'bar'.$i , 'attribute' => 'barHeight', 'value' => $data->barHeight));
+			array_push($visitorArray, array('changes' => 'attribute', 'target' => 'bar'.$i , 'attribute' => 'barLabel', 'value' => $data->day));
+			array_push($visitorArray, array('changes' => 'attribute', 'target' => 'bar'.$i , 'attribute' => 'value', 'value' => $data->value));
+			$i++;
+		}
+
+		array_push($visitorArray, array(
+			'changes' => 'innerHTML',
+			'target' => 'start' ,
+			'value' => $dateStart
+		));
+
+		array_push($visitorArray, array(
+			'changes' => 'innerHTML',
+			'target' => 'end' ,
+			'value' => $dateEnd
+		));
+
+		$prevVisitor = site_url("admin/dashboard/visitor/" . $prevVisitor);
+
+		array_push($visitorArray, array(
+			'changes' => 'attribute',
+			'attribute' => 'action' ,
+			'target' => 'prevGraph' ,
+			'value' => $prevVisitor
+		));
+
+		$nextVisitor = site_url("admin/dashboard/visitor/" . $nextVisitor);
+
+		array_push($visitorArray, array(
+			'changes' => 'attribute',
+			'attribute' => 'action' ,
+			'target' => 'nextGraph' ,
+			'value' => $nextVisitor
+		));
+
+		$result['message'] = $visitorArray;
+
+		echo json_encode($result);
 	}
 }

@@ -132,3 +132,7 @@
    background-color: #53AA50 !important;
    border-color: #53AA50 !important;
 }
+
+.cursor-pointer {
+   cursor: pointer;
+}

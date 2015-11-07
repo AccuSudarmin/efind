@@ -1,4 +1,4 @@
-az-chart > bar > .graph-front {
+az-chart > az-bar > .graph-front {
    display: block;
    background-color: #FB7D7D;
    width: 30px;
@@ -19,7 +19,7 @@ az-chart > bar > .graph-front {
    -o-transition: 1s ;
 }
 
-az-chart > bar > .graph-back {
+az-chart > az-bar > .graph-back {
    display: block;
    background-color: #EFEFEF;
    width: 30px;
@@ -27,7 +27,7 @@ az-chart > bar > .graph-back {
    height: 200px;
 }
 
-az-chart > bar > label {
+az-chart > az-bar > label {
    position: absolute;
    bottom: 0px;
    font-size: 12px;
@@ -37,7 +37,7 @@ az-chart > bar > label {
    width: 100%;
 }
 
-az-chart > bar {
+az-chart > az-bar {
    display: inline-block;
    position: relative;
    height: 220px;

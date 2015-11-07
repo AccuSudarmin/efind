@@ -11,44 +11,54 @@
 
       // az-button js
       var azchart = Object.create(HTMLElement.prototype);
+      var azbar = Object.create(HTMLDivElement.prototype);
 
       azchart.createdCallback = function () {
-         var template = importDoc.querySelector("template#az-chart");
-
-         var bar = this.querySelectorAll('bar');
-
-         [].forEach.call(bar, function (elm) {
-            var clone = importDoc.importNode(template.content, true);
-
-            var gf = clone.querySelector("div.graph-front")
-               , lb = clone.querySelector("label");
-
-            var label = elm.innerHTML
-               , value = elm.getAttribute("value")
-               , height = elm.getAttribute("height")
-               , id = elm.getAttribute("_id");
-
-            gf.style.height = "0px";
-            gf.id = id;
-            gf.title = value;
-            gf.innerHTML = value;
-            lb.innerHTML = label;
-
-            elm.innerHTML = "";
-            elm.appendChild(clone);
-
-            setTimeout(function () {
-               gf.style.height = ( parseInt(height)*2 ) + "px";
-            }, 10);
-         });
 
       };
 
-      azchart.attributeChangedCallback = function( attrName, oldVal, newVal ) {
-         console.log('change');
+      azbar.createdCallback = function () {
+         var template = importDoc.querySelector("template#az-chart");
+         var clone = importDoc.importNode(template.content, true);
+
+         var gf = clone.querySelector("div.graph-front")
+            , lb = clone.querySelector("label");
+
+         var label = this.getAttribute("barLabel")
+            , value = this.getAttribute("value")
+            , height = this.getAttribute("barHeight");
+
+         gf.style.height = "0px";
+         gf.title = value;
+         gf.innerHTML = value;
+         lb.innerHTML = label;
+
+         this.innerHTML = "";
+         this.appendChild(clone);
+
+         setTimeout(function () {
+            gf.style.height = ( parseInt(height)*2 ) + "px";
+         }, 10);
+
+      };
+
+      azbar.attributeChangedCallback = function( attrName, oldVal, newVal ) {
+         var gf = this.querySelector("div.graph-front")
+            , lb = this.querySelector("label");
+
+         var label = this.getAttribute("barLabel")
+            , value = this.getAttribute("value")
+            , height = this.getAttribute("barHeight");
+
+         gf.style.height = ( parseInt(height)*2 ) + "px"
+         gf.title = value;
+         gf.innerHTML = value;
+         lb.innerHTML = label;
+         
       }
 
       document.registerElement('az-chart', {prototype: azchart});
+      document.registerElement('az-bar', {prototype: azbar});
       // end of js az-button
    })();
 </script>

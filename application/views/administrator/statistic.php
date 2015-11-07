@@ -14,15 +14,28 @@
             <div class="week-graph">
                <span> <a id="start"><?php echo $dateStart; ?></a> - <a id="end"><?php echo $dateEnd; ?></a> </span>
                <span class="float-right">
-                  <a onclick="requestGraph(&quot;1438737991&quot;)" id="prevGraph">Prev</a> | <a onclick="requestGraph(&quot;1439947591&quot;)" id="nextGraph">Next</a>
+                  <a is="az-anchorajax"
+                     action='<?php echo site_url("admin/dashboard/visitor/" . $prevVisitor); ?>'
+                     method='click'
+                     class="cursor-pointer"
+                     callback-type = 'multiple-target'
+                     id="prevGraph"
+                  > Prev </a> |
+                  <a is="az-anchorajax"
+                     action='<?php echo site_url("admin/dashboard/visitor/" . $nextVisitor); ?>'
+                     method='click'
+                     class="cursor-pointer"
+                     callback-type = 'multiple-target'
+                     id="nextGraph"
+                  > Next </a>
                </span>
             </div>
          </div>
 
          <az-chart column>
-            <?php foreach($visitor as $data): ?>
-            <bar height="<?php echo $data->barHeight ?>" value="<?php echo $data->value; ?>" _id="<?php echo $data->id; ?>"><?php echo $data->day; ?></bar>
-            <?php endforeach; ?>
+            <?php $i = 0; foreach($visitor as $data): ?>
+            <az-bar barHeight="<?php echo $data->barHeight ?>" barLabel ="<?php echo $data->day; ?>" value="<?php echo $data->value; ?>" id="<?php echo 'bar' . $i; ?>"></az-bar>
+            <?php $i++; endforeach; ?>
          </az-chart>
       </div>
 

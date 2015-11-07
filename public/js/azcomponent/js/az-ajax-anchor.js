@@ -87,6 +87,22 @@
                response = JSON.parse(response);
                _( response.targetDiv ).insertAdjacentHTML( 'afterend', response.message );
                break;
+            case 'multiple-target':
+               response = JSON.parse(response);
+               console.log(response);
+               for (var key in response.message) {
+                  var data = response.message[key];
+                  switch (data.changes) {
+                     case 'attribute':
+                        _(data.target).setAttribute(data.attribute, data.value);
+                        break;
+                     case 'innerHTML':
+                        _(data.target).innerHTML = data.value;
+                        break;
+                  }
+
+               }
+               break;
             case 'dialog-box':
                createDialogBox( response );
                break;
@@ -94,7 +110,7 @@
                createOverlay( response );
          }
       }
-      
+
       var createDialogBox = function ( msg ) {
          var dialogChild = ElementBuild({'tag' : 'div' , 'class' : 'hiccup-back-overlay-child'}, msg),
             dialog = ElementBuild({'tag' : 'div' , 'class' : 'hiccup-back-overlay'})
@@ -130,6 +146,9 @@
 
             this.addEventListener('click' , function (e) {
                e = e || window.event;
+
+               this.URLtarget = this.getAttribute("action") || null
+               this.URLsuccess = this.getAttribute("success") || null;
 
                if(!e.ctrlKey && !e.altKey && !e.metaKey && !e.shiftKey){
                   ajax.post();
